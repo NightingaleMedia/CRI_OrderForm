@@ -1,0 +1,30 @@
+/* #pane--holder {
+    overflow-x: visible;
+    height: inherit;
+    margin-left: auto;
+    margin-right: auto;
+} */
+
+.single-pane {
+    min-height: 300px;
+    /* min-width: 500px; */
+    transform: translate(100%, 0)scale(0.8);
+    transition: transform 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
+    display: none;
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+.current-pane {
+    transform: translateX(0%)scale(1);
+    display: block;
+
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+.prev {
+    width: 20%;
+    display: inline-block;
+    margin: 20px;
+}

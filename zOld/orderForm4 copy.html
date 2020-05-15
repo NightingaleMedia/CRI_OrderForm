@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Order form</title>
+  <link href="https://fonts.googleapis.com/css?family=Bebas+Neue&display=swap" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet" type='text/css'>
+  <link href="css/bootstrap.min.css" rel="stylesheet" type='text/css'>
+  <link href="css/now-ui-kit.css" rel="stylesheet" type='text/css'>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+</head>
+
+<body data-spy="scroll" data-target="#navbar-menu">
+  <div class="sticky-top pt-3 d-lg-none d-md-block d-sm-block">
+    <nav class="nav navbar bg-white nav-pills nav-justified sticky-top">
+      <a class="nav-item nav-link active" href="#">Active</a>
+      <a class="nav-item nav-link" href="#lamps">Link</a>
+      <a class="nav-item nav-link" href="#ballast">Link</a>
+      <a class="nav-item nav-link" href="#ewaste">Link</a>
+      <a class="nav-item nav-link" href="#">Link</a>
+      <a class="nav-item nav-link disabled" href="#">Disabled</a>
+    </nav>
+  </div>
+  <div class="sticky-top  progress form-progress">
+    <div class="progress-bar-animated progress-bar-striped bg-info" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+  </div>
+  <div class="container-fluid main-form">
+    <div class="row">
+      <div class="d-md-none d-sm-none d-xs-none d-lg-block  col-lg-3 pl-5 mt-5">
+        <nav id="navbar-menu" class=" pt-5 nav-holder navbar navbar-light bg-light sticky-top">
+          <nav class="nav nav-pills flex-column">
+            <h2> Order Form </h2>
+            <a class="nav-link" href="#section-contact">Contact</a>
+            <nav class="nav nav-pills flex-column nav-order">
+              <!-- <a class="nav-link ml-3 my-1" href="#item-1-1">Generator</a>
+      <a class="nav-link ml-3 my-1" href="#item-1-2">Customer</a> -->
+            </nav>
+            <a class="nav-link" href="#section-materials">Materials</a>
+            <nav class="nav nav-pills flex-column">
+              <a class="nav-link ml-3 my-1" href="#lamps">Lamps</a>
+              <a class="nav-link ml-3 my-1" href="#ewaste">eWaste</a>
+              <a class="nav-link ml-3 my-1" href="#ballast">Ballast</a>
+              <a class="nav-link ml-3 my-1" href="#haz">Hazardous</a>
+              <a class="nav-link ml-3 my-1" href="#specialty">Specialty / Other</a>
+              <a class="nav-link ml-3 my-1" href="#batteries">Batteries</a>
+            </nav>
+            <a class="nav-link" href="#section-containers">Order Containers</a>
+            <a class="nav-link" href="#section-info">Required Info</a>
+            <a class="nav-link btn-submit" href="#item-2">Submit</a>
+          </nav>
+        </nav>
+      </div>
+      <div class="spacer"> </div>
+      <div class="col-lg-8 col-md-12 col-sm-12">
+        <div class="main-block mt-5">
+          <form action="/" id="order-form" name="orderForm">
+            <header class="title">
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="logo-pad">
+                    <div class="logo-holder"></div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="order-form">
+                    <div class="order-form-title"><h2 class="display-2">Recycling Order Form</h2>
+                    <p>www.cleanlites.com | p. 513-641-4155</p>
+
+
+                  </div>
+                  </div>
+                </div>
+              </div>
+            </header>
+            <div class="accordion" id="section-contact" role="tab">
+              <div class="title-of-section" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne" id="headingOne" >
+             <h1>CONTACT INFORMATION</h1> <div id="dropper" class="down-icon" id="rotate"></div>
+              </div>
+              <div id="collapseOne" class="collapse" data-parent="#section-contact">
+            <div class="form-values">
+              <div class="container">
+                <div class="row">
+
+                  <div class="col-md-6">
+<div><br></div>
+                    <input type="radio" value="true" id="pickup" name="pickup" checked/>
+                    <label for="pickup" class="radio">Pickup</label>
+                    <input type="radio" value="false" id="delivery" name="pickup" />
+                    <label for="delivery" class="radio">Delivery</label>
+                    <div><br></div>
+                    <div class="divider2">Billing Info</div>
+                    <input type="text" name="billingCompany" placeholder="Billing Company" required>
+                    <input type="text" name="billingAddress" placeholder="Address">
+                    <input class="city" type="text" name="billingCity" placeholder="City">
+                    <input class="state" type="text" name="billingState" placeholder="State">
+                    <input type="text" name="billingZip" placeholder="Zip Code">
+                    <input type="text" name="billingContactName" placeholder="Contact Name">
+                    <input type="text" name="billingPhone" placeholder="Phone"><br>
+                    <input type="text" name="poNumber" placeholder="PO Number">
+                    <input type="hidden" name="date" placeholder="">
+
+
+
+
+                  </div>
+
+                  <div class="col-md-6">
+
+                    <br>
+                    <input class="label checkbox" type="checkbox" value="false" name="billingSame" id="sameAsBilling">
+                    <label class="label-info"> Generator Same as Billing</label>
+                    <br><br>
+                    <div class="divider2">Generator Info</div>
+                    <input type="text" name="generatorCompany" placeholder="Generator Name">
+                    <input type="text" name="generatorAddress" placeholder="Address">
+                    <input class="city" type="text" name="generatorCity" placeholder="City">
+                    <input class="state" type="text" name="generatorState" placeholder="State">
+                    <input type="text" name="generatorZip" placeholder="Zip">
+                    <input type="text" name="generatorContactName" placeholder="Contact Name">
+                    <input type="text" name="generatorPhone" placeholder="Phone">
+
+                    <input type="text" name="email" placeholder="eMail Address">
+
+                  </div>
+                </div>
+              </div>
+            </div>
+            </div>
+            </div>
+
+            <div class="accordion" id="material-accordion">
+              <div class="title-of-section" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseOne" id="headingOne section-materials">
+                <h1>MATERIALS</h1> <div class="down-icon"></div>
+              </div>
+              <div id="collapseTwo" class="collapse" aria-labelledby="headingOne" data-parent="#material-accordion">
+                <div class="container form-values">
+                  <div class="row">
+                    <div class="col-md-12  px-0">
+                      <!--=========== Lamps for Recycling =============-->
+                      <div class="material-holder">
+                        <div class="material">
+                          <material id="lamps">
+                            <div class="divide">
+                              <h2>LAMPS</h2>
+                            </div>
+                            <div class="row">
+                              <div class="col-md-6">
+                                <label class="label"><span>4ft & Under</span></label>
+                                <input class="align-items-end withLabel" type="text" name="4ftUnder" placeholder="Est. Quantity">
+                                <label class="label">8ft & Over</label>
+                                <input class="align-items-end withLabel" type="text" name="8ftOver" placeholder="Est. Quantity">
+                                <label class="label">CFL</label>
+                                <input class="align-items-end withLabel" type="text" name="CFL" placeholder="Est. Quantity">
+                                <label class="label">Incandescent</label>
+                                <input class="align-items-end withLabel" type="text" name="incandescent" placeholder="Est. Quantity">
+                              </div>
+                              <div class="col-md-6 ">
+                                <label class="label">U-Bend</label>
+                                <input class="align-items-end withLabel" type="text" name="uBend" placeholder="Est. Quantity">
+                                <label class="label">HIDs</label>
+                                <input class="align-items-end withLabel" type="text" name="HIDs" placeholder="Est. Quantity">
+                                <label class="label">LEDs</label>
+                                <input class="align-items-end withLabel" type="text" name="LEDs" placeholder="Est. Quantity">
+                                <label class="label">Other</label>
+                                <input class="align-items-end withLabel" type="text" name="lampsOther" placeholder="Est. Quantity">
+                              </div>
+                            </div>
+                          </material>
+                        </div>
+                      </div>
+                      <!--=========== eWaste for Recycling =============-->
+                      <div class="material-holder">
+                        <div class="material">
+                          <material id="ewaste">
+                            <div class="divide">
+                              <h2>eWASTE</h2>
+                            </div>
+                            <div class="row">
+                              <div class="col-md-6 ">
+                                <label class="label"><span>Monitors</span></label>
+                                <input class="align-items-end withLabel" type="text" name="monitors" placeholder="Est. Quantity">
+                                <label class="label">Keyboards</label>
+                                <input class="align-items-end withLabel" type="text" name="keyboards" placeholder="Est. Quantity">
+                                <label class="label">Hard Drives</label>
+                                <input class="align-items-end withLabel" type="text" name="hardDrives" placeholder="Est. Quantity">
+                              </div>
+                              <div class="col-md-6">
+                                <label class="label">Printers</label>
+                                <input class="align-items-end withLabel" type="text" name="printers" placeholder="Est. Quantity">
+                                <label class="label">Other 1</label>
+                                <input class="align-items-end withLabel" type="text" name="other1" placeholder="Est. Quantity">
+                                <label class="label">Other 2</label>
+                                <input class="align-items-end withLabel" type="text" name="other2" placeholder="Est. Quantity">
+                              </div>
+                            </div>
+                          </material>
+                        </div>
+                      </div>
+                      <!--=========== eWaste END Recycling =============-->
+                      <!--=========== BALLAST for Recycling =============-->
+                      <div class="material-holder">
+                        <div class="material">
+                          <material id="ballast">
+                            <div class="divide">
+                              <h2>Ballast</h2>
+                            </div>
+                            <div class="row">
+                              <div class="col-lg-6 col-md-12 ">
+                                <label class="label"><span>Ballasts</span></label>
+                                <input class="align-items-end withLabel" type="text" name="ballast_ballasts" placeholder="Est. Quantity">
+                                <label class="label">Capacitors</label>
+                                <input class="align-items-end withLabel" type="text" name="ballast_capacitors" placeholder="Est. Quantity">
+                              </div>
+                              <div class="col-lg-6 col-md-12 ">
+                                <label class="label"><span>Other 1</span></label>
+                                <input class="align-items-end withLabel" type="text" name="ballast_other1" placeholder="Est. Quantity">
+                                <label class="label">Other 2</label>
+                                <input class="align-items-end withLabel" type="text" name="ballast_other2" placeholder="Est. Quantity">
+                              </div>
+                            </div>
+                          </material>
+                        </div>
+                      </div>
+                      <!--=========== BALLAST END Recycling =============-->
+                      <!--=========== Hazardous for Recycling =============-->
+                      <div class="material-holder">
+                        <div class="material">
+                          <material id="haz">
+                            <div class="divide">
+                              <h2>Hazardous / Other</h2>
+                            </div>
+                            <div class="row">
+                              <div class="col-md-6 ">
+                                <label class="label"><span>HG Devices</span></label>
+                                <input class="align-items-end withLabel" type="text" name="HG_devices" placeholder="Est. Quantity">
+                                <label class="label">Fixtures</label>
+                                <input class="align-items-end withLabel" type="text" name="HG_fixtures" placeholder="Est. Quantity">
+                                <label class="label">Toners</label>
+                                <input class="align-items-end withLabel" type="text" name="HG_toners" placeholder="Est. Quantity">
+                                <label class="label">Transformers</label>
+                                <input class="align-items-end withLabel" type="text" name="HG_transformers" placeholder="Est. Quantity">
+                                <label class="label">PCB Containing</label>
+                                <input class="align-items-end withLabel" type="text" name="HG_pcbContaining" placeholder="Est. Quantity">
+                              </div>
+                              <div class="col-md-6 ">
+                                <label class="label">Other 1</label>
+                                <input class="align-items-end withLabel" type="text" name="HG_other1" placeholder="Est. Quantity">
+                                <label class="label">Other 2</label>
+                                <input class="align-items-end withLabel" type="text" name="HG_other2" placeholder="Est. Quantity">
+                                <label class="label">Other 3</label>
+                                <input class="align-items-end withLabel" type="text" name="HG_other3" placeholder="Est. Quantity">
+                                <label class="label">Other 4</label>
+                                <input class="align-items-end withLabel" type="text" name="HG_other4" placeholder="Est. Quantity">
+                              </div>
+                            </div>
+                          </material>
+                        </div>
+                      </div>
+                      <!--=========== hazardous END Recycling =============-->
+                      <!--=========== SPECIALTY for Recycling =============-->
+                      <div class="material-holder">
+                        <div class="material">
+                          <material id="specialty">
+                            <div class="divide">
+                              <h2>Specialty</h2>
+                            </div>
+                            <div class="row">
+                              <div class="col-md-12 ">
+                                <label class="label"><span>Airbag Devices</span></label>
+                                <input class="align-items-end withLabel" type="text" name="special_airbag" placeholder="Est. Quantity">
+                                <label class="label">Solar Panels</label>
+                                <input class="align-items-end withLabel" type="text" name="special_solarPanels" placeholder="Est. Quantity">
+                              </div>
+                            </div>
+                          </material>
+                        </div>
+                      </div>
+                      <!--=========== SPECIALTY END Recycling =============-->
+                      <!--=========== BATTERIES END Recycling =============-->
+                      <div class="material-holder">
+                        <div class="material">
+                          <material id="batteries">
+                            <div class="divide">
+                              <h2>Batteries</h2>
+                            </div>
+                            <div class="row">
+                              <div class="col-md-6 ">
+                                <label class="label"><span>Nickel Cadmium</span></label>
+                                <input class="align-items-end withLabel" type="text" name="batteries_niCad" placeholder="Est. Quantity or Pounds">
+                                <label class="label">Nickel Metal Hydride</label>
+                                <input class="align-items-end withLabel" type="text" name="batteries_niMet" placeholder="Est. Quantity or Pounds">
+                                <label class="label">Alkaline</label>
+                                <input class="align-items-end withLabel" type="text" name="batteries_alkaline" placeholder="Est. Quantity or Pounds">
+                                <label class="label">Zinc Carbon</label>
+                                <input class="align-items-end withLabel" type="text" name="batteries_zincCarbon" placeholder="Est. Quantity or Pounds">
+                                <label class="label"><span>Zinc Air</span></label>
+                                <input class="align-items-end withLabel" type="text" name="batteries_zincAir" placeholder="Est. Quantity or Pounds">
+                                <label class="label">Lead Acid Dry Cell</label>
+                                <input class="align-items-end withLabel" type="text" name="batteries_leadAcidDry" placeholder="Est. Quantity or Pounds">
+                                <label class="label">Lead Acid Wet Cell</label>
+                                <input class="align-items-end withLabel" type="text" name="batteries_leadAcidWet" placeholder="Est. Quantity or Pounds">
+                                <label class="label">Mercury</label>
+                                <input class="align-items-end withLabel" type="text" name="batteries_mercury" placeholder="Est. Quantity or Pounds">
+                              </div>
+                              <div class="col-md-6 ">
+                                <label class="label">Button Cell</label>
+                                <input class="align-items-end withLabel" type="text" name="batteries_buttonCell" placeholder="Est. Quantity or Pounds">
+                                <label class="label">Lithium</label>
+                                <input class="align-items-end withLabel" type="text" name="batteries_lithium" placeholder="Est. Quantity or Pounds">
+                                <label class="label">Lithium Ion</label>
+                                <input class="align-items-end withLabel" type="text" name="batteries_lithiumIon" placeholder="Est. Quantity or Pounds">
+                                <label class="label">Magnesium</label>
+                                <input class="align-items-end withLabel" type="text" name="batteries_magnesium" placeholder="Est. Quantity or Pounds">
+                                <label class="label">Co-Mingled</label>
+                                <input class="align-items-end withLabel" type="text" name="batteries_coMingled" placeholder="Est. Quantity or Pounds">
+                                <label class="label">Other 1</label>
+                                <input class="align-items-end withLabel" type="text" name="batteries_other1" placeholder="Est. Quantity or Pounds">
+                                <label class="label">Other 2</label>
+                                <input class="align-items-end withLabel" type="text" name="batteries_other2" placeholder="Est. Quantity or Pounds">
+                              </div>
+                            </div>
+                          </material>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
+              <div class="accordion" id="section-containers">
+                <div class="title-of-section" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree" id="section-containers" >
+                  <h1>CONTAINERS</h1> <div class="down-icon"></div>
+                </div>
+                <div id="collapseThree" class="collapse" aria-labelledby="headingOne" data-parent="#section-containers">
+
+                  <div class="material-holder">
+                    <div class="material">
+              <div class="container">
+                <div class="row">
+                  <div class=" col-md-12 form-values containers">
+                    <div class="row">
+                      <div class="col-lg-6 col-md-6 px-0 pl-3">
+                        <label class="label">4ft Boxes</label>
+                        <input class="withLabel" type="text" name="containers_4ftBox" placeholder="Qty Needed">
+                        <label class="label">8ft Boxes</label>
+                        <input class=" withLabel" type="text" name="containers_8ftBox" placeholder="Qty Needed">
+                      </div>
+                      <div class="col-lg-6 col-md-6 px-0 pl-sm-3 pl-xs-3">
+                        <label class="label">U-bend Boxes</label>
+                        <input class=" withLabel" type="text" name="containers_uBendBox" placeholder="Qty Needed">
+                        <label class="label">Cubic Yard Box</label>
+                        <input class="withLabel" type="text" name="containers_gaylords" placeholder="Qty Needed">
+                      </div>
+                      <div class="col-lg-6 col-md-6 px-0 pl-md-3 pl-sm-3 pl-xs-3">
+                        <label class="label">Small Batt Box</label>
+                        <input class="withLabel" type="text" name="containers_smallBatteryBox" placeholder="Qty Needed">
+                        <label class="label">55 Gallon Drum</label>
+                        <input class=" withLabel" type="text" name="containers_55GallonDrums" placeholder="Qty Needed">
+                        <label class="label">Poly Drums</label>
+                        <input class=" withLabel" type="text" name="containers_polyDrums" placeholder="Qty Needed">
+                      </div>
+                      <div class="col-lg-6 col-md-6 px-0 pl-sm-3 pl-xs-3">
+                        <label class="label">5 Gallon Pail</label>
+                        <input class=" withLabel" type="text" name="containers_5GallonPail" placeholder="Qty Needed">
+                        <label class="label">Other 1</label>
+                        <input class=" withLabel" type="text" name="containers_other1" placeholder="Qty Needed">
+                        <label class="label">Other 2</label>
+                        <input class="withLabel" type="text" name="containers_other2 " placeholder="Qty Needed">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+            </div>
+          </div>
+          <div class="accordion" id="section-info">
+            <div class="title-of-section" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour" id="section-info" >
+              <h1>REQUIRED INFO</h1> <div class="down-icon"></div>
+            </div>
+            <div id="collapseFour" class="collapse" aria-labelledby="headingOne" data-parent="#section-info">
+              <div class="container form-values">
+                <div class="row">
+                  <p class="items-notice">* * * ITEMS MUST BE SHRINK WRAPPED AND PALLETIZED * * *</p>
+                  <div class="col-lg-12 form-values">
+                    <div class="row pt-3">
+                      <div class="col-lg-6 col-md-6 px-0 pl-3 ">
+                        <label class="label-time" for="hoursForm">Hours</label>
+                        <select class="time-select" id="hoursForm">
+
+        <option value="1" selected>8:00 am</option>
+      <option value="1">8:30 am</option>
+      <option value="2">9:00 am</option>
+      <option value="1">9:30 am</option>
+      <option value="3">10:00 am</option>
+      <option value="1">10:30 am</option>
+      <option value="1">11:00 am</option>
+      <option value="1">11:30 am</option>
+      <option value="2">12:00 pm</option>
+      <option value="1">12:30 pm</option>
+      <option value="2">1:00 pm</option>
+      <option value="1">1:30 pm</option>
+      <option value="2">2:00 pm</option>
+      <option value="1">2:30 pm</option>
+      <option value="2">3:00 pm</option>
+      <option value="1">3:30 pm</option>
+      <option value="2">4:00 pm</option>
+      <option value="1">4:30 pm</option>
+      <option value="2">5:00 pm</option>
+      <option value="1">5:30 pm</option>
+      <option value="2">6:00 pm</option>
+      <option value="1">Other (Specify Below)</option>
+  </select> To
+                        <select class="time-select" id="inlineFormCustomSelect">
+      <option value="2">9:00 am</option>
+      <option value="1">9:30 am</option>
+      <option value="3">10:00 am</option>
+      <option value="1">10:30 am</option>
+      <option value="1">11:00 am</option>
+      <option value="1">11:30 am</option>
+      <option value="2">12:00 pm</option>
+      <option value="1">12:30 pm</option>
+      <option value="2">1:00 pm</option>
+      <option value="1">1:30 pm</option>
+      <option value="2">2:00 pm</option>
+      <option value="1">2:30 pm</option>
+      <option value="2">3:00 pm</option>
+      <option value="1">3:30 pm</option>
+      <option value="2">4:00 pm</option>
+      <option value="1">4:30 pm</option>
+      <option value="2" selected>5:00 pm</option>
+      <option value="1">5:30 pm</option>
+      <option value="2">6:00 pm</option>
+      <option value="1">Other (Specify Below)</option>
+    </select>
+                        <input class="" type="textarea" name="billingCompany" placeholder="Height Restrictions">
+                      </div>
+                      <div class="col-lg-6 col-md-6 px-0 pl-md-3 pl-sm-3 pl-xs-3 site-info">
+
+                        <label class="label-info">Workers Available</label>
+                        <input type="checkbox" value="true" name="palletJack" />
+                        <input type="hidden" value="false" name="palletJack" />
+                        <label class="label-info">Lift Gate Needed</label>
+                        <input type="checkbox" value="true" name="liftGate" />
+                        <input type="hidden" value="false" name="liftGate" />
+                        <label class="label-info">Pallet Jack Available</label>
+                        <input type="checkbox" value="true" name="palletJack" />
+                        <input type="hidden" value="false" name="palletJack" />
+                        <label class="label-info">Forklift Available</label>
+                        <input type="checkbox" value="true" name="forklift" />
+                        <input type="hidden" value="false" name="forklift" />
+                      </div>
+                      <div class="col-md-12 mt-2 px-0 pl-md-3 pl-sm-3 pl-xs-3 site-info">
+                        <label class="label">Other Comments</label>
+                        <textarea class="textarea" type="textarea" rows="2"></textarea>
+                        <br><br>
+                        <label for="fileUpload" class="label">Upload Files</label>
+                         <input class="label-info" type="file" class="form-control-file" id="fileUpload">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+                <div class="next">
+                  <center> <span> Captcha Goes Here </span>
+                    <button class="prev" type="submit">Submit</button>
+
+                  </center>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-1 col-md-12 "> </div>
+        </div>
+        </section>
+</body>
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="js/index.js"></script>
+<script src="js/util.js"></script>
+<script src="js/form.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+</html>
