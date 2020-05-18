@@ -54,14 +54,37 @@ import {goToNext, goToPrev} from '../cri_form.js'
       return buttonz;
   }
 
-  function addSubmit(){
-      let container = document.createElement('div')
-      container.classList.add('submit-form--button')
-      container.dataset.operation = 'submit-section'
-      container.innerHTML = `<button id = "submit-form"> Submit </button>`
-      return container
+  function addNextPrev() {
+    const buttonz = document.createElement('div')
+    const holder = document.createElement('div')
+    buttonz.classList.add('button-section', 'submit-form--button')
+    buttonz.dataset.operation = 'next-prev-section'
+    const next = new buttonMaker("Next", 'btn-next', "next", goToNext)
+    const prev = new buttonMaker("Previous", 'btn-prev', "prev", goToPrev)
+    buttonz.appendChild(prev.render())
+    buttonz.appendChild(holder)
+    buttonz.appendChild(next.render())
+
+    return buttonz;
 
   }
+
+  function addSubmit(){
+    const buttonz = document.createElement('div')
+    let submitButton = document.createElement('button')
+    submitButton.classList.add('submit-form')
+    submitButton.innerText = 'Submit Form'
+    submitButton.id = 'submit-form'
+    buttonz.classList.add('button-section', 'submit-form--button')
+    const next = new buttonMaker("Next", 'btn-next', "next", goToNext)
+    const prev = new buttonMaker("Previous", 'btn-prev', "prev", goToPrev)
+    buttonz.appendChild(prev.render())
+    buttonz.appendChild(submitButton)
+    buttonz.appendChild(next.render())
+  
+    return buttonz
+  }
+
 
   function addVerify(input) {
       const wrapper = document.createElement('div')
@@ -110,4 +133,11 @@ function addUnitSelector(item) {
       })
   }
 
-  export{buttonMaker, inputMaker, buildSubItems, buttons, addVerify, addMaterialInputs, addSubmit}
+  export{buttonMaker, 
+    inputMaker, 
+    buildSubItems, 
+    buttons, 
+    addVerify, 
+    addMaterialInputs, 
+    addSubmit,
+addNextPrev}

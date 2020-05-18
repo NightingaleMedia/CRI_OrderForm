@@ -2,6 +2,7 @@ import * as build from './builder/builder.js'
 
 var currentPane = 0;
 var allPanes = getAllPanes();
+var minimumRequirements = false;
 
 function getAllPanes() {
     return document.querySelectorAll('[data-selected="true"]')
@@ -22,6 +23,8 @@ const allSinglePanes = document.querySelectorAll('.single-pane')
 let allSinglePanesArray = [...document.querySelectorAll('.single-pane')]
 
 const main = document.querySelector('.main-form')
+const mainBlock = document.querySelector('.main-block')
+// var bottomNav = main.lastElementChild;
 
 function sortSelected(a, b) {
     var x = a.dataset.material.toLowerCase();
@@ -52,6 +55,7 @@ function updateNodeProgress() {
         subItem.classList.add('focused')
         materialsNode.classList.add('current')
         updateNodeMaterials()
+  
 
         //goToSelected needs a title
     } else if (subItem.classList.contains('focused')) {
@@ -63,14 +67,32 @@ function updateNodeProgress() {
     updatedNode.classList.add('current')
     progressArray.map(link => link.firstChild.classList.remove('big-list-hide'))
     } catch(error){
+       
     }
 
     percent = 100 * (currentNo / (progressNode.length - 1));
     progressBar.style.width = `${percent}%`
 }
+function addNavButtons(){
+console.log('added navs')
+let buttonSection = main.lastElementChild
+main.removeChild(buttonSection)
 
+ if (minimumRequirements) {
+     main.appendChild(build.addSubmit())
+ } else {
+     main.appendChild(build.addNextPrev())
+ }
+ if(mainBlock.offsetHeight >= (window.innerHeight * 0.9)){ 
+     main.style.marginBottom = `${main.lastElementChild.offsetHeight}px`
+ } else{
+     main.style.marginBottom = `0em`
+ }
+
+
+
+}
 function goToPane(number) {
-    // getSelectedPanes();
 
     getAllPanes().forEach(pane => {
         pane.classList.remove('current-pane')
@@ -78,18 +100,9 @@ function goToPane(number) {
     
     currentPane = number;
     let d = getAllPanes()[currentPane]
-    if(main.lastChild.hasAttribute('data-operation')){
-        main.removeChild(main.lastChild)
-    }
-    if (d.hasAttribute('data-material')) {
-        goToSelectedMaterial(d.dataset.material)
- } else if (d.dataset.name =='Submit'){ 
-        main.appendChild(build.addSubmit())
-        d.classList.add('current-pane')
-    } else {
-      
-        d.classList.add('current-pane')
-    }
+   
+    d.classList.add('current-pane')
+    addNavButtons();
     updateNodeProgress();
 }
 
@@ -136,6 +149,7 @@ function goToSelectedMaterial(title) {
 
     currentPane = start + matchedLink;
     getAllPanes()[currentPane].classList.add('current-pane');
+    addNavButtons();
     updateNodeMaterials();
 
 }
@@ -144,8 +158,7 @@ function goToSelected(title) {
     let paneSelected = [...getAllPanes()].findIndex(pane => pane.dataset.name == title);
     currentPane = paneSelected;
     goToPane(currentPane)
-
-    updateNodeProgress()
+ 
 }
 
 function goToPrev() {
@@ -199,12 +212,14 @@ function buildMaterialPicker() {
 //builds the buttons
 
 const initForm = () => {
-    allSinglePanes.forEach(pane => (pane.dataset.name == 'Submit') ? null : pane.appendChild(build.buttons()));
+    // allSinglePanes.forEach(pane => (pane.dataset.name == 'Submit') ? null : pane.appendChild(build.buttons()));
+    main.appendChild(build.addNextPrev())
     buildMaterialPicker()
     build.addMaterialInputs();
     allWithLabel.forEach(label => build.addVerify(label))
     progressNode.forEach(node => node.addEventListener('click', () => goToSelected(node.querySelector('a').innerText)))
     subItemItems.forEach(item => item.addEventListener('click', () => goToSelectedMaterial(item.dataset.mName)))
+    main.querySelectorAll('input').forEach(input => input. addEventListener('focus', addNavButtons))
 }
 
 window.addEventListener('load', () => {

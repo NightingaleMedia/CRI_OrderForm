@@ -26,12 +26,14 @@
 
   input[type='checkbox'] {
     -webkit-appearance: none;
+    font-family: Impact, 'Arial Narrow Bold', sans-serif;
+    color: var(--cri-green);
     width: 25px;
     height: 25px;
     margin: 5px;
-    background: white;
+    background: rgb(176, 176, 176);
     border-radius: 5px;
-    border: 1px solid rgb(186, 186, 186);
+    /* border: 1px solid rgb(186, 186, 186); */
   }
 
   input[type='checkbox']:checked {
@@ -41,13 +43,11 @@
   input[type='checkbox']:checked:after {
     content: "+";
     position: absolute;
-    color: var(--cri-blue);
-    transform-origin: center;
-    transform: rotate(45deg);
-    font-size: 3.5rem;
-    left: -0.015em;
-    top: -0.6em;
+    /* transform-origin: center; */
+    transform: rotate(45deg)translate(-24.5px, -20.5px);
+    font-size: 59px;
   }
+
 
   input::placeholder {
     color: #cbcbcb;
@@ -122,13 +122,20 @@
   input:focus, select:focus, textarea:focus, button:focus {
     outline: none;
   }
-  .hidden{
+
+  .hidden {
     display: none;
   }
+
   .order-form {
     text-align: center;
     margin: 0;
     line-height: auto;
+  }
+
+  .main-row {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
   }
 
   .order-form-title {
@@ -143,6 +150,11 @@
 
   .big-list-hide {
     opacity: 1;
+  }
+
+  .title {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
   }
 
   @media only screen and (max-width: 1400px) {
@@ -593,7 +605,9 @@
     width: 85%;
     height: 35px;
     padding: 4px;
-    margin-left: 1em;
+    padding-left: 10px;
+    /* margin-left: 1em; */
+    
     transition: background-color 0.2s ease;
     background-color: rgb(222, 222, 222);
   }
@@ -601,16 +615,6 @@
   .site-info-check:checked+label {
     background-color: var(--cri-grey);
     color: white;
-  }
-
-  .site-info input {
-    border-top: 1px solid black;
-    /* height: 25px; */
-    margin-left: 1em;
-  }
-
-  .site-info hr {
-    border-bottom: 1px dotted black;
   }
 
   .units--holder {
@@ -710,7 +714,7 @@
   .form-values {
     background-color: #FFF;
     min-height: inherit;
-    padding-bottom: 10px;
+    padding-bottom: 20px;
     /* margin: 2rem; */
     box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.2);
     border-bottom-left-radius: 6px;
@@ -966,6 +970,10 @@
     height: 150px;
   }
 
+  #fileUpload{
+    background: none;
+    font-size: 2em;
+  }
   /* 
   input.half {
     width: 46%;
