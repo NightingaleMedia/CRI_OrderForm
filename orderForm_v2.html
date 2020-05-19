@@ -38,10 +38,22 @@
         <div class="progress-nodes">
           <div class="progress-nodes--completed"></div>
           <ul>
-            <li class="current"><a href="#">Order</a></li>
-            <li><a href="#">Billing</a></li>
-            <li><a href="#">Generator</a></li>
-            <li data-node-name="Materials"><a href="#">Materials</a></li>
+            <li class="current">
+              <div></div>
+              <a href="#">Order</a>
+            </li>
+            <li>
+              <div></div>
+              <a href="#">Billing</a>
+            </li>
+            <li>
+              <div></div>
+              <a href="#">Generator</a>
+            </li>
+            <li data-node-name="Materials">
+              <div></div>
+              <a href="#">Materials</a>
+            </li>
             <ul class="sub-item--ul">
               <!-- <li class="sub-item" data-m-name="Lamps">
                 <a href="#">Lamps</a>
@@ -61,11 +73,18 @@
                 <a href="#">Battery</a>
               </li> -->
             </ul>
-            <li><a href="#">Containers</a></li>
-            <li><a href="#">
-                <center>Site</center>
-              </a></li>
-            <li><a href="#">Submit</a></li>
+            <li>
+              <div></div>
+              <a href="#">Containers</a>
+            </li>
+            <li>
+              <div></div>
+              <a href="#"><center>Site</center></a>
+            </li>
+            <li>
+              <div></div>
+              <a href="#">Submit</a>
+            </li>
           </ul>
         </div>
 
@@ -80,12 +99,12 @@
             <div class="container">
               <div class="row">
                 <div class="col-md-12 order-type--box">
-                  <input type="radio" name="order-type" id="pickup">
+                  <input class="auto-next" type="radio" name="order-type" value="order-type--pickup" id="pickup">
                   <label class="order-type--label" for="pickup">
                     <center> <i class="fas fa-truck-moving"></i> <br>
                       Pickup</center>
                   </label>
-                  <input type="radio" name="order-type" id="delivery">
+                  <input class="auto-next" type="radio" value="order-type--delivery" name="order-type" id="delivery">
                   <label class="order-type--label" for="delivery">
                     <center> <i class="fas fa-truck-loading"></i> <br>
                       Delivery</center>
@@ -113,7 +132,7 @@
           </div>
         </div>
 
-        <div class="single-pane container container" data-name="Billing" data-selected="true">
+        <div class="single-pane add-verify container" data-name="Billing" data-selected="true">
           <div class="title-of-section" id="headingOne">
             <h1>BILLING INFORMATION</h1>
           </div>
@@ -122,25 +141,33 @@
               <div class="row">
                 <div class="col-md-8 m-auto">
                   <div class="divider2">Billing Info</div>
-                  <input type="text" name="billing-company" placeholder="Billing Company">
-                  <input type="text" name="billingAddress" placeholder="Address">
-                  <input class="city" type="text" name="billingCity" placeholder="City">
+                  <input type="text" name="billing-company" placeholder="Billing Company (required)">
+                  <input type="text" name="billingAddress" placeholder="Address (required)">
+
+                  <div class="city-state"> 
+                  <input class="city" type="text" name="billingCity" placeholder="City (required)">
                   <input class="state" type="text" name="billingState" placeholder="State">
                   <input class="zip" type="text" name="billingZip" placeholder="Zip Code">
-                  <input type="text" name="billingContactName" placeholder="Contact Name">
-                  <input type="text" name="billingPhone" placeholder="Phone"><br>
-                  <input type="text" name="poNumber" placeholder="PO Number">
+                  </div>
+
+                  <input type="text" name="billingContactName" placeholder="Contact Name (required)">
+                  <input type="text" name="billingPhone" placeholder="Phone (required)">
+                  
                   <input type="hidden" name="date" placeholder="">
+                  <input type="text" name="billingEmail" placeholder="eMail Address (required)">
+                  <p>*We will send a copy of this form to this email.</p>
+                  <input type="text" name="poNumber" placeholder="PO Number (optional)">
                 </div>
               </div>
             </div>
           </div>
         </div>
 
-        <div class="single-pane container" data-name="Generator" data-selected="true">
+        <div class="single-pane add-verify container" data-name="Generator" data-selected="true">
           <div class="title-of-section" id="headingOne">
             <h1>GENERATOR INFORMATION</h1>
           </div>
+        
           <div class="form-values">
             <div class="container">
               <div class="row">
@@ -152,9 +179,9 @@
                     <span> </span>
                     </label>
                    -->
-                  <input type="checkbox" name="generator-same" id="generator-same">
-                  <div class="generator-same">
-                    <label class="generator-same" for="generator-same">
+                  <input class="auto-next" type="checkbox" name="generator-same" id="generator-same">
+                  <div class="big-button">
+                    <label for="generator-same">
                       <i class="fas fa-hand-pointer"></i> Generator is the Same as Billing
                     </label>
                   </div>
@@ -163,12 +190,16 @@
                   <div class="divider2">Generator Info</div>
                   <input type="text" name="generatorCompany" placeholder="Generator Name">
                   <input type="text" name="generatorAddress" placeholder="Address">
+
+                  <div class="city-state">
                   <input class="city" type="text" name="generatorCity" placeholder="City">
                   <input class="state" type="text" name="generatorState" placeholder="State">
                   <input class="zip" type="text" name="generatorZip" placeholder="Zip">
+                  </div>
+
                   <input type="text" name="generatorContactName" placeholder="Contact Name">
                   <input type="text" name="generatorPhone" placeholder="Phone">
-                  <input type="text" name="email" placeholder="eMail Address">
+              
 
                 </div>
               </div>
@@ -185,10 +216,18 @@
           <div class="container form-values material-picker--wrapper">
             <p>Pick as many materials as you need. You always come back and change your needs</p>
           </div>
+                        <div class="col-md-12">
+                          <input class="auto-next" type="checkbox" name="no-materials" id="no-materials">
+                          <div class="big-button">
+                            <label for="no-materials">
+                              <i class="fas fa-hand-pointer"></i> Nope, I'm good.
+                            </label>
+                          </div>
+                        </div>
         </div>
         <!--=========== BALLAST for Recycling =============-->
 
-        <div class="single-pane container" data-material="Ballast" data-selected="false">
+        <div class="single-pane container add-verify" data-material="Ballast" data-selected="false">
           <div class="title-of-section">
             <h1>MATERIALS</h1>
           </div>
@@ -228,6 +267,7 @@
                               placeholder="Est. Quantity">
                           </div>
                         </div>
+                        
                       </div>
                     </material>
                   </div>
@@ -239,7 +279,7 @@
         <!--=========== BALLAST END Recycling =============-->
         <!--=========== BATTERIES  Recycling =============-->
 
-        <div class="single-pane container" data-material="Batteries" data-selected="false">
+        <div class="single-pane container add-verify" data-material="Batteries" data-selected="false">
           <div class="title-of-section" id="section-materials">
             <h1>MATERIALS</h1>
           </div>
@@ -345,7 +385,7 @@
         </div>
         <!--=========== BATTERIES END Recycling =============-->
         <!--=========== eWaste for Recycling =============-->
-        <div class="single-pane container" data-material="eWaste" data-selected="false">
+        <div class="single-pane container add-verify" data-material="eWaste" data-selected="false">
           <div class="title-of-section">
             <h1>MATERIALS</h1>
           </div>
@@ -405,7 +445,7 @@
         <!--=========== eWaste END Recycling =============-->
         <!--=========== Hazardous for Recycling =============-->
 
-        <div class="single-pane container" data-material="Hazardous" data-selected="false">
+        <div class="single-pane container add-verify" data-material="Hazardous" data-selected="false">
           <div class="title-of-section">
             <h1>MATERIALS</h1>
           </div>
@@ -483,7 +523,7 @@
         </div>
         <!--=========== hazardous END Recycling =============-->
         <!--=========== Lamps for Recycling =============-->
-        <div class="single-pane container" data-material="Lamps" data-selected="false">
+        <div class="single-pane container add-verify" data-material="Lamps" data-selected="false">
           <div class="title-of-section" id="section-materials">
             <h1>MATERIALS</h1>
           </div>
@@ -568,7 +608,7 @@
         </div>
         <!--=========== Lamps END  Recycling =============-->
         <!--=========== SPECIALTY for Recycling =============-->
-        <div class="single-pane container" data-material="Specialty" data-selected="false">
+        <div class="single-pane container add-verify" data-material="Specialty" data-selected="false">
           <div class="title-of-section" id="section-materials">
             <h1>MATERIALS</h1>
           </div>
@@ -641,6 +681,16 @@
                 <label class="label">Other 2</label>
                 <input class="withLabel" type="text" name="containers_other2 " placeholder="Qty Needed">
               </div>
+             
+
+              </div>
+              <div class="col-md-12">
+                <input class="auto-next" type="checkbox" name="no-containers" id="no-containers">
+                <div class="big-button">
+                  <label for="no-containers">
+                    <i class="fas fa-hand-pointer"></i> I don't need any containers
+                  </label>
+                </div>
             </div>
           </div>
 
@@ -714,7 +764,7 @@
                     <input class="site-info-check" type="checkbox" value="true" name="workersAvailable"
                       id="workersAvailable" />
                      
-                    <label for="workersAvailable">Workers Available To Lift / Load</label>
+                    <label for="workersAvailable">Workers Available To Load</label>
 
 
                     <input class="site-info-check" type="checkbox" value="true" name="liftGate" id="liftGate" />
@@ -1048,11 +1098,11 @@
         </div>
 
 
-
+        
       </div>
      
 </body>
-<script type="module" src="js/cri_form.js"></script>
+<script type="module" src="js/app.js"></script>
 <script src="js/submit-form.js"></script>
 
 </html>

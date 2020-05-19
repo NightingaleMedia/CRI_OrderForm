@@ -1,60 +1,64 @@
-import {goToNext, goToPrev} from '../cri_form.js' 
+import {
+    goToNext,
+    goToPrev,
+    handleCheck
+} from '../app.js'
 
- class buttonMaker {
-      constructor(text, id, type, action) {
-          this.button = document.createElement('button');
-          this.button.innerText = text;
-          this.button.id = id;
-          this.button.type = type;
-          this.button.addEventListener('click', action)
-      }
-      render() {
-          return this.button;
-      }
-  }
+class buttonMaker {
+    constructor(text, id, type, action) {
+        this.button = document.createElement('button');
+        this.button.innerText = text;
+        this.button.id = id;
+        this.button.type = type;
+        this.button.addEventListener('click', action)
+    }
+    render() {
+        return this.button;
+    }
+}
 
-  class inputMaker {
-      constructor(id, className) {
-          this.container = document.createElement('div')
-          this.container.classList.add(`${className}`)
-          this.input = document.createElement('input')
-          this.input.type = "checkbox"
-          this.input.id = id;
-          this.label = document.createElement('label')
-          this.label.htmlFor = id;
-      }
+class inputMaker {
+    constructor(id, className) {
+        this.container = document.createElement('div')
+        this.container.classList.add(`${className}`)
+        this.input = document.createElement('input')
+        this.input.type = "checkbox"
+        this.input.id = id;
+        this.label = document.createElement('label')
+        this.label.htmlFor = id;
+    }
 
-      labelText(txt) {
-          this.label.innerHTML = txt;
-          return this;
-      }
+    labelText(txt) {
+        this.label.innerHTML = txt;
+        return this;
+    }
 
-      render() {
-          this.container.appendChild(this.input)
-          this.container.appendChild(this.label)
-          return this.container
-      }
-  }
+    render() {
+        this.container.appendChild(this.input)
+        this.container.appendChild(this.label)
+        return this.container
+    }
+}
 
-  function buildSubItems(title) {
-      let container = document.createElement('div')
-      container.innerHTML = `<li class="sub-item" data-m-name="${title}"><a>${title}</a></li>`;
-      return container.innerHTML;
-  }
+function buildSubItems(title) {
+    let container = document.createElement('div')
+    container.innerHTML = `<li class="sub-item" data-m-name="${title}"><a>${title}</a></li>`;
+    return container.innerHTML;
+}
 
-  function buttons() {
-      const buttonz = document.createElement('div')
-      const next = new buttonMaker("Next", 'btn-next', "next", goToNext)
-      const prev = new buttonMaker("Previous", 'btn-prev', "prev", goToPrev)
+function buttons() {
+    const buttonz = document.createElement('div')
+    const next = new buttonMaker("Next", 'btn-next', "next", goToNext)
+    const prev = new buttonMaker("Previous", 'btn-prev', "prev", goToPrev)
 
-      buttonz.classList.add('button-section')
-      buttonz.appendChild(prev.render())
-      buttonz.appendChild(next.render())
+    buttonz.classList.add('button-section')
+    buttonz.appendChild(prev.render())
+    buttonz.appendChild(next.render())
 
-      return buttonz;
-  }
+    return buttonz;
+}
 
-  function addNextPrev() {
+function addNextPrev() {
     const buttonz = document.createElement('div')
     const holder = document.createElement('div')
     buttonz.classList.add('button-section', 'submit-form--button')
@@ -67,9 +71,9 @@ import {goToNext, goToPrev} from '../cri_form.js'
 
     return buttonz;
 
-  }
+}
 
-  function addSubmit(){
+function addSubmit() {
     const buttonz = document.createElement('div')
     let submitButton = document.createElement('button')
     submitButton.classList.add('submit-form')
@@ -81,20 +85,21 @@ import {goToNext, goToPrev} from '../cri_form.js'
     buttonz.appendChild(prev.render())
     buttonz.appendChild(submitButton)
     buttonz.appendChild(next.render())
-  
+
     return buttonz
-  }
+}
 
 
-  function addVerify(input) {
-      const wrapper = document.createElement('div')
-      const verify = document.createElement('div')
-      verify.className = 'verify'
-      let newNode = input.parentElement.insertBefore(wrapper, input)
-      newNode.appendChild(input)
-      newNode.appendChild(verify)
-      return newNode;
-  }
+function addVerify(input) {
+    const wrapper = document.createElement('div')
+    const verify = document.createElement('div')
+    verify.className = 'verify'
+    let newNode = input.parentElement.insertBefore(wrapper, input)
+    newNode.appendChild(input)
+    newNode.appendChild(verify)
+    return newNode;
+}
+
 function addUnitSelector(item) {
     const inputType = document.createElement('div');
     inputType.classList.add('units--holder')
@@ -104,40 +109,62 @@ function addUnitSelector(item) {
         <span></span>`;
     return inputType;
 }
-  const addMaterialInputs = () => {
-      const allUnitSelected = document.querySelectorAll('.label-input-quantity')
-      allUnitSelected.forEach(item => {
-          let itemTitle = item.querySelector('input');
-          let itemSelector = item.appendChild(addUnitSelector(itemTitle.name))
-          let newInput = []
-          itemTitle.addEventListener('keyup', function (e) {
 
-              matchDigit = new RegExp('^[0-9]+$').test(e.key)
-              //   console.log("key: " + e.key)
-              // itemTitle.value == e.key: itemTitle.name = '';
-              if (matchDigit) {
-                  keyPressed = e.key
-                  newInput.push(e.key)
-              }
-              if (e.key == 'Backspace') {
-                  this.value = '';
-                  newInput = [];
-              } else {
-                  this.value = newInput.join('');
-              }
-          })
-          let labelTitle = itemSelector.querySelector('label')
-          itemSelector.querySelector('input').addEventListener('change', function () {
-              labelTitle.innerText = this.checked ? "Lbs" : "Units"
-          })
-      })
-  }
+const addMaterialInputs = () => {
+    const allUnitSelected = document.querySelectorAll('.label-input-quantity')
+    allUnitSelected.forEach(item => {
+        let itemTitle = item.querySelector('input');
+        let itemSelector = item.appendChild(addUnitSelector(itemTitle.name))
+        let newInput = []
+        itemTitle.addEventListener('keyup', function (e) {
 
-  export{buttonMaker, 
-    inputMaker, 
-    buildSubItems, 
-    buttons, 
-    addVerify, 
-    addMaterialInputs, 
+            let matchDigit = new RegExp('^[0-9]+$').test(e.key)
+            // console.log("key: " + e.key)
+            // itemTitle.value == e.key: itemTitle.name = '';
+            if (matchDigit) {
+                newInput.push(e.key)
+            }
+            if (e.key == 'Backspace') {
+                this.value = '';
+                newInput = [];
+            } else {
+                this.value = newInput.join('');
+            }
+        })
+        let labelTitle = itemSelector.querySelector('label')
+        itemSelector.querySelector('input').addEventListener('change', function () {
+            labelTitle.innerText = this.checked ? "Lbs" : "Units"
+        })
+    })
+}
+
+function buildMaterialPicker() {
+    const allSinglePanesArray = [...document.querySelectorAll('.single-pane')]
+    let matPane = document.querySelector(`[data-name="Materials"]`)
+    let matPaneInner = matPane.querySelector('.form-values')
+    let allMaterialPanes = allSinglePanesArray.filter(pane => pane.hasAttribute('data-material'))
+
+    allMaterialPanes.map(pane => {
+        let icon = pane.querySelector('.divide > h2')
+
+        let picker = new inputMaker(pane.dataset.material, 'material-picker--selector')
+            .labelText(`${icon.parentElement.innerHTML}`)
+        matPaneInner.appendChild(picker.render());
+        picker.input.addEventListener('change', function () {
+            handleCheck(this, pane)
+        })
+    })
+}
+
+
+export {
+    buttonMaker,
+    inputMaker,
+    buildSubItems,
+    buttons,
+    addVerify,
+    addMaterialInputs,
     addSubmit,
-addNextPrev}
+    addNextPrev,
+    buildMaterialPicker
+}
