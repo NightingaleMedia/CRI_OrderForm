@@ -141,7 +141,7 @@
               <div class="row">
                 <div class="col-md-8 m-auto">
                   <div class="divider2">Billing Info</div>
-                  <input type="text" name="billing-company" placeholder="Billing Company (required)">
+                  <input type="text" name="billingCompany" placeholder="Billing Company (required)">
                   <input type="text" name="billingAddress" placeholder="Address (required)">
 
                   <div class="city-state"> 
@@ -153,10 +153,10 @@
                   <input type="text" name="billingContactName" placeholder="Contact Name (required)">
                   <input type="text" name="billingPhone" placeholder="Phone (required)">
                   
-                  <input type="hidden" name="date" placeholder="">
+                  <input type="hidden" name="date" placeholder="" value="date">
                   <input type="text" name="billingEmail" placeholder="eMail Address (required)">
                   <p>*We will send a copy of this form to this email.</p>
-                  <input type="text" name="poNumber" placeholder="PO Number (optional)">
+                  <input type="text" name="poNumber" placeholder="PO Number (optional)" value="Po Number (optional)">
                 </div>
               </div>
             </div>
@@ -220,7 +220,7 @@
                           <input class="auto-next" type="checkbox" name="no-materials" id="no-materials">
                           <div class="big-button">
                             <label for="no-materials">
-                              <i class="fas fa-hand-pointer"></i> Nope, I'm good.
+                              <i class="fas fa-hand-pointer"></i> I just need containers.
                             </label>
                           </div>
                         </div>
@@ -702,10 +702,10 @@
           </div>
           <div class="container form-values">
             <div class="row">
-              <p class="items-notice">ITEMS MUST BE SHRINK WRAPPED AND PALLETIZED</p>
+              <p class="items-notice p-3">ITEMS MUST BE SHRINK WRAPPED AND PALLETIZED</p>
               <div class="col-lg-12 ">
                 <div class="row pt-3">
-                  <div class="col-lg-6 col-md-6 px-0 pl-3 ">
+                  <div class="col-lg-6 col-md-6">
                     <label class="label-time" for="time-from">Hours</label>
                     <select class="time-select" id="time-from">
 
@@ -758,7 +758,7 @@
                     <input class="height-restrictions" type="textarea" name="billingCompany"
                       placeholder="Height Restrictions">
                   </div>
-                  <div class="col-lg-6 col-md-6 px-0 pl-md-3 pl-sm-3 pl-xs-3 site-info">
+                  <div class="col-lg-6 col-md-6 site-info">
 
            
                     <input class="site-info-check" type="checkbox" value="true" name="workersAvailable"
@@ -776,17 +776,16 @@
 
 
                     <input class="site-info-check" type="checkbox" value="true" name="forklift" id="forklift" />
-
                     <label for="forklift">Forklift Available</label>
 
 
 
                   </div>
-                  <div class="col-md-12 mt-2 px-0 pl-md-3 pl-sm-3 pl-xs-3 ">
-                    <label class="label p-2">Other Comments</label>
+                  <div class="col-md-12 mt-2">
+                    <label class="label">Other Comments</label>
                     <textarea class="textarea" type="textarea" rows="2"></textarea>
                     <br><br>
-                    <label class="label p-2" for="fileUpload">Upload Files</label>
+                    <label class="label" for="fileUpload">Upload Files</label>
                     <input type="file" id="fileUpload">
                   </div>
                 </div>

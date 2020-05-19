@@ -55,8 +55,7 @@ function updateNodeProgress() {
 
 // handles if someone clicks on a nav item instead of the next / prev buttons
 function goToPane(number) {
-    console.log('going tot pane')
-    console.log(number)
+
     getAllPanes().forEach(pane => {
         pane.classList.remove('current-pane')
     })
@@ -102,6 +101,7 @@ function resetMaterials() {
 }
 
 function handleCheck(selector, pane) {
+    
     if (selector.checked) {
         pane.dataset.selected = "true"
         document.querySelector('input#no-materials').checked = false;
@@ -142,12 +142,12 @@ function findPaneContaining(element){
 
 function initValidateOnType(){
     main.querySelectorAll('input').forEach(input => { 
-        input.addEventListener('keyup', function() {
+        input.addEventListener('keyup', function(e) {
             validate.checkInput(this)
-            validate.checkSection(findPaneContaining(this))  
+            validate.checkSection(e, findPaneContaining(this))  
     })
-        input.addEventListener('click', function(){
-            validate.checkSection(findPaneContaining(this))
+        input.addEventListener('click', function(e){
+            validate.checkSection(e, findPaneContaining(this))
         })
     })
     minimumRequirements = validate.checkSubmit()
@@ -166,7 +166,7 @@ const initForm = () => {
     addNavButtons()
 
     initValidateOnType()
-    validate.initAutoNextButtons()
+
     
 }
 

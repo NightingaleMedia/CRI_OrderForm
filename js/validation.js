@@ -6,85 +6,124 @@
  sectionsToCheck.forEach(section => validationArray[section] = false)
 
  const billingSection = document.querySelector('div [data-name="Billing"]')
+ const genSection = document.querySelector('div [data-name="Generator"]')
 
- function handleOrder(section){
-    switch(section.querySelector('input:checked').value){
-        case 'order-type--pickup' :
-            console.log('ok pickup!')
-            validationArray.Order = true;
-            break;
-        case 'order-type--delivery' :
-            console.log('ok dropoff!')
-            validationArray.Order = true;
-            //TODO: change site info
-            break;
-    }
- }
-function handleBilling(){
-    validationArray.Billing = true;
-}
- function handleGenerator(section){
-      if (validationArray.Billing) {
-          copyInBilling();
-          validationArray.Generator = true;
-        setTimeout(app.goToNext, 500)
-      } else {
-          displayError('Generator', 'You need a value first!')
-        section.querySelector('#generator-same').checked = false;
-      }
-   
-
- }
- function copyInBilling() {
-     if (validationArray.Billing) {
-        billingSection.querySelectorAll('input')
-     } else {
-         console.log('cannot copy')
+ const checkNotNull = (arrayToCheck) => {
+     let result;
+     for (let i = 0; i < arrayToCheck.length; i++) {
+         if (arrayToCheck[i].value === '') {
+             result = false
+             break;
+         } else {
+             result = true
+         }
      }
-
+     return result
  }
-function handleMaterials(sec){
 
-if(sec.querySelectorAll('input:checked').length > 0){
-    validationArray.Materials = true;
-} else {
-    validationArray.Materials = false;
-}
 
-}
+ function handleOrder(section) {
+     switch (section.querySelector('input:checked').value) {
+         case 'order-type--pickup':
+             validationArray.Order = true;
+             break;
+         case 'order-type--delivery':
+             validationArray.Order = true;
+             //TODO: change site info
+             break;
+     }
+     setTimeout(app.goToNext, 500)
+ }
+
+ function handleBilling() {
+     const billingInputs = billingSection.querySelectorAll('input')
+
+     //  checkNotNull(billingInputs)
+     validationArray.Billing = checkNotNull(billingInputs);
+ }
+
+ function handleGenerator(e, section) {
+     const selector = section.querySelector('#generator-same')
+     if ((e.type == 'click') && (e.target.id == 'generator-same')) {
+         if (validationArray.Billing) {
+             copyInBilling();
+             validationArray.Generator = true;
+             setTimeout(app.goToNext, 1000)
+         } else {
+             displayError('Generator', 'Billing section incomplete!!')
+             selector.checked = false;
+         }
+     }
+ }
+
+ function handleContainers(e, section) {
+     const inputs = section.querySelectorAll('input[type="text"]')
+
+     let anyText = [...inputs].filter(input => input.value != '');
+     const next = section.querySelector('.auto-next')
+     if (e.target.id == 'no-containers') {
+         if (next.checked) {
+             validationArray.Containers = true;
+             setTimeout(1000, app.goToNext())
+         }
+     } else if (anyText.length > 0) {
+         validationArray.Containers = true;
+     } else {
+         validationArray.Containers = false;
+     }
+ }
+
+ function copyInBilling() {
+
+     let bil = {};
+     const billingInputs = billingSection.querySelectorAll('input')
+     billingInputs.forEach(input => bil[input.name] = input.value)
+
+     const g = genSection.querySelectorAll('input')
+     g[1].value = bil.billingCompany
+     g[2].value = bil.billingAddress
+     g[3].value = bil.billingCity
+     g[4].value = bil.billingState
+     g[5].value = bil.billingZip
+     g[6].value = bil.billingContactName
+     g[7].value = bil.billingPhone
+ }
+
+ function handleMaterials(sec) {
+     const selectors = sec.querySelectorAll('.material-picker--selector > input:checked')
+     const next = sec.querySelector('.auto-next')
+
+     next.onchange = () => {
+         validationArray.Materials = true;
+         app.resetMaterials();
+         handleDisplay(sec, true);
+         setTimeout(app.goToNext, 500)
+     }
+     if (selectors.length > 0) {
+         validationArray.Materials = true;
+     } else {
+         validationArray.Materials = false;
+     }
+ }
+
  function checkInput(input) {
      //lets us know that this input has a verify bar
 
  }
 
- function initAutoNextButtons() {
-     const autoNextButtons = document.querySelectorAll('.auto-next')
-     autoNextButtons.forEach(button => button.addEventListener('change', () => {
-         if (button.id == 'no-materials' && button.checked) {
-             app.resetMaterials();
-            //  handleMaterials();
-             setTimeout(app.goToNext, 500)
-         } else if (button.id == 'generator-same'){
-            return
-         } else if (button.checked) {
-             setTimeout(app.goToNext, 500)
-         } else {
-             return
-         }
-     }))
+ function displayError(paneName, message) {
+     let theErrorBox = [...sections]
+         .find(section => section.dataset.name === paneName)
+         .querySelector('.error-display');
+
+     theErrorBox.innerText = message;
+     theErrorBox.classList.add('error-show')
+     setTimeout(() => theErrorBox.classList.remove('error-show'), 1200)
+
  }
-function displayError(paneName, message){
 
-    let theErrorBox = [...sections]
-        .find(section => section.dataset.name === paneName)
-        .querySelector('.error-display');
-
-    theErrorBox.innerText = message;
-    theErrorBox.classList.add('error-show')
-    setTimeout(()=>theErrorBox.classList.remove('error-show'), 1200)
-
-}
  function handleDisplay(section, bool) {
+
      // change node checkmark
      let matchingLi = [...app.navListMain].find(nav => nav.querySelector('a').innerText == section.dataset.name)
      let d = matchingLi.querySelector('div');
@@ -92,8 +131,7 @@ function displayError(paneName, message){
      // make the pane green maybe
  }
 
- function checkSection(section) {
-
+ function checkSection(e, section) {
      const errorDiv = document.createElement('div')
      errorDiv.className = "error-display"
      errorDiv.innerText = "Error"
@@ -104,45 +142,38 @@ function displayError(paneName, message){
      if (matching !== undefined) {
          switch (section.dataset.name) {
              case 'Order':
-                handleOrder(section);
+                 handleOrder(section);
                  break;
              case 'Billing':
                  handleBilling(section)
                  break;
              case 'Generator':
-
-                 handleGenerator(section);
+                 handleGenerator(e, section);
                  break;
              case 'Materials':
-                console.log(app.selectedMaterials)
                  handleMaterials(section)
                  break;
              case 'Containers':
-                 console.log('this is cont')
+                 handleContainers(e, section)
                  break;
              case 'Site':
-                 console.log('this is site')
+
                  break;
              default:
                  break;
          }
          handleDisplay(section, validationArray[matching])
-
-     } else {
-         console.log('no validation needed')
      }
 
  }
 
  function checkSubmit() {
      let falses = Object.values(validationArray).filter((value) => !value);
-     // validationArray.map(input => console.log(input))
      return (falses.length == 0) ? true : false;
  }
 
  export {
      checkSubmit,
      checkInput,
-     checkSection,
-     initAutoNextButtons
+     checkSection
  }
