@@ -23,6 +23,9 @@
 
 
  function handleOrder(section) {
+   
+//      section.querySelector('input').addEventListener('click', ()=>{ 
+//   console.log(section)
      switch (section.querySelector('input:checked').value) {
          case 'order-type--pickup':
              validationArray.Order = true;
@@ -31,28 +34,36 @@
              validationArray.Order = true;
              //TODO: change site info
              break;
+        default : validationArray.Order = false;
      }
      setTimeout(app.goToNext, 500)
+//      })
  }
 
  function handleBilling() {
      const billingInputs = billingSection.querySelectorAll('input')
-
-     //  checkNotNull(billingInputs)
      validationArray.Billing = checkNotNull(billingInputs);
  }
-
+function handleSite(){
+    validationArray.Site = true;
+}
  function handleGenerator(e, section) {
      const selector = section.querySelector('#generator-same')
+     const inputs = section.querySelectorAll('input[type="text"]')
      if ((e.type == 'click') && (e.target.id == 'generator-same')) {
          if (validationArray.Billing) {
              copyInBilling();
              validationArray.Generator = true;
              setTimeout(app.goToNext, 1000)
-         } else {
+         }  else {
              displayError('Generator', 'Billing section incomplete!!')
              selector.checked = false;
          }
+     }
+     if (checkNotNull(inputs)) {
+         validationArray.Generator = true;
+     } else{
+         validationArray.Generator = false;
      }
  }
 
@@ -106,11 +117,6 @@
      }
  }
 
- function checkInput(input) {
-     //lets us know that this input has a verify bar
-
- }
-
  function displayError(paneName, message) {
      let theErrorBox = [...sections]
          .find(section => section.dataset.name === paneName)
@@ -119,16 +125,21 @@
      theErrorBox.innerText = message;
      theErrorBox.classList.add('error-show')
      setTimeout(() => theErrorBox.classList.remove('error-show'), 1200)
-
  }
 
  function handleDisplay(section, bool) {
 
      // change node checkmark
      let matchingLi = [...app.navListMain].find(nav => nav.querySelector('a').innerText == section.dataset.name)
+ 
      let d = matchingLi.querySelector('div');
-     bool ? d.innerHTML = `<i class = "fas fa-check"></i>` : d.innerHTML = '';
-     // make the pane green maybe
+     if(bool){ 
+        matchingLi.classList.add('pop')
+        d.innerHTML = `<i class = "fas fa-check"></i>`
+    } else {
+        d.innerHTML = '';
+        matchingLi.classList.remove('pop')
+    }
  }
 
  function checkSection(e, section) {
@@ -157,6 +168,7 @@
                  handleContainers(e, section)
                  break;
              case 'Site':
+                 handleSite(e, section)
 
                  break;
              default:
@@ -174,6 +186,5 @@
 
  export {
      checkSubmit,
-     checkInput,
      checkSection
  }

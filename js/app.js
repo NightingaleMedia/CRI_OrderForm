@@ -141,17 +141,21 @@ function findPaneContaining(element){
 }
 
 function initValidateOnType(){
+    // function validateOnListen(){}
     main.querySelectorAll('input').forEach(input => { 
+
         input.addEventListener('keyup', function(e) {
-            validate.checkInput(this)
             validate.checkSection(e, findPaneContaining(this))  
+            minimumRequirements = validate.checkSubmit()
+            addNavButtons()
     })
         input.addEventListener('click', function(e){
             validate.checkSection(e, findPaneContaining(this))
+            minimumRequirements = validate.checkSubmit()
+            addNavButtons()
         })
     })
-    minimumRequirements = validate.checkSubmit()
-    addNavButtons()
+    
 }
 const initForm = () => {
     // allSinglePanes.forEach(pane => (pane.dataset.name == 'Submit') ? null : pane.appendChild(build.buttons()));

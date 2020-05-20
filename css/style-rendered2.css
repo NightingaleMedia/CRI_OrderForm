@@ -105,11 +105,7 @@ select {
     height: 30px;
 }
 
-.city-state {
-    display: grid;
-    column-gap: 5px;
-    grid-template-columns: 55% 20% 23%;
-}
+
 
 .pickup-delivery {
     width: 60%;
