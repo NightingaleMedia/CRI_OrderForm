@@ -7,13 +7,14 @@
 
 .single-pane {
     min-height: 300px;
-    padding: 2em !important;
+    /* padding: 2em !important; */
     /* max-width: 90% !important; */
     transform: translate(100%, 0)scale(0.8);
     transition: transform 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
     display: none;
     margin-left: auto !important;
     margin-right: auto !important;
+    padding-bottom: 4em !important;
 }
 
 .current-pane {
