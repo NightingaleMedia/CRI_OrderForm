@@ -75,7 +75,7 @@ function handleSite(){
      if (e.target.id == 'no-containers') {
          if (next.checked) {
              validationArray.Containers = true;
-             setTimeout(1000, app.goToNext())
+             setTimeout(app.goToNext, 1000)
          }
      } else if (anyText.length > 0) {
          validationArray.Containers = true;

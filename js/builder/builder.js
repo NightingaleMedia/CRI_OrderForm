@@ -1,8 +1,13 @@
 import {
     goToNext,
     goToPrev,
-    handleCheck
+    handleCheck,
+
 } from '../app.js'
+
+import {
+    submitForm
+} from '../submit-form.js'
 
 class buttonMaker {
     constructor(text, id, type, action) {
@@ -27,12 +32,10 @@ class inputMaker {
         this.label = document.createElement('label')
         this.label.htmlFor = id;
     }
-
     labelText(txt) {
         this.label.innerHTML = txt;
         return this;
     }
-
     render() {
         this.container.appendChild(this.input)
         this.container.appendChild(this.label)
@@ -45,7 +48,6 @@ function buildSubItems(title) {
     container.innerHTML = `<li class="sub-item" data-m-name="${title}"><a>${title}</a></li>`;
     return container.innerHTML;
 }
-
 function buttons() {
     const buttonz = document.createElement('div')
     const next = new buttonMaker("Next", 'btn-next', "next", goToNext)
@@ -59,39 +61,44 @@ function buttons() {
 }
 
 function addNextPrev() {
+    const container = document.createElement('div')
     const buttonz = document.createElement('div')
     const holder = document.createElement('div')
+    container.classList.add('button--wrapper')
     buttonz.classList.add('button-section', 'submit-form--button')
-    buttonz.dataset.operation = 'next-prev-section'
+    // buttonz.dataset.operation = 'next-prev-section'
+
     const next = new buttonMaker("Next", 'btn-next', "next", goToNext)
     const prev = new buttonMaker("Previous", 'btn-prev', "prev", goToPrev)
     buttonz.appendChild(prev.render())
     buttonz.appendChild(holder)
     buttonz.appendChild(next.render())
-
-    return buttonz;
-
+    container.appendChild(buttonz)
+    return container;
 }
 
 function addSubmit() {
+    const container = document.createElement('div')
     const buttonz = document.createElement('div')
-    let submitButton = document.createElement('button')
-    submitButton.classList.add('submit-form')
-    submitButton.innerText = 'Submit Form'
-    submitButton.id = 'submit-form'
-    buttonz.classList.add('button-section', 'submit-form--button')
+
+    container.classList.add('button--wrapper')
+    buttonz.classList.add('button-section')
+
+    const submitButton = new buttonMaker('Submit', 'btn-submit', 'submit', submitForm)
     const next = new buttonMaker("Next", 'btn-next', "next", goToNext)
     const prev = new buttonMaker("Previous", 'btn-prev', "prev", goToPrev)
-    buttonz.appendChild(prev.render())
-    buttonz.appendChild(submitButton)
-    buttonz.appendChild(next.render())
 
-    return buttonz
+    buttonz.appendChild(prev.render())
+    buttonz.appendChild(submitButton.render())
+    buttonz.appendChild(next.render())
+    container.appendChild(buttonz)
+    return container
 }
 
 
 function addVerify(input) {
     const wrapper = document.createElement('div')
+    wrapper.className = 'input-wrapper'
     const verify = document.createElement('div')
     verify.className = 'verify'
     let newNode = input.parentElement.insertBefore(wrapper, input)
@@ -132,8 +139,13 @@ const addMaterialInputs = () => {
             }
         })
         let labelTitle = itemSelector.querySelector('label')
-        itemSelector.querySelector('input').addEventListener('change', function () {
+        let labelInput = itemSelector.querySelector('input')
+        labelInput.value = labelInput.checked ? "Lbs" : "Units"
+
+        labelInput.addEventListener('change', function () {
             labelTitle.innerText = this.checked ? "Lbs" : "Units"
+            labelInput.value = labelInput.checked ? "Lbs" : "Units"
+            
         })
     })
 }
