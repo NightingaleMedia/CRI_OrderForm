@@ -3,7 +3,7 @@ import * as mat from './material-picker.js'
 import * as validate from './validation.js'
 
 var currentPane = 0;
-var minimumRequirements = false;
+var minimumRequirements = true;
 let selectedMaterials = [];
 
 function getAllPanes() {
@@ -141,19 +141,15 @@ function findPaneContaining(element){
 }
 
 function initValidateOnType(){
+       function validateForm(e) {
+           validate.checkSection(e, findPaneContaining(this))
+           minimumRequirements = validate.checkSubmit()
+           addNavButtons()
+       }
     // function validateOnListen(){}
     main.querySelectorAll('input').forEach(input => { 
-
-        input.addEventListener('keyup', function(e) {
-            validate.checkSection(e, findPaneContaining(this))  
-            minimumRequirements = validate.checkSubmit()
-            addNavButtons()
-    })
-        input.addEventListener('click', function(e){
-            validate.checkSection(e, findPaneContaining(this))
-            minimumRequirements = validate.checkSubmit()
-            addNavButtons()
-        })
+        input.addEventListener('keyup', validateForm)
+        input.addEventListener('click', validateForm, {once: true})
     })
     
 }

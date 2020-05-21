@@ -57,7 +57,8 @@ function submitForm() {
         })
         // newJson.map(e => console.log(newJson))
         // sampleObject = newJson;
-        console.log(newJson)
+        console.log(Object.entries(newJson))
+        // newJson.entries().forEach(entry => console.log(entry))
     // })
 }
 
