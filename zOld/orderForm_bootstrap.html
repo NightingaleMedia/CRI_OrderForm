@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Order form</title>
+<link href="https://fonts.googleapis.com/css?family=Bebas+Neue&display=swap" rel="stylesheet">
+<link href="css/style.css" rel="stylesheet" type='text/css'>
+<link href="css/bootstrap.min.css" rel="stylesheet" type='text/css'>
+</head>
+<body data-spy="scroll" data-target="#navbar-menu">
+<header class="title">
+  <div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-4">Fluid jumbotron</h1>
+    <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
+  </div>
+</div>
+</header>
+  <div class="sticky-top d-lg-none d-md-none d-sm-block">
+    <nav class="nav navbar bg-white nav-pills nav-justified sticky-top">
+    <a class="nav-item nav-link active" href="#">Active</a>
+    <a class="nav-item nav-link" href="#lamps">Link</a>
+    <a class="nav-item nav-link" href="#ballast">Link</a>
+    <a class="nav-item nav-link" href="#ewaste">Link</a>
+    <a class="nav-item nav-link" href="#">Link</a>
+    <a class="nav-item nav-link disabled" href="#">Disabled</a>
+  </nav>
+</div>
+<div class="container-fluid main-form">
+
+  <div class="row">
+
+  <div class="col-md-3">
+
+
+    <!-- <div class="nav nav-buttons sticky-top">
+  <div class="row">
+    <div class="col-md-12 col-sm-2 progress-button">
+      <a href="#lamps"><button class="btn-danger"> Contact</button></a>
+    </div>
+    <div class="col-md-12 col-sm-2 progress-button">
+      <button class="btn-info" href="#ballast">Materials </button>
+    </div>
+    <div class="col-md-12 col-sm-2 progress-button">
+      <button>Containers </button>
+    </div>
+    <div class="col-md-12 col-sm-2 progress-button">
+      <button class="btn-danger">Site Info </button>
+    </div>
+    <div class="col-md-12 col-sm-2 progress-button">
+      <button>Comments </button>
+    </div>
+    <div class="col-md-12 col-sm-2 progress-button">
+      <button class="btn-warning btn-dark">Submit </button>
+    </div>
+  </div>
+</div> -->
+
+<nav id="navbar-menu" class="navbar navbar-light bg-light sticky-top">
+<h2> Order Form </h2>
+  <nav class="nav nav-pills flex-column">
+    <a class="nav-link" href="#lamps">Contact</a>
+    <nav class="nav nav-pills flex-column">
+      <a class="nav-link ml-3 my-1" href="#item-1-1">Generator</a>
+      <a class="nav-link ml-3 my-1" href="#item-1-2">Customer</a>
+    </nav>
+    <a class="nav-link" href="#section-materials">Materials</a>
+    <nav class="nav nav-pills flex-column">
+      <a class="nav-link ml-3 my-1" href="#lamps">Lamps</a>
+      <a class="nav-link ml-3 my-1" href="#ewaste">eWaste</a>
+      <a class="nav-link ml-3 my-1" href="#ballast">Ballast</a>
+      <a class="nav-link ml-3 my-1" href="#haz">Hazardous</a>
+      <a class="nav-link ml-3 my-1" href="#specialty">Specialty / Other</a>
+      <a class="nav-link ml-3 my-1" href="#batteries">Batteries</a>
+
+    </nav>
+      <a class="nav-link" href="#item-3">Order Containers</a>
+    <a class="nav-link" href="#item-2">Site Info</a>
+    <a class="nav-link btn-warning" href="#item-2">Submit</a>
+
+
+  </nav>
+</nav>
+
+</div>
+
+<div class="spacer"> </div>
+
+
+<div class="col-lg-8 col-md-9 col-sm-12">
+<div class="title-of-section" id= "section-materials">
+  <h1>MATERIALS</h1>
+</div>
+<div class="main-block">
+<form action="/">
+<div class="container">
+  <div class="row">
+    <div class="col-md-12  px-0 pb-5 form-values">
+      <!--=========== Lamps for Recycling =============-->
+      <div class=" progress">
+        <div class="progress-bar-animated progress-bar-striped bg-info" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+      </div>
+<material id="lamps">
+    <div class="divide">
+        <h2>LAMPS</h2>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <label class="label"><span>4ft & Under</span></label>
+          <input class="align-items-end withLabel" type="text" name="billingCompany" placeholder="4ft & Over">
+          <label class="label">8ft & Over</label>
+          <input class="align-items-end withLabel" type="text" name="billingCompany" placeholder="4ft & Over">
+          <label class="label">CFL</label>
+          <input class="align-items-end withLabel" type="text" name="billingCompany" placeholder="4ft & Over">
+          <label class="label">Incandescent</label>
+          <input class="align-items-end withLabel" type="text" name="billingCompany" placeholder="4ft & Over">
+        </div>
+        <div class="col-md-6 ">
+          <label class="label">U-Bend</label>
+          <input class="align-items-end withLabel" type="text" name="billingCompany" placeholder="4ft & Over">
+          <label class="label">HIDs</label>
+          <input class="align-items-end withLabel" type="text" name="billingCompany" placeholder="4ft & Over">
+          <label class="label">LEDs</label>
+          <input class="align-items-end withLabel" type="text" name="billingCompany" placeholder="4ft & Over">
+          <label class="label">Other</label>
+          <input class="align-items-end withLabel" type="text" name="billingCompany" placeholder="4ft & Over">
+        </div>
+      </div>
+    </material>
+    <!--=========== eWaste for Recycling =============-->
+<material id="ewaste">
+    <div class="divide">
+        <h2>eWASTE</h2>
+      </div>
+      <div class="row">
+        <div class="col-md-6 ">
+          <label class="label"><span>4ft & Under</span></label>
+          <input class="align-items-end withLabel" type="text" name="billingCompany" placeholder="4ft & Over">
+          <label class="label">8ft & Over</label>
+          <input class="align-items-end withLabel" type="text" name="billingCompany" placeholder="4ft & Over">
+          <label class="label">CFL</label>
+          <input class="align-items-end withLabel" type="text" name="billingCompany" placeholder="4ft & Over">
+
+        </div>
+        <div class="col-md-6">
+          <label class="label">U-Bend</label>
+          <input class="align-items-end withLabel" type="text" name="billingCompany" placeholder="4ft & Over">
+          <label class="label">HIDs</label>
+          <input class="align-items-end withLabel" type="text" name="billingCompany" placeholder="4ft & Over">
+          <label class="label">LEDs</label>
+          <input class="align-items-end withLabel" type="text" name="billingCompany" placeholder="4ft & Over">
+
+        </div>
+      </div>
+    </material>
+		  <!--=========== eWaste END Recycling =============-->
+		  <!--=========== BALLAST for Recycling =============-->
+		<material id="ballast">
+      <div class="divide">
+        <h2>Ballast</h2>
+      </div>
+      <div class="row">
+        <div class="col-md-12 ">
+          <label class="label"><span>4ft & Under</span></label>
+          <input class="align-items-end withLabel" type="text" name="billingCompany" placeholder="4ft & Over">
+          <label class="label">8ft & Over</label>
+          <input class="align-items-end withLabel" type="text" name="billingCompany" placeholder="4ft & Over">
+        </div>
+      </div>
+    </material>
+		<!--=========== BALLAST END Recycling =============-->
+		    <!--=========== Hazardous for Recycling =============-->
+<material id="haz">
+    <div class="divide">
+        <h2>Hazardous</h2>
+      </div>
+      <div class="row">
+        <div class="col-md-6 ">
+          <label class="label"><span>4ft & Under</span></label>
+          <input class="align-items-end withLabel" type="text" name="billingCompany" placeholder="4ft & Over">
+          <label class="label">8ft & Over</label>
+          <input class="align-items-end withLabel" type="text" name="billingCompany" placeholder="4ft & Over">
+          <label class="label">CFL</label>
+          <input class="align-items-end withLabel" type="text" name="billingCompany" placeholder="4ft & Over">
+        </div>
+        <div class="col-md-6 ">
+          <label class="label">U-Bend</label>
+          <input class="align-items-end withLabel" type="text" name="billingCompany" placeholder="4ft & Over">
+          <label class="label">HIDs</label>
+          <input class="align-items-end withLabel" type="text" name="billingCompany" placeholder="4ft & Over">
+          <label class="label">LEDs</label>
+          <input class="align-items-end withLabel" type="text" name="billingCompany" placeholder="4ft & Over">
+        </div>
+      </div>
+    </material>
+		  <!--=========== hazardous END Recycling =============-->
+				  <!--=========== SPECIALTY for Recycling =============-->
+<material id="specialty">
+    <div class="divide">
+        <h2>Specialty</h2>
+      </div>
+      <div class="row">
+        <div class="col-md-12 ">
+          <label class="label"><span>4ft & Under</span></label>
+          <input class="align-items-end withLabel" type="text" name="billingCompany" placeholder="4ft & Over">
+          <label class="label">8ft & Over</label>
+          <input class="align-items-end withLabel" type="text" name="billingCompany" placeholder="4ft & Over">
+        </div>
+      </div></material>
+
+		<!--=========== SPECIALTY END Recycling =============-->
+    <!--=========== BATTERIES END Recycling =============-->
+<material id="batteries">
+    <div class="divide">
+        <h2>Batteries</h2>
+      </div>
+      <div class="row">
+        <div class="col-md-6 ">
+          <label class="label"><span>4ft & Under</span></label>
+          <input class="align-items-end withLabel" type="text" name="billingCompany" placeholder="4ft & Over">
+          <label class="label">8ft & Over</label>
+          <input class="align-items-end withLabel" type="text" name="billingCompany" placeholder="4ft & Over">
+          <label class="label">CFL</label>
+          <input class="align-items-end withLabel" type="text" name="billingCompany" placeholder="4ft & Over">
+          <label class="label">Incandescent</label>
+          <input class="align-items-end withLabel" type="text" name="billingCompany" placeholder="4ft & Over">
+			 <label class="label"><span>4ft & Under</span></label>
+          <input class="align-items-end withLabel" type="text" name="billingCompany" placeholder="4ft & Over">
+          <label class="label">8ft & Over</label>
+          <input class="align-items-end withLabel" type="text" name="billingCompany" placeholder="4ft & Over">
+          <label class="label">CFL</label>
+          <input class="align-items-end withLabel" type="text" name="billingCompany" placeholder="4ft & Over">
+          <label class="label">Incandescent</label>
+          <input class="align-items-end withLabel" type="text" name="billingCompany" placeholder="4ft & Over">
+        </div>
+        <div class="col-md-6 ">
+          <label class="label">U-Bend</label>
+          <input class="align-items-end withLabel" type="text" name="billingCompany" placeholder="4ft & Over">
+          <label class="label">HIDs</label>
+          <input class="align-items-end withLabel" type="text" name="billingCompany" placeholder="4ft & Over">
+          <label class="label">LEDs</label>
+          <input class="align-items-end withLabel" type="text" name="billingCompany" placeholder="4ft & Over">
+          <label class="label">Other</label>
+          <input class="align-items-end withLabel" type="text" name="billingCompany" placeholder="4ft & Over">
+			     <label class="label">U-Bend</label>
+          <input class="align-items-end withLabel" type="text" name="billingCompany" placeholder="4ft & Over">
+          <label class="label">HIDs</label>
+          <input class="align-items-end withLabel" type="text" name="billingCompany" placeholder="4ft & Over">
+          <label class="label">LEDs</label>
+          <input class="align-items-end withLabel" type="text" name="billingCompany" placeholder="4ft & Over">
+          <label class="label">Other</label>
+          <input class="align-items-end withLabel" type="text" name="billingCompany" placeholder="4ft & Over">
+        </div>
+      </div>
+
+</material>
+    </div>
+  </div>
+</div>
+<div class="next">
+  <center>
+    <button class="prev">Previous</button>
+    <button class="prev btn-danger">Next</button>
+  </center>
+</div>
+</div>
+</div>
+<div class="col-lg-1 col-md-12 "> </div>
+</div>
+</section>
+</body>
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="js/index.js"> </script>
+<script src="js/util.js"> </script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+</html>

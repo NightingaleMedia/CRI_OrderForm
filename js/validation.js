@@ -1,4 +1,6 @@
  import * as app from './app.js'
+  import * as build from './builder/builder.js'
+
  let sectionsToCheck = ['Order', 'Billing', 'Generator', 'Materials', 'Containers', 'Site']
 
  const validationArray = {}
@@ -7,6 +9,7 @@
 
  const billingSection = document.querySelector('div [data-name="Billing"]')
  const genSection = document.querySelector('div [data-name="Generator"]')
+
 
  const checkNotNull = (arrayToCheck) => {
      let result;
@@ -22,23 +25,23 @@
  }
 
 
- function handleOrder(section) {
-   
-//      section.querySelector('input').addEventListener('click', ()=>{ 
-//   console.log(section)
-     switch (section.querySelector('input:checked').value) {
-         case 'order-type--pickup':
-             validationArray.Order = true;
-             break;
-         case 'order-type--delivery':
-             validationArray.Order = true;
-             //TODO: change site info
-             break;
-        default : validationArray.Order = false;
-     }
-     setTimeout(app.goToNext, 500)
+function handleOrder(section) {
+    
+    switch (section.querySelector('input:checked').value) {
+        case 'order-type--pickup':
+            validationArray.Order = true;
+            setTimeout(app.goToNext, 500)
+
+            break;
+        case 'order-type--delivery':
+            validationArray.Order = true;
+            section.querySelector('.locations-area').innerHTML = build.buildLocations().join('')
+            //TODO: change site info
+            break;
+    default : validationArray.Order = false;
+    }
 //      })
- }
+}
 
  function handleBilling() {
      const billingInputs = billingSection.querySelectorAll('input')

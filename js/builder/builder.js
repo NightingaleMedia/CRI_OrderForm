@@ -9,39 +9,7 @@ import {
     submitForm
 } from '../submit-form.js'
 
-class buttonMaker {
-    constructor(text, id, type, action) {
-        this.button = document.createElement('button');
-        this.button.innerText = text;
-        this.button.id = id;
-        this.button.type = type;
-        this.button.addEventListener('click', action)
-    }
-    render() {
-        return this.button;
-    }
-}
-
-class inputMaker {
-    constructor(id, className) {
-        this.container = document.createElement('div')
-        this.container.classList.add(`${className}`)
-        this.input = document.createElement('input')
-        this.input.type = "checkbox"
-        this.input.id = id;
-        this.label = document.createElement('label')
-        this.label.htmlFor = id;
-    }
-    labelText(txt) {
-        this.label.innerHTML = txt;
-        return this;
-    }
-    render() {
-        this.container.appendChild(this.input)
-        this.container.appendChild(this.label)
-        return this.container
-    }
-}
+import * as el  from './element-builders.js'
 
 function buildSubItems(title) {
     let container = document.createElement('div')
@@ -50,8 +18,8 @@ function buildSubItems(title) {
 }
 function buttons() {
     const buttonz = document.createElement('div')
-    const next = new buttonMaker("Next", 'btn-next', "next", goToNext)
-    const prev = new buttonMaker("Previous", 'btn-prev', "prev", goToPrev)
+    const next = new el.buttonMaker("Next", 'btn-next', "next", goToNext)
+    const prev = new el.buttonMaker("Previous", 'btn-prev', "prev", goToPrev)
 
     buttonz.classList.add('button-section')
     buttonz.appendChild(prev.render())
@@ -68,8 +36,8 @@ function addNextPrev() {
     buttonz.classList.add('button-section', 'submit-form--button')
     // buttonz.dataset.operation = 'next-prev-section'
 
-    const next = new buttonMaker("Next", 'btn-next', "next", goToNext)
-    const prev = new buttonMaker("Previous", 'btn-prev', "prev", goToPrev)
+    const next = new el.buttonMaker("Next", 'btn-next', "next", goToNext)
+    const prev = new el.buttonMaker("Previous", 'btn-prev', "prev", goToPrev)
     buttonz.appendChild(prev.render())
     buttonz.appendChild(holder)
     buttonz.appendChild(next.render())
@@ -84,9 +52,9 @@ function addSubmit() {
     container.classList.add('button--wrapper')
     buttonz.classList.add('button-section')
 
-    const submitButton = new buttonMaker('Submit', 'btn-submit', 'submit', submitForm)
-    const next = new buttonMaker("Next", 'btn-next', "next", goToNext)
-    const prev = new buttonMaker("Previous", 'btn-prev', "prev", goToPrev)
+    const submitButton = new el.buttonMaker('Submit', 'btn-submit', 'submit', submitForm)
+    const next = new el.buttonMaker("Next", 'btn-next', "next", goToNext)
+    const prev = new el.buttonMaker("Previous", 'btn-prev', "prev", goToPrev)
 
     buttonz.appendChild(prev.render())
     buttonz.appendChild(submitButton.render())
@@ -159,7 +127,7 @@ function buildMaterialPicker() {
     allMaterialPanes.map(pane => {
         let icon = pane.querySelector('.divide > h2')
 
-        let picker = new inputMaker(pane.dataset.material, 'material-picker--selector')
+        let picker = new el.inputMaker(pane.dataset.material, 'material-picker--selector')
             .labelText(`${icon.parentElement.innerHTML}`)
         matPaneInner.appendChild(picker.render());
         picker.input.addEventListener('change', function () {
@@ -167,16 +135,25 @@ function buildMaterialPicker() {
         })
     })
 }
+function buildLocations() {
+    const locations = ['Cincinnati', 'South Carolina', 'Minnesota', 'Michigan', 'Cincinnati Northland']
+    let locationsArray = [];
+    locations.forEach(location => {
+        let locationBuilder = new el.locationSelector(location, 'locations', 'radio', `location-label--${location}`)
+        locationsArray.push(locationBuilder.render().innerHTML)
+    })
+    
+    return locationsArray;
+}
 
 
 export {
-    buttonMaker,
-    inputMaker,
     buildSubItems,
     buttons,
     addVerify,
     addMaterialInputs,
     addSubmit,
     addNextPrev,
-    buildMaterialPicker
+    buildMaterialPicker,
+    buildLocations
 }

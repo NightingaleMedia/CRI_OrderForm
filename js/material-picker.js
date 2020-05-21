@@ -18,9 +18,11 @@ function updateNodeMaterials() {
     const materialsNode = document.querySelector('.progress-nodes [data-node-name="Materials"]')
     materialsNode.classList.add('current')
     let selectedMaterialsDivs = [];
+    
     app.selectedMaterials.forEach(material =>
         selectedMaterialsDivs.push(build.buildSubItems(material.dataset.material)))
-    app.subItem.innerHTML = [...selectedMaterialsDivs].join('')
+
+    app.subItem.innerHTML = selectedMaterialsDivs.join('')
 
     if (app.selectedMaterials.length === 0) {
         app.subItem.classList.remove('focused')
