@@ -1,5 +1,5 @@
  import * as app from './app.js'
-  import * as build from './builder/builder.js'
+ import * as build from './builder/builder.js'
 
  let sectionsToCheck = ['Order', 'Billing', 'Generator', 'Materials', 'Containers', 'Site']
 
@@ -25,31 +25,47 @@
  }
 
 
-function handleOrder(section) {
-    
-    switch (section.querySelector('input:checked').value) {
-        case 'order-type--pickup':
-            validationArray.Order = true;
-            setTimeout(app.goToNext, 500)
+ function handleOrder(section) {
 
-            break;
-        case 'order-type--delivery':
+     switch (section.querySelector('input:checked').value) {
+         case 'order-type--pickup':
+             validationArray.Order = true;
+             section.querySelector('.locations-area').innerHTML = ``;
+             setTimeout(app.goToNext, 500)
+
+             break;
+         case 'order-type--delivery':
             validationArray.Order = true;
             section.querySelector('.locations-area').innerHTML = build.buildLocations().join('')
-            //TODO: change site info
-            break;
-    default : validationArray.Order = false;
-    }
-//      })
-}
+            let locations = section.querySelectorAll('.location-selector')
+            locations.forEach(location => location.addEventListener('change', function(){
+                if(this.firstElementChild.checked){ 
+                
+                setTimeout(app.goToNext, 500)
+                }
+                else{
+                    return;
+                }
+            }))
+             //TODO: change site info
+
+
+             break;
+         default:
+             validationArray.Order = false;
+     }
+     //      })
+ }
 
  function handleBilling() {
      const billingInputs = billingSection.querySelectorAll('input')
      validationArray.Billing = checkNotNull(billingInputs);
  }
-function handleSite(){
-    validationArray.Site = true;
-}
+
+ function handleSite() {
+     validationArray.Site = true;
+ }
+
  function handleGenerator(e, section) {
      const selector = section.querySelector('#generator-same')
      const inputs = section.querySelectorAll('input[type="text"]')
@@ -58,14 +74,14 @@ function handleSite(){
              copyInBilling();
              validationArray.Generator = true;
              setTimeout(app.goToNext, 1000)
-         }  else {
+         } else {
              displayError('Generator', 'Billing section incomplete!!')
              selector.checked = false;
          }
      }
      if (checkNotNull(inputs)) {
          validationArray.Generator = true;
-     } else{
+     } else {
          validationArray.Generator = false;
      }
  }
@@ -134,15 +150,15 @@ function handleSite(){
 
      // change node checkmark
      let matchingLi = [...app.navListMain].find(nav => nav.querySelector('a').innerText == section.dataset.name)
- 
+
      let d = matchingLi.querySelector('div');
-     if(bool){ 
-        matchingLi.classList.add('pop')
-        d.innerHTML = `<i class = "fas fa-check"></i>`
-    } else {
-        d.innerHTML = '';
-        matchingLi.classList.remove('pop')
-    }
+     if (bool) {
+         matchingLi.classList.add('pop')
+         d.innerHTML = `<i class = "fas fa-check"></i>`
+     } else {
+         d.innerHTML = '';
+         matchingLi.classList.remove('pop')
+     }
  }
 
  function checkSection(e, section) {

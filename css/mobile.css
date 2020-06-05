@@ -96,6 +96,17 @@
     .material-picker--selector label {
         min-width: 300px !important;
     }
+    .locations-area {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+    .locations-area > div{
+        font-size: 0.65em;
+      
+    }
+    .location-selector > label{
+        width: 100px !important;
+    }
 }
 
 @media only screen and (max-width: 400px) {

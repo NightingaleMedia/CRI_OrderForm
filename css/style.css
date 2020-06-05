@@ -395,8 +395,8 @@
   .main-block {
     position: relative;
     height: 100%;
-    max-width: 51%;
-    min-width: 50%;
+    max-width: 61%;
+    min-width: 60%;
     padding: 2rem;
     background: #f7f7f7;
     margin-left: auto;
@@ -502,6 +502,10 @@
   .locations-area{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  .locations-area > div{
+    font-size: 0.75rem;
   }
 
   /*-------------------------------------------------

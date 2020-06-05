@@ -36,7 +36,7 @@ class locationSelector{
     constructor(title ,name, inputType, labelId){
         this.outer = document.createElement('div')
         this.wrapper = document.createElement('div')
-        this.wrapper.className = 'form-button1'
+        this.wrapper.className = 'form-button1 location-selector'
 
         this.input = document.createElement('input')
         this.input.type = inputType

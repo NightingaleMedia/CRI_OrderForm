@@ -1,4 +1,4 @@
-const locations = ['Cincinnati', 'South Carolina','Minnesota','Michigan','Cincinnati Northland']
+const locations = ['Cincinnati', 'South Carolina','Minnesota','Michigan','Cincinnati Northland', 'Not Sure']
 
 
 function locations() {

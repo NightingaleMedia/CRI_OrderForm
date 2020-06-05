@@ -136,7 +136,7 @@ function buildMaterialPicker() {
     })
 }
 function buildLocations() {
-    const locations = ['Cincinnati', 'South Carolina', 'Minnesota', 'Michigan', 'Cincinnati Northland']
+    const locations = ['Cincinnati Anthony Wayne', 'South Carolina', 'Minnesota', 'Michigan', 'Cincinnati Northland', 'Not Sure']
     let locationsArray = [];
     locations.forEach(location => {
         let locationBuilder = new el.locationSelector(location, 'locations', 'radio', `location-label--${location}`)

@@ -1,13 +1,8 @@
 import * as app from './app.js'
 import * as build from './builder/builder.js'
 
-var sampleObject = {
-
-}
 
 const form = document.querySelector('.main-form');
-
-
 const materialsSection = document.querySelectorAll('.section--material input')
 
 function submitForm() {
@@ -33,7 +28,6 @@ function submitForm() {
                 let inputs = section.querySelectorAll('.input-wrapper input');
                 let valueSelectors = section.querySelectorAll('.units--holder input')
 
-
                 inputs.forEach(item => {
                     // find the matching unit selector
                     // valueSelectors.forEach(value => console.log(value.name.slice(11)));
@@ -57,9 +51,11 @@ function submitForm() {
         })
         // newJson.map(e => console.log(newJson))
         // sampleObject = newJson;
-        console.log(Object.entries(newJson))
-        // newJson.entries().forEach(entry => console.log(entry))
-    // })
 }
+
+
+
+
+
 
 export { submitForm }
