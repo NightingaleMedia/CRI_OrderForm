@@ -1,14 +1,24 @@
 {
   "name": "cl-orderform",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "This is an order form for a company I freelance for.  They have  requested a mobile friendly ordering system that can eventually have the ability to tie into their CRM RESTful API.",
+  "main": "current.html",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "fs": "0.0.1-security"
-  }
+    "fs": "0.0.1-security",
+    "node": "^14.4.0"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NightingaleMedia/CRI_OrderForm.git"
+  },
+  "bugs": {
+    "url": "https://github.com/NightingaleMedia/CRI_OrderForm/issues"
+  },
+  "homepage": "https://github.com/NightingaleMedia/CRI_OrderForm#readme"
 }

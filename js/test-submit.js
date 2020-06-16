@@ -1,31 +1,63 @@
-    async function inn(body) {
-        let uri = 'https://famous-elk.w5.gravitydemo.com/wp-json/gf/v2/forms/1';
-        let h = new Headers();
-        // h.append('Authorization', 'Basic');
-        h.append('Content-Type', 'application/json');
-        h.append('Authorization', 'Basic Y2tfY2VkMWZmY2Y0Y2YwMTdlYTJhMWY0MGM4NTI3NTQ5ZWI5YTZhN2I1OTpjc19hYTMxMWViMTg5YzA3OGRiNDgzYTIzMjBkMjU4MmM4YTY1OWM1ZWQ1')
-        h.append('cache', 'no-cache');
+ async function getForm() {
+     let pw = 'cs_be5fdc4a026c0907746e421f532e5339785492f1';
+     let login = 'ck_af44e6bb12c2be4c41f605d8dd22e78686cc36d5'
+     let uri = 'https://cleanlites.dev.local/wp-json/gf/v2/forms/11';
+     let h = new Headers();
+     h.append('Authorization', 'Basic ' + btoa(`${login}:${pw}`).toString('base64'));
+     h.append('Content-Type', 'application/json; charset=utf-8');
 
-        const response = await fetch(uri, {
-            // mode: 'no-cors',
-            headers: {
-                'Content-Type' : 'applications/json',
-                'Authorization': 'Basic Y2tfY2VkMWZmY2Y0Y2YwMTdlYTJhMWY0MGM4NTI3NTQ5ZWI5YTZhN2I1OTpjc19hYTMxMWViMTg5YzA3OGRiNDgzYTIzMjBkMjU4MmM4YTY1OWM1ZWQ1'
+     const response = await fetch(uri, {
+         headers: h,
+         method: 'GET'
+
+     });
+     return response;
+ }
+
+ getForm()
+     .then(text => text.json())
+     .then(result => makeTable(result.fields))
+
+ function makeTable(data) {
+     const root = document.getElementById('root');
+     let dataArray = new Object();
+     data.forEach(item => {
+         if (item.type != 'section') {
+             dataArray[item.id] = item.label;
+             let inputsExist = (item.inputs !== null)
+
+             let div = document.createElement('div');
+             let inputArray = [];
+             div.className = 'single-item'
+                    if (inputsExist) {
+                        
+                        item.inputs.forEach(input => {
+                           dataArray[input.id] = input.label;
+                            let singleInput = document.createElement('div')
+                            singleInput.className = 'single-input';
+                            inputArray.push(`
+                            <div> ${input.label}</div>
+                            <div class="input-no"> ${input.id}</div>
+                            
+                            `)
+                    
+                        }) 
+                           div.innerHTML = `
+                        <div class="title">${item.label} </div>
+                        <div class="input-no">${item.id}</div>
+                        <div class = "inputs" > ${inputArray.join('')} </div>
+                        `
+                       
+                        root.appendChild(div)
+                    } else {
+                        div.innerHTML = `
+                        <div class="title">${item.label} </div>
+                        <div class="input-no">${item.id}</div>`
+                        root.appendChild(div)
             }
-        });
-        return response;
-    }
-
-    let testResponse = {
-        "input_1": "test",
-        "input_1_3": "test2",
-        "input_1_6": "sigg",
-        "input_2": "alsigman@gmail.com",
-        "input_3": "yuppp"
-    }
-
-    inn(testResponse)
-        // .catch(error => console.log(error.text()))
-        // .then(data => data.text())
-        .then(text => text.json())
-        .then(result => console.log(result.fields))
+                 return;
+       
+         }
+     })
+     console.log(dataArray)
+ }

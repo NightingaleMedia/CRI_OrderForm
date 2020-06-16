@@ -6,7 +6,30 @@
     <title>Document</title>
 </head>
 <body>
-    
+    <div id="root"></div>
     <script src="js/test-submit.js"></script>
 </body>
+<style>
+    .single-item:nth-child(even){
+        background-color: aliceblue;
+
+    }
+    .title{
+        font-size: 1em;
+        font-weight: 600;
+    }
+
+    .inputs, .single-item{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr;
+        padding: 1em;
+    }
+
+    .input-no{
+        color: red;
+        font-size: 1em;
+
+    }
+</style>
 </html>

@@ -1,16 +1,11 @@
 import * as app from './app.js'
 import * as build from './builder/builder.js'
+import {createForm} from './create-form.js'
 
-
-const form = document.querySelector('.main-form');
-const materialsSection = document.querySelectorAll('.section--material input')
 
 function submitForm() {
     const allSection = document.querySelectorAll('.single-pane');
  
-    // const submit = document.querySelector('#btn-submit');
-    // submit.addEventListener('click', (e) => {
-        // e.preventDefault();
         let date = new Date();
         let newJson = [];
         newJson["Cleanlites Order Form"] = `${date.getMonth()}/${date.getDate()}/${date.getFullYear()} at ${date.getUTCHours()}:${date.getUTCMinutes()} UTC`;
@@ -49,13 +44,9 @@ function submitForm() {
                 })
             }
         })
-        // newJson.map(e => console.log(newJson))
+        // console.log(newJson)
+        createForm(newJson)
         // sampleObject = newJson;
 }
-
-
-
-
-
 
 export { submitForm }
