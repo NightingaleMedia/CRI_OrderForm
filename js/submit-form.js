@@ -44,8 +44,9 @@ function submitForm() {
                 })
             }
         })
-        // console.log(newJson)
+        console.log(newJson)
         createForm(newJson)
+    
         // sampleObject = newJson;
 }
 

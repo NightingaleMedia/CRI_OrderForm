@@ -6,7 +6,7 @@
   <link href="https://fonts.googleapis.com/css?family=Bebas+Neue&display=swap" rel="stylesheet">
 
   <link href="css/style.css" rel="stylesheet" type='text/css'>
-  
+
   <link href="css/multipage.css" rel="stylesheet" type='text/css'>
   <link href="css/mobile.css" rel="stylesheet" type='text/css'>
   <link href="css/style-rendered2.css" rel="stylesheet" type='text/css'>
@@ -26,11 +26,11 @@
             <div class="col-md-6">
               <div class="logo-holder"></div>
             </div>
-            <div class="col-md-6">  
-                <div class="order-form-title">
-                  <h2>Recycling Order Form</h2>
-                  <p>www.cleanlites.com | p. 513-641-4155</p>
-                </div>
+            <div class="col-md-6">
+              <div class="order-form-title">
+                <h2>Recycling Order Form</h2>
+                <p>www.cleanlites.com | p. 513-641-4155</p>
+              </div>
             </div>
           </div>
         </header>
@@ -55,7 +55,7 @@
               <a href="#">Materials</a>
             </li>
             <ul class="sub-item--ul">
-    
+
             </ul>
             <li>
               <div></div>
@@ -82,12 +82,12 @@
             <div class="container">
               <div class="row">
                 <div class="col-md-12 order-type--box">
-                  <input class="auto-next" type="radio" name="order-type" value="order-type--pickup" id="pickup">
+                  <input class="auto-next" type="radio" name="orderType" value="order-type--pickup" id="pickup">
                   <label class="order-type--label" for="pickup">
                     <center> <i class="fas fa-truck-moving"></i> <br>
                       Pickup</center>
                   </label>
-                  <input class="auto-next" type="radio" value="order-type--delivery" name="order-type" id="delivery">
+                  <input class="auto-next" type="radio" value="orderType--delivery" name="order-type" id="delivery">
                   <label class="order-type--label" for="delivery">
                     <center> <i class="fas fa-truck-loading"></i> <br>
                       Delivery</center>
@@ -96,9 +96,9 @@
 
                 </div>
                 <div class=" locations-area">
-                
+
                 </div>
-              
+
 
                 <div class="col-md-9 mt-5 m-auto p-5">
                   <center>
@@ -666,7 +666,7 @@
                 <label class="bold-label">Other 1</label>
                 <input class=" withLabel" type="text" name="containers_other1" placeholder="Qty Needed">
                 <label class="bold-label">Other 2</label>
-                <input class="withLabel" type="text" name="containers_other2 " placeholder="Qty Needed">
+                <input class="withLabel" type="text" name="containers_other2" placeholder="Qty Needed">
               </div>
 
 
@@ -762,6 +762,8 @@
 
                     <input class="site-info-check" type="checkbox" value="true" name="palletJack" id="palletJack" />
                     <label for="palletJack">Pallet Jack Available</label>
+                    <input class="site-info-check" type="checkbox" value="true" name="dock" id="dock" />
+                    <label for="dock">Site Has Loading Dock</label>
 
                     <input class="site-info-check" type="checkbox" value="true" name="forklift" id="forklift" />
                     <label for="forklift">Forklift Available</label>
