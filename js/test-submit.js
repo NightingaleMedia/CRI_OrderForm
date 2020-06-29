@@ -9,7 +9,6 @@
      const response = await fetch(uri, {
          headers: h,
          method: 'GET'
-
      });
      return response;
  }
@@ -29,34 +28,30 @@
              let div = document.createElement('div');
              let inputArray = [];
              div.className = 'single-item'
-                    if (inputsExist) {
-                        
-                        item.inputs.forEach(input => {
-                           dataArray[input.id] = input.label;
-                            let singleInput = document.createElement('div')
-                            singleInput.className = 'single-input';
-                            inputArray.push(`
+             if (inputsExist) {
+
+                 item.inputs.forEach(input => {
+                     dataArray[input.id] = input.label;
+                     let singleInput = document.createElement('div')
+                     singleInput.className = 'single-input';
+                     inputArray.push(`
                             <div> ${input.label}</div>
-                            <div class="input-no"> ${input.id}</div>
-                            
+                            <div class="input-no"> ${input.id}</div>      
                             `)
-                    
-                        }) 
-                           div.innerHTML = `
+                 })
+                 div.innerHTML = `
                         <div class="title">${item.label} </div>
                         <div class="input-no">${item.id}</div>
                         <div class = "inputs" > ${inputArray.join('')} </div>
                         `
-                       
-                        root.appendChild(div)
-                    } else {
-                        div.innerHTML = `
+                 root.appendChild(div)
+             } else {
+                 div.innerHTML = `
                         <div class="title">${item.label} </div>
                         <div class="input-no">${item.id}</div>`
-                        root.appendChild(div)
-            }
-                 return;
-       
+                 root.appendChild(div)
+             }
+             return;
          }
      })
      console.log(dataArray)
