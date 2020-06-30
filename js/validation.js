@@ -28,19 +28,19 @@
  function handleOrder(section) {
 
      switch (section.querySelector('input:checked').value) {
-         case 'order-type--pickup':
+         case 'orderType--pickup':
              validationArray.Order = true;
              section.querySelector('.locations-area').innerHTML = ``;
              setTimeout(app.goToNext, 500)
 
              break;
-         case 'order-type--delivery':
+         case 'orderType--delivery':
             validationArray.Order = true;
             section.querySelector('.locations-area').innerHTML = build.buildLocations().join('')
             let locations = section.querySelectorAll('.location-selector')
+
             locations.forEach(location => location.addEventListener('change', function(){
                 if(this.firstElementChild.checked){ 
-                
                 setTimeout(app.goToNext, 500)
                 }
                 else{
@@ -54,7 +54,7 @@
          default:
              validationArray.Order = false;
      }
-     //      })
+
  }
 
  function handleBilling() {

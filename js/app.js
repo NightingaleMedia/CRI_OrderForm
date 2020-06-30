@@ -3,7 +3,7 @@ import * as mat from './material-picker.js'
 import * as validate from './validation.js'
 
 var currentPane = 0;
-var minimumRequirements = true;
+var minimumRequirements = false;
 let selectedMaterials = [];
 
 function getAllPanes() {
@@ -92,7 +92,7 @@ function goToNext() {
 function resetMaterials() {
     selectedMaterials = [];
     subItem.classList.remove('focused')
-    let result = [...getAllPanes()]
+    
         .filter(pane=>pane.hasAttribute('data-material'))
         .map(pane => pane.dataset.selected = 'false')
     let allInputs = document.querySelectorAll('.material-picker--selector > input')

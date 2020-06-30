@@ -3,7 +3,7 @@ const locations = ['Cincinnati', 'South Carolina','Minnesota','Michigan','Cincin
 
 function locations() {
     locationsArray = [];
-    locations.forEach(locations => {
+    locations.forEach(location => {
         let location = new locationSelector(location, 'locations', radio, `location-label--${location}`)
         locationsArray.push(location.render())
     })

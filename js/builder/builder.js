@@ -16,23 +16,24 @@ function buildSubItems(title) {
     container.innerHTML = `<li class="sub-item" data-m-name="${title}"><a>${title}</a></li>`;
     return container.innerHTML;
 }
+
 function buttons() {
-    const buttonz = document.createElement('div')
+    const container = document.createElement('div')
     const next = new el.buttonMaker("Next", 'btn-next', "next", goToNext)
     const prev = new el.buttonMaker("Previous", 'btn-prev', "prev", goToPrev)
 
-    buttonz.classList.add('button-section')
-    buttonz.appendChild(prev.render())
-    buttonz.appendChild(next.render())
+    container.classList.add('button-section')
+    container.appendChild(prev.render())
+    container.appendChild(next.render())
 
     return buttonz;
 }
 
 function addNextPrev() {
-    const container = document.createElement('div')
+    const prev_next_container = document.createElement('div')
     const buttonz = document.createElement('div')
     const holder = document.createElement('div')
-    container.classList.add('button--wrapper')
+    prev_next_container.classList.add('button--wrapper')
     buttonz.classList.add('button-section', 'submit-form--button')
     // buttonz.dataset.operation = 'next-prev-section'
 
@@ -41,15 +42,15 @@ function addNextPrev() {
     buttonz.appendChild(prev.render())
     buttonz.appendChild(holder)
     buttonz.appendChild(next.render())
-    container.appendChild(buttonz)
-    return container;
+    prev_next_container.appendChild(buttonz)
+    return prev_next_container;
 }
 
 function addSubmit() {
-    const container = document.createElement('div')
+    const submit_container = document.createElement('div')
     const buttonz = document.createElement('div')
 
-    container.classList.add('button--wrapper')
+    submit_container.classList.add('button--wrapper')
     buttonz.classList.add('button-section')
 
     const submitButton = new el.buttonMaker('Submit', 'btn-submit', 'submit', collateInputs)
@@ -59,8 +60,8 @@ function addSubmit() {
     buttonz.appendChild(prev.render())
     buttonz.appendChild(submitButton.render())
     buttonz.appendChild(next.render())
-    container.appendChild(buttonz)
-    return container
+    submit_container.appendChild(buttonz)
+    return submit_container
 }
 
 
@@ -94,8 +95,7 @@ const addMaterialInputs = () => {
         itemTitle.addEventListener('keyup', function (e) {
 
             let matchDigit = new RegExp('^[0-9]+$').test(e.key)
-            // console.log("key: " + e.key)
-            // itemTitle.value == e.key: itemTitle.name = '';
+       
             if (matchDigit) {
                 newInput.push(e.key)
             }
@@ -136,6 +136,7 @@ function buildMaterialPicker() {
     })
 }
 function buildLocations() {
+ 
     const locations = ['Cincinnati Anthony Wayne', 'South Carolina', 'Minnesota', 'Michigan', 'Cincinnati Northland', 'Not Sure']
     let locationsArray = [];
     locations.forEach(location => {
