@@ -1,71 +1,38 @@
-function getForm() {
-    let pw = 'cs_be5fdc4a026c0907746e421f532e5339785492f1';
-    let login = 'ck_af44e6bb12c2be4c41f605d8dd22e78686cc36d5'
-    let uri = 'https://cleanlites.dev.local/wp-json/gf/v2/forms/11';
-    let h = new Headers();
-    h.append('Authorization', 'Basic ' + btoa(`${login}:${pw}`).toString('base64'));
-    h.append('Content-Type', 'application/json; charset=utf-8');
+import * as grav from './gravity-form-api.js';
 
-    const response = fetch(uri, {
-        headers: h,
-        method: 'GET'
-    }).then(res => res.json());
-    return response;
-}
-
-
-function matchValues(values ,fields){
-    console.log(values)
+function matchValues(values, fields) {
+   
     let submitted = new Object();
 
-    fields.forEach((field) => { 
-        values.forEach((value) => {
-            if(field.label === value.name){
-                console.log(field.id + ' value: ' + value.value)
-            }
-        })
+    fields.forEach(field => {
+        if (field.inputs != null) {
+            field.inputs.forEach(input => {
+             
+                // submitted[input.id] = 'test'
+            })
+        } else {
+            submitted[field.id.toString()] = values[field.label]
+        }
     })
+
+    //replaces the 'input_' on the object key
+
+    Object.keys(submitted).forEach(function (key) {
+        let newKey = `input_${key.replace('.', '_')}`
+        submitted[newKey] = submitted[key]
+        delete submitted[key];
+    })
+    console.log(submitted)
+
+    grav.submitForm(submitted)
 }
 
 function submitToMatch(formValues) {
 
-    getForm()
-    .then(result => 
-        matchValues(formValues, result.fields))
-
-
-
+    grav.getForm()
+        .then(result =>
+            matchValues(formValues, result.fields))
 
 }
 
-async function createForm(data) {
-    let pw = "cs_be5fdc4a026c0907746e421f532e5339785492f1";
-    let login = "ck_af44e6bb12c2be4c41f605d8dd22e78686cc36d5"
-    let uri = "https://cleanlites.dev.local/wp-json/gf/v2/forms/11/submissions";
-    let h = new Headers();
-    h.append("Authorization", "Basic " + btoa(`${login}:${pw}`).toString("base64"));
-    h.append("Content-Type", "application/json; charset=utf-8");
-
-    await fetch(uri, {
-            headers: h,
-            method: "POST",
-            body: JSON.stringify(data)
-
-        })
-        .then(result => result.json())
-        .then(body => console.log(body))
-
-}
-
-
-
-
-
-
-
-
-
-export {
-    createForm,
-    submitToMatch
-}
+export { submitToMatch }

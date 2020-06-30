@@ -6,7 +6,7 @@ import {
 } from '../app.js'
 
 import {
-    submitForm
+     collateInputs
 } from '../submit-form.js'
 
 import * as el  from './element-builders.js'
@@ -52,7 +52,7 @@ function addSubmit() {
     container.classList.add('button--wrapper')
     buttonz.classList.add('button-section')
 
-    const submitButton = new el.buttonMaker('Submit', 'btn-submit', 'submit', submitForm)
+    const submitButton = new el.buttonMaker('Submit', 'btn-submit', 'submit', collateInputs)
     const next = new el.buttonMaker("Next", 'btn-next', "next", goToNext)
     const prev = new el.buttonMaker("Previous", 'btn-prev', "prev", goToPrev)
 

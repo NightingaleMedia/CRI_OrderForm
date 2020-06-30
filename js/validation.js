@@ -200,7 +200,7 @@
 
  function checkSubmit() {
      let falses = Object.values(validationArray).filter((value) => !value);
-     return (falses.length == 0) ? true : true;
+     return (falses.length == 0) ? true : false;
  }
 
  export {
