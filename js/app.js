@@ -6,10 +6,21 @@ var currentPane = 0;
 var minimumRequirements = false;
 let selectedMaterials = [];
 
+function displayError(){
+
+    let theErrorBox = getAllPanes()[currentPane]
+        .querySelector('.error-display');
+
+    theErrorBox.innerText = `Sorry! The form isn't done yet!`;
+    theErrorBox.classList.add('error-show')
+    setTimeout(() => theErrorBox.classList.remove('error-show'), 1200)
+}
+
 function getAllPanes() {
     return document.querySelectorAll('[data-selected="true"]')
 }
 const allPanes = getAllPanes();
+
 const addVerify = document.querySelectorAll('.add-verify input[type="text"]')
 const navListMain = document.querySelectorAll('.progress-nodes > ul > li')
 
@@ -92,7 +103,7 @@ function goToNext() {
 function resetMaterials() {
     selectedMaterials = [];
     subItem.classList.remove('focused')
-    
+     let result = [...getAllPanes()]
         .filter(pane=>pane.hasAttribute('data-material'))
         .map(pane => pane.dataset.selected = 'false')
     let allInputs = document.querySelectorAll('.material-picker--selector > input')
@@ -149,7 +160,7 @@ function initValidateOnType(){
     // function validateOnListen(){}
     main.querySelectorAll('input').forEach(input => { 
         input.addEventListener('keyup', validateForm)
-        input.addEventListener('click', validateForm, {once: true})
+        input.addEventListener('click', validateForm, {once: false})
     })
     
 }
@@ -165,7 +176,10 @@ const initForm = () => {
     navListMain.forEach(node => node.addEventListener('click', () => goToSelected(node.querySelector('a').innerText)))
     addNavButtons()
 
-    initValidateOnType()
+    initValidateOnType();
+   
+    getAllPanes().forEach(section => build.addErrorBox(section))
+  
 
     
 }
@@ -185,5 +199,6 @@ export {
     goToPane,
     selectedMaterials,
     navListMain,
-    resetMaterials
+    resetMaterials,
+    displayError
 }

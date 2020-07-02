@@ -28,13 +28,13 @@
  function handleOrder(section) {
 
      switch (section.querySelector('input:checked').value) {
-         case 'orderType--pickup':
+         case 'Pickup':
              validationArray.Order = true;
              section.querySelector('.locations-area').innerHTML = ``;
              setTimeout(app.goToNext, 500)
 
              break;
-         case 'orderType--delivery':
+         case 'Delivery':
             validationArray.Order = true;
             section.querySelector('.locations-area').innerHTML = build.buildLocations().join('')
             let locations = section.querySelectorAll('.location-selector')
@@ -48,8 +48,6 @@
                 }
             }))
              //TODO: change site info
-
-
              break;
          default:
              validationArray.Order = false;
@@ -162,13 +160,12 @@
  }
 
  function checkSection(e, section) {
-     const errorDiv = document.createElement('div')
-     errorDiv.className = "error-display"
-     errorDiv.innerText = "Error"
-     section.querySelector('.title-of-section').appendChild(errorDiv)
+
 
      // match the section we are checking to our array
-     let matching = Object.keys(validationArray).find(key => section.dataset.name === key)
+     let matching = Object.keys(validationArray)
+                          .find(key => section.dataset.name === key)
+
      if (matching !== undefined) {
          switch (section.dataset.name) {
              case 'Order':

@@ -1,18 +1,31 @@
-<!DOCTYPE html>
-<html>
+import {
+  addSubmit
+} from './builder/builder.js'
 
-<head>
-  <title>Order form</title>
-  <link href="https://fonts.googleapis.com/css?family=Bebas+Neue&display=swap" rel="stylesheet">
-  <link href="css/style-rendered.css" rel="stylesheet" type='text/css'>
+class RenderedForm {
+  constructor(obj) {
+    console.log(obj)
+    this.wrapper = document.createElement('div');
+    this.wrapper.innerHTML = formHTML(obj).toString();
 
-  <link href="css/bootstrap.css" rel="stylesheet" type='text/css'>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-</head>
+  }
 
-<body>
-  <main>
-    <div class="main-form">
+  render() {
+
+    return this.wrapper;
+  }
+
+
+}
+
+function formHTML(obj){
+
+  // find the matched value and put the form value
+
+  return (
+    `
+<main>
+  <div class="main-form">
       <form action="#" method="POST">
         <section class="section--header" data-name="header">
           <div class="container">
@@ -36,7 +49,7 @@
             <section class="section--contact col-md-6" data-name="Billing">
 
               <input type="text" name="billingCompany" placeholder="Billing Company">
-              <input type="text" name="Address" placeholder="Address">
+              <input type="text" name="Address" placeholder="Address" value=>
 
               <div class="city-state">
                 <input class="city" type="text" name="City" placeholder="City">
@@ -58,17 +71,17 @@
             <section class="section--generator col-md-6" data-name="Generator">
 
 
-              <input type="text" name="generator" placeholder="Generator">
-              <input type="text" name="address" placeholder="Address">
+              <input type="text" name="generator" value="">
+              <input type="text" name="address" value="">
 
               <div class="city-state">
-                <input class="city" type="text" name="city" placeholder="City">
-                <input class="state" type="text" name="state" placeholder="State">
-                <input class="zip" type="text" name="generatorZip" placeholder="Zip">
+                <input class="city" type="text" name="city" value="">
+                <input class="state" type="text" name="state" value="">
+                <input class="zip" type="text" name="generatorZip" value="">
               </div>
               <input type="text" name="billingContactName" placeholder="Contact Name">
               <input type="text" name="billingPhone" placeholder="Phone">
-              <input type="text" name="poNumber" placeholder="PO Number">
+              <input type="text" name="poNumber" value="">
 
 
             </section>
@@ -328,14 +341,14 @@
 
       </form>
     </div>
-
-  </main>
-
-  <section class="section__submit">
+    </main>
+    <section class="section__submit">
     <button id="submit-form">Submit</button>
-  </section>
+    </section>
+`
+  )
+}
 
-</body>
-<script src="js/submit-form.js" type="module"></script>
-
-</html>
+export {
+  RenderedForm
+}

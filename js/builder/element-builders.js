@@ -40,8 +40,10 @@ class locationSelector{
 
         this.input = document.createElement('input')
         this.input.type = inputType
+        this.input.className = 'auto-next'
         this.input.id = labelId
         this.input.name = name
+        this.input.value = title
 
         this.label = document.createElement('label')
         this.label.htmlFor = labelId
@@ -61,4 +63,23 @@ class locationSelector{
     }
 
 }
-export {inputMaker, buttonMaker, locationSelector}
+
+class LoadingPage {
+    constructor(){
+        this.container = document.createElement('div');
+        this.container.className = `loading__container`;
+        this.container.innerHTML = `
+     
+            <h2>Submitting Your Form...</h2>
+            <span class="loading--holder">
+                <span class="loading--progress"></span>
+            </span>
+        
+                `
+    }
+
+    render(){
+        return this.container;
+    }
+}
+export {inputMaker, buttonMaker, locationSelector, LoadingPage}

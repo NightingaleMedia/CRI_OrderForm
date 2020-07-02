@@ -2,6 +2,7 @@ import {
     goToNext,
     goToPrev,
     handleCheck,
+    displayError    
 
 } from '../app.js'
 
@@ -38,9 +39,10 @@ function addNextPrev() {
     // buttonz.dataset.operation = 'next-prev-section'
 
     const next = new el.buttonMaker("Next", 'btn-next', "next", goToNext)
+    const fakeSubmit = new el.buttonMaker('Submit', 'btn-submit--grey', 'submit', displayError)
     const prev = new el.buttonMaker("Previous", 'btn-prev', "prev", goToPrev)
     buttonz.appendChild(prev.render())
-    buttonz.appendChild(holder)
+    buttonz.appendChild(fakeSubmit.render())
     buttonz.appendChild(next.render())
     prev_next_container.appendChild(buttonz)
     return prev_next_container;
@@ -140,11 +142,18 @@ function buildLocations() {
     const locations = ['Cincinnati Anthony Wayne', 'South Carolina', 'Minnesota', 'Michigan', 'Cincinnati Northland', 'Not Sure']
     let locationsArray = [];
     locations.forEach(location => {
-        let locationBuilder = new el.locationSelector(location, 'locations', 'radio', `location-label--${location}`)
+        let locationBuilder = new el.locationSelector(location, 'CleanlitesFacility', 'radio', `location-label--${location}`)
         locationsArray.push(locationBuilder.render().innerHTML)
     })
     
     return locationsArray;
+}
+
+function addErrorBox(section){
+         const errorDiv = document.createElement('div')
+         errorDiv.className = "error-display"
+         errorDiv.innerText = "Error"
+         section.querySelector('.title-of-section').appendChild(errorDiv)
 }
 
 
@@ -156,5 +165,6 @@ export {
     addSubmit,
     addNextPrev,
     buildMaterialPicker,
-    buildLocations
+    buildLocations,
+    addErrorBox
 }

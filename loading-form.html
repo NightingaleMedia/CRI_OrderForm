@@ -3,14 +3,13 @@
 
 <head>
   <title>Order form</title>
-  <link href="css/style.css" rel="stylesheet" type='text/css' id="main-style">
   <link href="https://fonts.googleapis.com/css?family=Bebas+Neue&display=swap" rel="stylesheet">
 
-  
+  <link href="css/style.css" rel="stylesheet" type='text/css'>
 
   <link href="css/multipage.css" rel="stylesheet" type='text/css'>
   <link href="css/mobile.css" rel="stylesheet" type='text/css'>
-  <!-- <link href="css/style-rendered2.css" rel="stylesheet" type='text/css'> -->
+  <link href="css/style-rendered2.css" rel="stylesheet" type='text/css'>
   <link href="css/bootstrap.min.css" rel="stylesheet" type='text/css'>
   <link href="https://use.fontawesome.com/releases/v5.11.0/css/all.css" rel="stylesheet">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -68,12 +67,12 @@
                 <center>Site</center>
               </a>
             </li>
-              <!-- <li>
+              <li>
                 <div></div>
                 <a href="#">
                   <center>Submit</center>
                 </a>
-              </li> -->
+              </li>
 
 
           </ul>
@@ -87,12 +86,12 @@
             <div class="container">
               <div class="row">
                 <div class="col-md-12 order-type--box">
-                  <input class="auto-next" type="radio" name="orderType" value="Pickup" id="pickup">
+                  <input class="auto-next" type="radio" name="orderType" value="orderType--pickup" id="pickup">
                   <label class="order-type--label" for="pickup">
                     <center> <i class="fas fa-truck-moving"></i> <br>
                       Pickup</center>
                   </label>
-                  <input class="auto-next" type="radio" name="orderType" value="Delivery" id="delivery">
+                  <input class="auto-next" type="radio" value="orderType--delivery" name="order-type" id="delivery">
                   <label class="order-type--label" for="delivery">
                     <center> <i class="fas fa-truck-loading"></i> <br>
                       Delivery</center>
@@ -714,7 +713,6 @@
                       <option value="2">6:00 pm</option>
                       <option value="1">Other (Specify Below)</option>
                     </select>
-                  
                     <label class="label-time" for="time-to">To </label>
                     <select class="time-select" id="time-to">
                       <option value="2">9:00 am</option>
@@ -739,15 +737,10 @@
                       <option value="1">Other (Specify Below)</option>
                     </select>
                     <br>
+                    <label class="site-label" for="heightRestrictions">Height Restrictions</label>
 
-                    <input class="pickup-details" type="textarea" name="heightRestrictions" placeholder="Height Restrictions">
-                    <br>
-                    <label class="site-label" for="heightRestrictions">Pickup Details</label>
-
-
-                      <input class="pickup-details" name="noPallets" placeholder="# of Pallets">
-                      <br>
-                      <input class="pickup-details" name="estWeight" placeholder="Estimated Weight">
+                    <input class="height-restrictions" type="textarea" name="heightRestrictions"
+                      placeholder="Height Restrictions">
                   </div>
 
                   <div class="col-lg-6 col-md-6 site-info">
@@ -771,7 +764,7 @@
                   </div>
                   <div class="col-md-12 mt-2">
                     <label class="bold-label">Other Comments</label>
-                    <textarea class="textarea" type="textarea" rows="2" name="comments"></textarea>
+                    <textarea class="textarea" type="textarea" rows="2"></textarea>
                     <br>
                     <label class="bold-label" for="fileUpload">Upload Files</label>
                     <input type="file" id="fileUpload">
@@ -782,15 +775,14 @@
           </div>
         </div>
 
-        <!-- <div class="single-pane container finalize" id="section-finalize" data-name="Submit" data-selected="true">
-          <div class="loading__container">
-            <h2>Submitting Your Form...</h2>
-            <span class="loading--holder">
-              <span class="loading--progress"></span>
-            </span>
-          </div>
-        </div> -->
+        <div class="single-pane container finalize" id="section-finalize" data-name="Submit" data-selected="true">
 
+              <div class="loading__container">
+                <span class="loading--holder">
+                  <span class="loading--progress"></span>
+                </span>
+              </div>
+        </div>
       </div>
 
 </body>
