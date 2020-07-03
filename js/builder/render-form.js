@@ -1,31 +1,25 @@
 import {
   addSubmit
-} from './builder/builder.js'
+} from './builder.js'
 
 class RenderedForm {
   constructor(obj) {
-    console.log(obj)
+ 
     this.wrapper = document.createElement('div');
     this.wrapper.innerHTML = formHTML(obj).toString();
 
   }
-
   render() {
-
     return this.wrapper;
   }
-
-
 }
 
 function formHTML(obj){
-
   // find the matched value and put the form value
-
   return (
     `
 <main>
-  <div class="main-form">
+    <div class="main-form">
       <form action="#" method="POST">
         <section class="section--header" data-name="header">
           <div class="container">
@@ -37,7 +31,7 @@ function formHTML(obj){
               </div>
               <div class="col-md-6">
                 <div class="form--header">
-                  <h2>Confirm Your Order</h2>
+                  <h3 class="confirm">Confirm Your Order</h3>
                   <p>www.cleanlites.com | p. 513-641-4155</p>
                 </div>
               </div>
@@ -49,39 +43,39 @@ function formHTML(obj){
             <section class="section--contact col-md-6" data-name="Billing">
 
               <input type="text" name="billingCompany" placeholder="Billing Company">
-              <input type="text" name="Address" placeholder="Address" value=>
+              <input type="text" name="billingAddress" placeholder="Address">
 
               <div class="city-state">
-                <input class="city" type="text" name="City" placeholder="City">
-                <input class="state" type="text" name="State" placeholder="State">
-                <input class="zip" type="text" name="zip" placeholder="Zip Code">
+                <input class="city" type="text" name="billingCity" >
+                <input class="state" type="text" name="billingState" >
+                <input class="zip" type="text" name="billingZip" >
               </div>
 
-              <input type="text" name="contactName" placeholder="Contact Name">
-              <input type="text" name="phone" placeholder="Phone"><br>
-              <input type="hidden" name="date" placeholder="">
-              <input type="text" name="email" placeholder="eMail Address">
+              <input type="text" name="billingContactName" >
+              <input type="text" name="billingPhone" ><br>
+           
+              <input type="text" name="billingEmail" >
               <div class="pickup-delivery">
-                <input type="radio" value="true" id="radioOne" name="pickup" checked />
+                <input type="radio" value="pickup" id="radioOne" name="orderType" checked />
                 <label for="radioOne" class="radio">Pickup</label>
-                <input type="radio" value="false" id="radioTwo" name="pickup" />
+                <input type="radio" value="dropoff" id="radioTwo" name="orderType" />
                 <label for="radioTwo" class="radio">Delivery</label>
 
             </section>
             <section class="section--generator col-md-6" data-name="Generator">
 
 
-              <input type="text" name="generator" value="">
-              <input type="text" name="address" value="">
+              <input type="text" name="generatorCompany" placeholder="Generator">
+              <input type="text" name="generatorAddress" placeholder="Address">
 
               <div class="city-state">
-                <input class="city" type="text" name="city" value="">
-                <input class="state" type="text" name="state" value="">
-                <input class="zip" type="text" name="generatorZip" value="">
+                <input class="city" type="text" name="generatorCity" placeholder="City">
+                <input class="state" type="text" name="generatorState" placeholder="State">
+                <input class="zip" type="text" name="generatorZip" placeholder="Zip">
               </div>
-              <input type="text" name="billingContactName" placeholder="Contact Name">
-              <input type="text" name="billingPhone" placeholder="Phone">
-              <input type="text" name="poNumber" value="">
+              <input type="text" name="generatorContactName" placeholder="Contact Name">
+              <input type="text" name="generatorPhone" placeholder="Phone">
+              <input type="text" name="poNumber" placeholder="PO Number">
 
 
             </section>
@@ -93,7 +87,7 @@ function formHTML(obj){
           <!--=========== Lamps for Recycling =============-->
           <div class="material--lamps" data-name="Lamps">
             <div class="material--title">
-              <h2>Lamps</h2>
+              <h3>Lamps</h3>
             </div>
             <label><span>4ft & Under</span></label>
             <input type="text" name="4ftUnder">
@@ -114,7 +108,7 @@ function formHTML(obj){
           </div>
           <div class="material--ballast" data-name="Ballast">
             <div class="material--title">
-              <h2>Ballast</h2>
+              <h3>Ballast</h3>
             </div>
             <label><span>Ballasts</span></label>
             <input type="text" name="ballast_ballasts">
@@ -132,7 +126,7 @@ function formHTML(obj){
 
           <div class="material--batteries" data-name="Batteries">
             <div class="material--title">
-              <h2>Batteries</h2>
+              <h3>Batteries</h3>
             </div>
             <label><span>Nickel Cadmium</span></label>
             <input type="text" name="batteries_niCad">
@@ -167,7 +161,7 @@ function formHTML(obj){
           </div>
           <div class="material--eWaste" data-name="eWaste">
             <div class="material--title">
-              <h2>eWaste</h2>
+              <h3>eWaste</h3>
             </div>
 
             <label><span>Monitors</span></label>
@@ -185,7 +179,7 @@ function formHTML(obj){
           </div>
           <div class="material--specialty" data-name="Specialty">
             <div class="material--title">
-              <h2>Specialty</h2>
+              <h3>Specialty</h3>
             </div>
             <label><span>Airbag Devices</span></label>
             <input type="text" name="special_airbag">
@@ -198,7 +192,7 @@ function formHTML(obj){
 
           <div class="material--haz" data-name="Hazardous">
             <div class="material--title">
-              <h2>Hazardous / Other</h2>
+              <h3>Hazardous / Other</h3>
             </div>
             <label><span>HG Devices</span></label>
             <input type="text" name="HG_devices">
@@ -312,6 +306,7 @@ function formHTML(obj){
                   <option>6:00 pm</option>
                   <option>Other (Specify Below)</option>
                   <input class="" type="textarea" name="heightRestrictions" placeholder="Height Restrictions">
+                  <input class="" type="textarea" name="noPallets" placeholder="# of Pallets">
                 </select>
               </div>
               <div class="col-sm-6 site-info--checks">
@@ -341,8 +336,10 @@ function formHTML(obj){
 
       </form>
     </div>
-    </main>
+
+  </main>
     <section class="section__submit">
+    <button id="go-back">Go Back</button>
     <button id="submit-form">Submit</button>
     </section>
 `

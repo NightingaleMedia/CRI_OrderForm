@@ -27,7 +27,7 @@
         padding: 0.25rem !important;
     }
     .order-type--box label {
-        min-width: 100px !important;
+        min-width: 120px !important;
         min-height: 100px !important;
     }
 }

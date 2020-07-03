@@ -11,6 +11,7 @@ import {
 } from '../submit-form.js'
 
 import * as el  from './element-builders.js'
+import { handleErrorArray } from '../validation.js';
 
 function buildSubItems(title) {
     let container = document.createElement('div')
@@ -33,13 +34,13 @@ function buttons() {
 function addNextPrev() {
     const prev_next_container = document.createElement('div')
     const buttonz = document.createElement('div')
-    const holder = document.createElement('div')
+
     prev_next_container.classList.add('button--wrapper')
     buttonz.classList.add('button-section', 'submit-form--button')
     // buttonz.dataset.operation = 'next-prev-section'
 
     const next = new el.buttonMaker("Next", 'btn-next', "next", goToNext)
-    const fakeSubmit = new el.buttonMaker('Submit', 'btn-submit--grey', 'submit', displayError)
+    const fakeSubmit = new el.buttonMaker('Submit', 'btn-submit--grey', 'submit', handleErrorArray)
     const prev = new el.buttonMaker("Previous", 'btn-prev', "prev", goToPrev)
     buttonz.appendChild(prev.render())
     buttonz.appendChild(fakeSubmit.render())
@@ -55,7 +56,7 @@ function addSubmit() {
     submit_container.classList.add('button--wrapper')
     buttonz.classList.add('button-section')
 
-    const submitButton = new el.buttonMaker('Submit', 'btn-submit', 'submit', collateInputs)
+    const submitButton = new el.buttonMaker('Finalize', 'btn-submit', 'submit', collateInputs)
     const next = new el.buttonMaker("Next", 'btn-next', "next", goToNext)
     const prev = new el.buttonMaker("Previous", 'btn-prev', "prev", goToPrev)
 
@@ -101,12 +102,20 @@ const addMaterialInputs = () => {
             if (matchDigit) {
                 newInput.push(e.key)
             }
+            if((!matchDigit) && (e.key !='Backspace')){
+                displayError(e, 'Value must be numbers only.  Use the \'Units\' box to select unit type')
+
+            }
             if (e.key == 'Backspace') {
-                this.value = '';
-                newInput = [];
+                // this.value = '';
+                // newInput = [];
+                newInput.pop()
+                this.value = newInput.join('');
             } else {
                 this.value = newInput.join('');
+                
             }
+
         })
         let labelTitle = itemSelector.querySelector('label')
         let labelInput = itemSelector.querySelector('input')

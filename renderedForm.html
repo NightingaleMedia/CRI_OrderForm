@@ -36,38 +36,38 @@
             <section class="section--contact col-md-6" data-name="Billing">
 
               <input type="text" name="billingCompany" placeholder="Billing Company">
-              <input type="text" name="Address" placeholder="Address">
+              <input type="text" name="billingAddress" placeholder="Address">
 
               <div class="city-state">
-                <input class="city" type="text" name="City" placeholder="City">
-                <input class="state" type="text" name="State" placeholder="State">
-                <input class="zip" type="text" name="zip" placeholder="Zip Code">
+                <input class="city" type="text" name="billingCity" >
+                <input class="state" type="text" name="billingState" >
+                <input class="zip" type="text" name="billingZip" >
               </div>
 
-              <input type="text" name="contactName" placeholder="Contact Name">
-              <input type="text" name="phone" placeholder="Phone"><br>
-              <input type="hidden" name="date" placeholder="">
-              <input type="text" name="email" placeholder="eMail Address">
+              <input type="text" name="billingContactName" >
+              <input type="text" name="billingPhone" ><br>
+           
+              <input type="text" name="billingEmail" >
               <div class="pickup-delivery">
-                <input type="radio" value="true" id="radioOne" name="pickup" checked />
+                <input type="radio" value="pickup" id="radioOne" name="orderType" checked />
                 <label for="radioOne" class="radio">Pickup</label>
-                <input type="radio" value="false" id="radioTwo" name="pickup" />
+                <input type="radio" value="dropoff" id="radioTwo" name="orderType" />
                 <label for="radioTwo" class="radio">Delivery</label>
 
             </section>
             <section class="section--generator col-md-6" data-name="Generator">
 
 
-              <input type="text" name="generator" placeholder="Generator">
-              <input type="text" name="address" placeholder="Address">
+              <input type="text" name="generatorCompany" placeholder="Generator">
+              <input type="text" name="generatorAddress" placeholder="Address">
 
               <div class="city-state">
-                <input class="city" type="text" name="city" placeholder="City">
-                <input class="state" type="text" name="state" placeholder="State">
+                <input class="city" type="text" name="generatorCity" placeholder="City">
+                <input class="state" type="text" name="generatorState" placeholder="State">
                 <input class="zip" type="text" name="generatorZip" placeholder="Zip">
               </div>
-              <input type="text" name="billingContactName" placeholder="Contact Name">
-              <input type="text" name="billingPhone" placeholder="Phone">
+              <input type="text" name="generatorContactName" placeholder="Contact Name">
+              <input type="text" name="generatorPhone" placeholder="Phone">
               <input type="text" name="poNumber" placeholder="PO Number">
 
 
@@ -299,6 +299,7 @@
                   <option>6:00 pm</option>
                   <option>Other (Specify Below)</option>
                   <input class="" type="textarea" name="heightRestrictions" placeholder="Height Restrictions">
+                  <input class="" type="textarea" name="noPallets" placeholder="# of Pallets">
                 </select>
               </div>
               <div class="col-sm-6 site-info--checks">

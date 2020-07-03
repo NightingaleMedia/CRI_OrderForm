@@ -6,7 +6,7 @@
   <link href="css/style.css" rel="stylesheet" type='text/css' id="main-style">
   <link href="https://fonts.googleapis.com/css?family=Bebas+Neue&display=swap" rel="stylesheet">
 
-  
+
 
   <link href="css/multipage.css" rel="stylesheet" type='text/css'>
   <link href="css/mobile.css" rel="stylesheet" type='text/css'>
@@ -68,7 +68,7 @@
                 <center>Site</center>
               </a>
             </li>
-              <!-- <li>
+            <!-- <li>
                 <div></div>
                 <a href="#">
                   <center>Submit</center>
@@ -101,9 +101,9 @@
                 <div class="locations-area">
                 </div>
 
-                <div class="col-md-9 mt-5 m-auto p-5">
+                <div class="col-md-9 mt-5 m-auto p-3">
                   <center>
-                    <p>Welcome to the new Cleanlites Order form. Start by picking an order type. Once you fill this out,
+                    <p>Welcome to the new Cleanlites Order form. <br> Once you fill this out,
                       we will email you a copy of the PDF</p>
                   </center>
                 </div>
@@ -141,10 +141,10 @@
                   <input type="text" name="billingContactName" placeholder="Contact Name (required)">
                   <input type="text" name="billingPhone" placeholder="Phone (required)">
 
-                  <input type="hidden" name="date" placeholder="" value="date">
+                  <input type="hidden" name="date" placeholder="" value="date" required>
                   <input type="text" name="billingEmail" placeholder="eMail Address (required)">
                   <p>*We will send a copy of this form to this email.</p>
-                  <input type="text" name="poNumber" placeholder="PO Number (optional)" value="Po Number (optional)">
+                  <input type="text" name="poNumber" class="poNumber" placeholder="PO Number (optional)">
                 </div>
               </div>
             </div>
@@ -288,7 +288,7 @@
                           </div>
                           <div class="label-input-quantity">
                             <label class="bold-label">Nickel Metal Hydride</label>
-                            <input class="align-items-end withLabel" type="text" name="batteries_niMet"
+                            <input class="align-items-end withLabel" type="text" name="batteries_niMh"
                               placeholder="Est. Quantity or Pounds">
                           </div>
                           <div class="label-input-quantity">
@@ -714,7 +714,7 @@
                       <option value="2">6:00 pm</option>
                       <option value="1">Other (Specify Below)</option>
                     </select>
-                  
+
                     <label class="label-time" for="time-to">To </label>
                     <select class="time-select" id="time-to">
                       <option value="2">9:00 am</option>
@@ -740,33 +740,51 @@
                     </select>
                     <br>
 
-                    <input class="pickup-details" type="textarea" name="heightRestrictions" placeholder="Height Restrictions">
+                    <input class="pickup-details" type="textarea" name="heightRestrictions"
+                      placeholder="Height Restrictions">
                     <br>
                     <label class="site-label" for="heightRestrictions">Pickup Details</label>
 
 
-                      <input class="pickup-details" name="noPallets" placeholder="# of Pallets">
-                      <br>
-                      <input class="pickup-details" name="estWeight" placeholder="Estimated Weight">
+                    <input class="pickup-details" name="noPallets" placeholder="# of Pallets">
+                    <br>
+                    <input id="estWeight" class="pickup-details" name="estWeight" placeholder="Estimated Weight (Required)">
                   </div>
 
                   <div class="col-lg-6 col-md-6 site-info">
-                    <div>Additional Options</div>
+                    <div class="ad-opt">Additional Options <br>(Select Multiple)</div>
+
+
+                    <input class="site-info-check" type="checkbox" value="true" name="palletized"
+                      id="palletized" />
+                    <label for="palletized">
+                      <h2>Items Palletized</h2>
+                    </label>
 
                     <input class="site-info-check" type="checkbox" value="true" name="workersAvailable"
                       id="workersAvailable" />
-                    <label for="workersAvailable"> Workers Available To Load </label>
+                    <label for="workersAvailable">
+                      <h2>Workers Available To Load </h2>
+                    </label>
 
                     <input class="site-info-check" type="checkbox" value="true" name="liftGate" id="liftGate" />
-                    <label for="liftGate">Lift Gate Needed</label>
+                    <label for="liftGate">
+                      <h2> Lift Gate Needed</h2>
+                    </label>
 
                     <input class="site-info-check" type="checkbox" value="true" name="palletJack" id="palletJack" />
-                    <label for="palletJack">Pallet Jack Available</label>
+                    <label for="palletJack">
+                      <h2>Pallet Jack Available</h2>
+                    </label>
                     <input class="site-info-check" type="checkbox" value="true" name="dock" id="dock" />
-                    <label for="dock">Site Has Loading Dock</label>
+                    <label for="dock">
+                      <h2>Site Has Loading Dock</h2>
+                    </label>
 
                     <input class="site-info-check" type="checkbox" value="true" name="forklift" id="forklift" />
-                    <label for="forklift">Forklift Available</label>
+                    <label for="forklift">
+                      <h2>Forklift Available</h2>
+                    </label>
 
                   </div>
                   <div class="col-md-12 mt-2">

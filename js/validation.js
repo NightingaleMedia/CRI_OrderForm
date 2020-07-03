@@ -11,6 +11,16 @@
  const genSection = document.querySelector('div [data-name="Generator"]')
 
 
+function handleErrorArray(e){
+    let m = []
+
+    for (let k in validationArray){
+        
+        if (!validationArray[k]) m.push(k)
+    }
+    app.displayError(e, `Sections Incomplete: ${m.join(', ')}`)
+}
+
  const checkNotNull = (arrayToCheck) => {
      let result;
      for (let i = 0; i < arrayToCheck.length; i++) {
@@ -55,13 +65,22 @@
 
  }
 
- function handleBilling() {
-     const billingInputs = billingSection.querySelectorAll('input')
-     validationArray.Billing = checkNotNull(billingInputs);
+ function handleBilling(e) {
+     
+    let billingInputs = e.querySelectorAll('input:not(.poNumber)')
+    validationArray.Billing = checkNotNull(billingInputs);
  }
 
- function handleSite() {
-     validationArray.Site = true;
+ function handleSite(e, section) {
+    let weight = section.querySelector('#estWeight')
+    if (!weight.value == ''){
+        validationArray.Site = true;
+        
+    }
+    else {
+        validationArray.Site = false;
+    }
+
  }
 
  function handleGenerator(e, section) {
@@ -73,7 +92,8 @@
              validationArray.Generator = true;
              setTimeout(app.goToNext, 1000)
          } else {
-             displayError('Generator', 'Billing section incomplete!!')
+             app.displayError(e, 'The Billing Section incomplete!')
+            // handleErrorArray();
              selector.checked = false;
          }
      }
@@ -134,16 +154,6 @@
      }
  }
 
- function displayError(paneName, message) {
-     let theErrorBox = [...sections]
-         .find(section => section.dataset.name === paneName)
-         .querySelector('.error-display');
-
-     theErrorBox.innerText = message;
-     theErrorBox.classList.add('error-show')
-     setTimeout(() => theErrorBox.classList.remove('error-show'), 1200)
- }
-
  function handleDisplay(section, bool) {
 
      // change node checkmark
@@ -202,5 +212,6 @@
 
  export {
      checkSubmit,
-     checkSection
+     checkSection,
+     handleErrorArray
  }

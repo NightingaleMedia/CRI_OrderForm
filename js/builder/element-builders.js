@@ -65,12 +65,12 @@ class locationSelector{
 }
 
 class LoadingPage {
-    constructor(){
+    constructor(message = `Loading...`){
         this.container = document.createElement('div');
         this.container.className = `loading__container`;
         this.container.innerHTML = `
      
-            <h2>Submitting Your Form...</h2>
+            <h2>${message}</h2>
             <span class="loading--holder">
                 <span class="loading--progress"></span>
             </span>

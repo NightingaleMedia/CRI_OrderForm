@@ -11,20 +11,20 @@ h.append("Authorization", "Basic " + btoa(`${login}:${pw}`).toString("base64"));
 h.append("Content-Type", "application/json; charset=utf-8");
 
 function getForm() {
-
+    // console.log('get form')
     let uri = api_url;
 
     const response = fetch(uri, {
         headers: h,
         method: 'GET'
     })
-    .catch(err => app.displayError())
+    // .catch(err => app.displayError())
     .then(res => res.json());
-    
     return response;
 }
 
 function submitForm(data) {
+    //  console.log('submit form')
     let uri = `${api_url}/submissions`;
     fetch(uri, {
             headers: h,
@@ -38,6 +38,7 @@ function submitForm(data) {
 
 //takes the inputs from the form and matches by string
 function matchValues(values, fields) {
+    //  console.log('match form')
     let submitted = new Object();
     fields.forEach(field => {
         if (field.inputs != null) {
@@ -55,17 +56,19 @@ function matchValues(values, fields) {
         submitted[newKey] = submitted[key]
         delete submitted[key];
     })
+   
     return submitted;
-    // populateConfirmForm(submitted)
   
 }
 
 function submitToMatch(formValues) {
- 
+     console.log('submit to match form')
+     console.info(formValues)
     getForm()
-        .then(result => populateConfirmForm(matchValues(formValues, result.fields)))
+        .then(result => submitForm(matchValues(formValues, result.fields)))
 
 }
+
 
 export {
     getForm,

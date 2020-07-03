@@ -3,7 +3,9 @@ import {
     LoadingPage
 } from './builder/element-builders.js'
 
-import {RenderedForm} from './render-form.js'
+import {
+    RenderedForm
+} from './builder/render-form.js'
 
 
 
@@ -17,16 +19,27 @@ function populateConfirmForm(form_object) {
     document.body.appendChild(renderedForm.render())
 
     const submitButton = document.querySelector('#submit-form')
-    submitButton.onclick = function(){
+    let inputs = document.querySelectorAll('input, select')
+
+
+    inputs.forEach(input => {
+        input.value = form_object[input.name]
+        input.setAttribute('disabled', 'disabled')
+    })
+
+
+    submitButton.onclick = function () {
+
+        grav.submitToMatch(form_object)
         const mainForm = document.querySelector('.main-form')
         mainForm.innerHTML = ``;
 
-        let load = new LoadingPage()
-        
+        let load = new LoadingPage('Submitting Your Form ...')
         mainForm.appendChild(load.render())
-        grav.submitForm(form_object)
+
+
     }
-    
+
 }
 
 function collateInputs() {
@@ -59,19 +72,21 @@ function collateInputs() {
                 if (input.type === 'select-one') {
                     formObject[input.name] = input[input.selectedIndex].innerText
 
-                } else if (input.type === 'radio'){ 
-                    input.checked ? (formObject[input.name] = input.value ): null;
-                     
+                } else if (input.type === 'radio') {
+                    input.checked ? (formObject[input.name] = input.value) : null;
+
                 } else formObject[input.name] = input.value
             })
         }
     })
-    let load = new LoadingPage()
+    let load = new LoadingPage('Checking Your Form . . .')
     let pane = document.querySelector('.current-pane')
     pane.innerHTML = ``;
     pane.appendChild(load.render());
-
-    grav.submitToMatch(formObject)
+    setTimeout(() => {
+        populateConfirmForm(formObject)
+    }, 1000)
+    // grav.submitToMatch(formObject)
 
 }
 export {

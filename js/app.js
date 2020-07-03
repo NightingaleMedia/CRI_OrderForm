@@ -6,14 +6,14 @@ var currentPane = 0;
 var minimumRequirements = false;
 let selectedMaterials = [];
 
-function displayError(){
-
+function displayError(e, m = `Form incomplete`){
+    build.addErrorBox(getAllPanes()[currentPane]);
     let theErrorBox = getAllPanes()[currentPane]
         .querySelector('.error-display');
 
-    theErrorBox.innerText = `Sorry! The form isn't done yet!`;
+    theErrorBox.innerText = m;
     theErrorBox.classList.add('error-show')
-    setTimeout(() => theErrorBox.classList.remove('error-show'), 1200)
+    setTimeout(() => theErrorBox.classList.remove('error-show'), 2000)
 }
 
 function getAllPanes() {
@@ -74,6 +74,7 @@ function goToPane(number) {
     getAllPanes()[currentPane].classList.add('current-pane')
     addNavButtons();
     updateNodeProgress();
+    // getAllPanes()[currentPane].classList.contains('material-pane') ? mat.toggler(currentPane) : null;
 }
 
 function goToSelected(title) {

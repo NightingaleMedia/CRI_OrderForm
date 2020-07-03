@@ -39,29 +39,35 @@ function updateNodeMaterials() {
     }))
     if (app.getAllPanes()[app.currentPane].hasAttribute('data-material')) {
         let title = app.getAllPanes()[app.currentPane].dataset.material
+        // animate the first toggle
+        setTimeout(()=>{toggler(app.currentPane - 4)}, 600)
         createdLi.find(item => item.dataset.mName == title).classList.add('current')
     }
 }
+function toggler(link) {
+  
+    const firstSelector = app.selectedMaterials[link].querySelectorAll(`input[type="checkbox"]`)[0]
+    firstSelector.checked = !firstSelector.checked;
+    setTimeout(() => {
+        firstSelector.checked = !firstSelector.checked
+    }, 300)
+}
 
 function goToSelectedMaterial(title) {
-    app.getAllPanes().forEach(pane => pane.classList.remove('current-pane'))
-    let start = [...app.getAllPanes()].findIndex(pane => pane.hasAttribute('data-material'))
-    let matchedLink = app.selectedMaterials.findIndex(material => material.dataset.material == title)
 
-    // animate the first toggle
-    const toggler = function () {
-        const firstSelector = app.selectedMaterials[matchedLink].querySelectorAll(`input[type="checkbox"]`)[0]
-        firstSelector.checked = !firstSelector.checked;
-        setTimeout(() => {
-            firstSelector.checked = !firstSelector.checked
-        }, 300)
-    }
-    setTimeout(toggler, 800);
+    app.getAllPanes().forEach(pane => pane.classList.remove('current-pane'))
+    let start = [...app.getAllPanes()]
+                                .findIndex(pane => pane.hasAttribute('data-material'))
+    let matchedLink = app.selectedMaterials
+                                .findIndex(material => material.dataset.material == title)
+
     app.goToPane(start + matchedLink);
+    // app.goToPane(app.currentPane - 4);
 }
 
 export {
     updateNodeMaterials,
     goToSelectedMaterial,
-    sortSelected
+    sortSelected,
+    toggler
 };
