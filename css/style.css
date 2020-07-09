@@ -103,6 +103,7 @@
     padding: 5px;
     background: rgb(244, 244, 244);
     border: none;
+    transition: background-color 0.2s ease;
   }
 
   input::placeholder {
@@ -515,6 +516,17 @@
     font-size: 0.75rem;
   }
 
+  .upload-pdf-form{
+
+  }
+
+  .upload-pdf-form::-webkit-file-upload-button{
+    background-color: var(--selected);
+    border: none;
+    color: white;
+  
+  }
+
   /*-------------------------------------------------
                       BILLING / GENERATOR
   --------------------------------------------------*/
@@ -775,8 +787,9 @@
     text-align: center;
     font-weight: 800;
     margin: auto;
-    padding-top: 20px;
-    padding-bottom: 20px;
+    font-size: 1.15em;
+    padding-top: 10px;
+    padding-bottom: 10px;
     color: red;
   }
 
@@ -784,10 +797,19 @@
     font-weight: 600;
   }
 
-  #fileUpload {
-    background: none;
+  #filesUploader {
+    background: #e7e7e7;
     font-size: 2em;
   }
+
+  #filesUploader::-webkit-file-upload-button{
+    background-color: var(--selected);
+    color: white;
+    border: none;
+    padding: 0.5em;
+  }
+
+
 
   /*-------------------------------------------------
                       ERRORS AND VALIDATION
@@ -820,13 +842,22 @@
     background-color: var(--cri-green);
   }
 
+  .btn--disabled {
+    background-color: grey !important;
+  }
+
   #btn-submit--grey {
     height: 50px;
     background-color: var(--cri-grey);
   }
 
+  .invalid {
+    transition: background-color 0.2s ease;
+    background-color: rgba(255, 0, 0, 0.25);
+  }
+
   .verify {
-    transform: translate(2px, -4px);
+    transform: translate(0px, -4px);
     height: 3px;
     width: 0px;
     transition: width 0.3s ease;

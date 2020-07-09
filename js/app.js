@@ -1,11 +1,24 @@
 import * as build from './builder/builder.js'
 import * as mat from './material-picker.js'
 import * as validate from './validation.js'
+import * as upload from './uploader.js'
 
 var currentPane = 0;
 var minimumRequirements = false;
 let selectedMaterials = [];
 
+window.addEventListener('load', () => {
+    upload.handlePDF();
+    upload.handleUploadFiles()
+    
+})
+
+function handleUploadPDF(){
+        const upload = document.querySelector('#upload-pdf')
+        upload.onclick = () => {
+            window.open('https://www.facebook.com', '_self')
+        }
+}
 function displayError(e, m = `Form incomplete`){
     build.addErrorBox(getAllPanes()[currentPane]);
     let theErrorBox = getAllPanes()[currentPane]
@@ -86,6 +99,7 @@ function goToSelected(title) {
 
 function goToPrev() {
     if (currentPane < 1) {
+        // prevButton.classList.add('btn--disabled')
         return;
     } else {
         currentPane = currentPane - 1;
@@ -180,16 +194,14 @@ const initForm = () => {
     initValidateOnType();
    
     getAllPanes().forEach(section => build.addErrorBox(section))
-  
+
 
     
 }
 
-window.addEventListener('load', () => {
-    initForm()
-})
-// document.addEventListener('scroll',(e)=>console.log(e))
 
+// document.addEventListener('scroll',(e)=>console.log(e))
+initForm()
 export {
     goToNext,
     goToPrev,

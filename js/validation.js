@@ -13,9 +13,7 @@
 
 function handleErrorArray(e){
     let m = []
-
     for (let k in validationArray){
-        
         if (!validationArray[k]) m.push(k)
     }
     app.displayError(e, `Sections Incomplete: ${m.join(', ')}`)
@@ -36,6 +34,7 @@ function handleErrorArray(e){
 
 
  function handleOrder(section) {
+
 
      switch (section.querySelector('input:checked').value) {
          case 'Pickup':
@@ -72,13 +71,19 @@ function handleErrorArray(e){
  }
 
  function handleSite(e, section) {
-    let weight = section.querySelector('#estWeight')
+    
+    const weight = section.querySelector('#estWeight')
     if (!weight.value == ''){
         validationArray.Site = true;
-        
     }
     else {
         validationArray.Site = false;
+        if (e.target != weight) { 
+        weight.classList.add('invalid')
+        setTimeout(()=>{
+            weight.classList.remove('invalid')
+        }, 1000)
+    }
     }
 
  }

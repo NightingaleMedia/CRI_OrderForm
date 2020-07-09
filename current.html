@@ -18,6 +18,7 @@
 </head>
 
 <body>
+ 
   <div class="container-fluid px-0 main-form">
     <div class="row main-row">
       <div class="main-block mt-3">
@@ -109,10 +110,19 @@
                 </div>
                 <div class="col-md-12 ">
                   <center>
-                    <button for="upload">
+                  
+                    <button for="upload" id="upload-pdf"> 
                       <i class="fas fa-upload"></i>
+                     <script>
+                       let button = document.querySelector('#upload-pdf')
+
+                       button.addEventListener('click', ()=>{
+                         
+                       })
+                     </script>
                       Upload PDF
                     </button>
+                  </input>
                   </center>
                 </div>
               </div>
@@ -242,12 +252,12 @@
                           </div>
                         </div>
                         <div class="col-lg-6 col-md-12 ">
-                          <div class="label-input-quantity">
+                          <div class="label-input-quantity other">
                             <label class="bold-label"><span>Other 1</span></label>
                             <input class="align-items-end withLabel" type="text" name="ballast_other1"
                               placeholder="Est. Quantity">
                           </div>
-                          <div class="label-input-quantity">
+                          <div class="label-input-quantity other">
                             <label class="bold-label">Other 2</label>
                             <input class="align-items-end withLabel" type="text" name="ballast_other2"
                               placeholder="Est. Quantity">
@@ -350,12 +360,12 @@
                             <input class="align-items-end withLabel" type="text" name="batteries_coMingled"
                               placeholder="Est. Quantity or Pounds">
                           </div>
-                          <div class="label-input-quantity">
+                          <div class="label-input-quantity other">
                             <label class="bold-label">Other 1</label>
                             <input class="align-items-end withLabel" type="text" name="batteries_other1"
                               placeholder="Est. Quantity or Pounds">
                           </div>
-                          <div class="label-input-quantity">
+                          <div class="label-input-quantity other">
                             <label class="bold-label">Other 2</label>
                             <input class="align-items-end withLabel" type="text" name="batteries_other2"
                               placeholder="Est. Quantity or Pounds">
@@ -409,12 +419,12 @@
                             <input class="align-items-end withLabel" type="text" name="printers"
                               placeholder="Est. Quantity">
                           </div>
-                          <div class="label-input-quantity">
+                          <div class="label-input-quantity other">
                             <label class="bold-label">Other 1</label>
                             <input class="align-items-end withLabel" type="text" name="other1"
                               placeholder="Est. Quantity">
                           </div>
-                          <div class="label-input-quantity">
+                          <div class="label-input-quantity other">
                             <label class="bold-label">Other 2</label>
                             <input class="align-items-end withLabel" type="text" name="other2"
                               placeholder="Est. Quantity">
@@ -475,19 +485,19 @@
                         </div>
 
                         <div class="col-md-6 ">
-                          <div class="label-input-quantity">
+                          <div class="label-input-quantity other">
                             <label class="bold-label">Other 1</label>
                             <input class="align-items-end withLabel" type="text" name="HG_other1"
                               placeholder="Est. Quantity">
                           </div>
 
-                          <div class="label-input-quantity">
+                          <div class="label-input-quantity other">
                             <label class="bold-label">Other 2</label>
                             <input class="align-items-end withLabel" type="text" name="HG_other2"
                               placeholder="Est. Quantity">
                           </div>
 
-                          <div class="label-input-quantity">
+                          <div class="label-input-quantity other">
                             <label class="bold-label">Other 3</label>
                             <input class="align-items-end withLabel" type="text" name="HG_other3"
                               placeholder="Est. Quantity">
@@ -652,15 +662,15 @@
                 <label class="bold-label">Small Batt Box</label>
                 <input class="withLabel" type="text" name="containers_smallBatteryBox" placeholder="Qty Needed">
                 <label class="bold-label">55 Gallon Drum</label>
-                <input class=" withLabel" type="text" name="containers_55GallonDrums" placeholder="Qty Needed">
+                <input class="withLabel" type="text" name="containers_55GallonDrums" placeholder="Qty Needed">
                 <label class="bold-label">Poly Drums</label>
-                <input class=" withLabel" type="text" name="containers_polyDrums" placeholder="Qty Needed">
+                <input class="withLabel" type="text" name="containers_polyDrums" placeholder="Qty Needed">
               </div>
               <div class="col-lg-6 col-md-6 px-0 pl-sm-3 pl-xs-3">
                 <label class="bold-label">5 Gallon Pail</label>
-                <input class=" withLabel" type="text" name="containers_5GallonPail" placeholder="Qty Needed">
+                <input class="withLabel" type="text" name="containers_5GallonPail" placeholder="Qty Needed">
                 <label class="bold-label">Other 1</label>
-                <input class=" withLabel" type="text" name="containers_other1" placeholder="Qty Needed">
+                <input class="withLabel" type="text" name="containers_other1" placeholder="Qty Needed">
                 <label class="bold-label">Other 2</label>
                 <input class="withLabel" type="text" name="containers_other2" placeholder="Qty Needed">
               </div>
@@ -685,11 +695,11 @@
             <div class="row">
               <p class="items-notice p-3">ITEMS MUST BE SHRINK WRAPPED AND PALLETIZED</p>
               <div class="col-lg-12 ">
-                <div class="row pt-3">
+                <div class="row pt-1">
                   <div class="col-lg-6 col-md-6">
                     <div class="site-label">Site Details</div>
                     <label class="label-time" for="time-from">Hours</label>
-                    <select class="time-select" id="time-from">
+                    <select class="time-select" id="time-from" name="time-from">
 
                       <option value="1" selected>8:00 am</option>
                       <option value="1">8:30 am</option>
@@ -715,8 +725,8 @@
                       <option value="1">Other (Specify Below)</option>
                     </select>
 
-                    <label class="label-time" for="time-to">To </label>
-                    <select class="time-select" id="time-to">
+                    <label class="label-time" for="time-to" >To </label>
+                    <select class="time-select" id="time-to" name="time-to">
                       <option value="2">9:00 am</option>
                       <option value="1">9:30 am</option>
                       <option value="3">10:00 am</option>
@@ -740,12 +750,10 @@
                     </select>
                     <br>
 
-                    <input class="pickup-details" type="textarea" name="heightRestrictions"
+                    <input class="pickup-details mt-2" name="heightRestrictions"
                       placeholder="Height Restrictions">
                     <br>
                     <label class="site-label" for="heightRestrictions">Pickup Details</label>
-
-
                     <input class="pickup-details" name="noPallets" placeholder="# of Pallets">
                     <br>
                     <input id="estWeight" class="pickup-details" name="estWeight" placeholder="Estimated Weight (Required)">
@@ -755,33 +763,34 @@
                     <div class="ad-opt">Additional Options <br>(Select Multiple)</div>
 
 
-                    <input class="site-info-check" type="checkbox" value="true" name="palletized"
+                    <input class="site-info-check" type="checkbox"  name="palletized"
                       id="palletized" />
                     <label for="palletized">
                       <h2>Items Palletized</h2>
                     </label>
 
-                    <input class="site-info-check" type="checkbox" value="true" name="workersAvailable"
+                    <input class="site-info-check" type="checkbox"  name="workersAvailable"
                       id="workersAvailable" />
                     <label for="workersAvailable">
                       <h2>Workers Available To Load </h2>
                     </label>
 
-                    <input class="site-info-check" type="checkbox" value="true" name="liftGate" id="liftGate" />
+                    <input class="site-info-check" type="checkbox"  name="liftGate" id="liftGate" />
                     <label for="liftGate">
                       <h2> Lift Gate Needed</h2>
                     </label>
 
-                    <input class="site-info-check" type="checkbox" value="true" name="palletJack" id="palletJack" />
+                    <input class="site-info-check" type="checkbox"  name="palletJack" id="palletJack" />
                     <label for="palletJack">
                       <h2>Pallet Jack Available</h2>
                     </label>
-                    <input class="site-info-check" type="checkbox" value="true" name="dock" id="dock" />
+                    
+                    <input class="site-info-check" type="checkbox"  name="dock" id="dock" />
                     <label for="dock">
                       <h2>Site Has Loading Dock</h2>
                     </label>
 
-                    <input class="site-info-check" type="checkbox" value="true" name="forklift" id="forklift" />
+                    <input class="site-info-check" type="checkbox"  name="forklift" id="forklift" />
                     <label for="forklift">
                       <h2>Forklift Available</h2>
                     </label>
@@ -792,7 +801,7 @@
                     <textarea class="textarea" type="textarea" rows="2" name="comments"></textarea>
                     <br>
                     <label class="bold-label" for="fileUpload">Upload Files</label>
-                    <input type="file" id="fileUpload">
+                    <input type="file" id="filesUploader" >
                   </div>
                 </div>
               </div>
@@ -814,5 +823,5 @@
 </body>
 <script type="module" src="js/app.js"></script>
 
-
+<script src="js/test.js"></script>
 </html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Order form</title>
+  <link href="css/style.css" rel="stylesheet" type='text/css' id="main-style">
+  <link href="https://fonts.googleapis.com/css?family=Bebas+Neue&display=swap" rel="stylesheet">
+
+
+
+  <link href="css/multipage.css" rel="stylesheet" type='text/css'>
+  <link href="css/mobile.css" rel="stylesheet" type='text/css'>
+  <!-- <link href="css/style-rendered2.css" rel="stylesheet" type='text/css'> -->
+  <link href="css/bootstrap.min.css" rel="stylesheet" type='text/css'>
+  <link href="https://use.fontawesome.com/releases/v5.11.0/css/all.css" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+</head>
+
+<body>
+  <div class="container-fluid px-0 main-form">
+    <div class="row main-row">
+      <div class="main-block mt-3">
+        <!-- <form> -->
+        <header class="title">
+          <div class="row">
+            <div class="col-md-6">
+              <div class="logo-holder"></div>
+            </div>
+            <div class="col-md-6">
+              <div class="order-form-title">
+                <h2>Recycling Order Form</h2>
+                <p>www.cleanlites.com | p. 513-641-4155</p>
+              </div>
+            </div>
+          </div>
+        </header>
+
+        
+
+        <div class="single-pane container current-pane" data-name="Order" data-selected="true">
+          <div class="title-of-section" id="headingOne">
+            <h1>ORDER TYPE</h1>
+          </div>
+          <div class="form-values">
+            <div class="container">
+              <div class="row">
+         
+                <div class="locations-area">
+                </div>
+
+                <div class="col-md-9 mt-5 m-auto p-3">
+                  <center>
+                    <p>Welcome to the new Cleanlites Order form. <br> Once you fill this out,
+                      we will email you a copy of the PDF</p>
+                  </center>
+                </div>
+                <div class="col-md-12 ">
+                  <center>
+                  
+                    <button for="upload" id="upload-pdf">
+                      <i class="fas fa-upload"></i>
+                     <script>
+                       let button = document.querySelector('#upload-pdf')
+
+                       button.addEventListener('click', ()=>{
+                         window.open('https://www.facebook.com','_self','width=60%,height=auto')
+                       })
+                     </script>
+                      Upload PDF
+                    </button>
+                  </input>
+                  </center>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+</body>
+<!-- <script type="module" src="js/app.js"></script> -->
+
+
+</html>

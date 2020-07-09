@@ -23,7 +23,7 @@ function buttons() {
     const container = document.createElement('div')
     const next = new el.buttonMaker("Next", 'btn-next', "next", goToNext)
     const prev = new el.buttonMaker("Previous", 'btn-prev', "prev", goToPrev)
-
+   
     container.classList.add('button-section')
     container.appendChild(prev.render())
     container.appendChild(next.render())
@@ -42,8 +42,12 @@ function addNextPrev() {
     const next = new el.buttonMaker("Next", 'btn-next', "next", goToNext)
     const fakeSubmit = new el.buttonMaker('Submit', 'btn-submit--grey', 'submit', handleErrorArray)
     const prev = new el.buttonMaker("Previous", 'btn-prev', "prev", goToPrev)
+
+    // prev.classList.add('btn--disabled')
+    // console.log(prev)
+
     buttonz.appendChild(prev.render())
-    buttonz.appendChild(fakeSubmit.render())
+    // buttonz.appendChild(fakeSubmit.render())
     buttonz.appendChild(next.render())
     prev_next_container.appendChild(buttonz)
     return prev_next_container;
@@ -59,7 +63,7 @@ function addSubmit() {
     const submitButton = new el.buttonMaker('Finalize', 'btn-submit', 'submit', collateInputs)
     const next = new el.buttonMaker("Next", 'btn-next', "next", goToNext)
     const prev = new el.buttonMaker("Previous", 'btn-prev', "prev", goToPrev)
-
+  
     buttonz.appendChild(prev.render())
     buttonz.appendChild(submitButton.render())
     buttonz.appendChild(next.render())
@@ -95,6 +99,7 @@ const addMaterialInputs = () => {
         let itemTitle = item.querySelector('input');
         let itemSelector = item.appendChild(addUnitSelector(itemTitle.name))
         let newInput = []
+        if(!itemTitle.classList.contains('other')){ 
         itemTitle.addEventListener('keyup', function (e) {
 
             let matchDigit = new RegExp('^[0-9]+$').test(e.key)
@@ -117,6 +122,7 @@ const addMaterialInputs = () => {
             }
 
         })
+    }
         let labelTitle = itemSelector.querySelector('label')
         let labelInput = itemSelector.querySelector('input')
         labelInput.value = labelInput.checked ? "Lbs" : "Units"

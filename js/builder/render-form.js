@@ -248,8 +248,9 @@ function formHTML(obj){
                 <label>Other 1</label>
                 <input type="text" name="containers_other1" placeholder="Qty Needed">
                 <label>Other 2</label>
-                <input type="text" name="containers_other2 " placeholder="Qty Needed">
+                <input type="text" name="containers_other2" placeholder="Qty Needed">
               </div>
+              
             </div>
           </div>
         </section>
@@ -259,7 +260,7 @@ function formHTML(obj){
             <div class="row site-info--row">
               <div class="col-sm-6">
                 <label class="label-time" for="hoursForm">Hours</label>
-                <select class="time-select" id="hoursForm" name="site-info__hours-from">
+                <select class="time-select" id="hoursForm" name="time-from">
                   <option selected>8:00 am</option>
                   <option>8:30 am</option>
                   <option>9:00 am</option>
@@ -284,7 +285,7 @@ function formHTML(obj){
                   <option>Other (Specify Below)</option>
                 </select>
                 To
-                <select class="time-select" name="site-info__hours-to" id="inlineFormCustomSelect">
+                <select class="time-select" name="time-to" id="inlineFormCustomSelect">
                   <option>9:00 am</option>
                   <option>9:30 am</option>
                   <option>10:00 am</option>
@@ -305,24 +306,37 @@ function formHTML(obj){
                   <option>5:30 pm</option>
                   <option>6:00 pm</option>
                   <option>Other (Specify Below)</option>
-                  <input class="" type="textarea" name="heightRestrictions" placeholder="Height Restrictions">
-                  <input class="" type="textarea" name="noPallets" placeholder="# of Pallets">
+                  <input class="" name="heightRestrictions" placeholder="Height Restrictions">
+                  <input class="" name="noPallets" placeholder="# of Pallets">
+                  <input class="" name="estWeight" >
                 </select>
               </div>
               <div class="col-sm-6 site-info--checks">
+              
+              <label class="label-info" for="palletized">Items Palletized</label>
+                <input type="checkbox" name="palletized" />
 
-                <label class="label-info">Workers Available</label>
-                <input type="checkbox" value="true" name="palletJack" />
-                <input type="hidden" value="false" name="palletJack" />
-                <label class="label-info">Lift Gate Needed</label>
-                <input type="checkbox" value="true" name="liftGate" />
-                <input type="hidden" value="false" name="liftGate" />
-                <label class="label-info">Pallet Jack Available</label>
-                <input type="checkbox" value="true" name="palletJack" />
-                <input type="hidden" value="false" name="palletJack" />
-                <label class="label-info">Forklift Available</label>
-                <input type="checkbox" value="true" name="forklift" />
-                <input type="hidden" value="false" name="forklift" />
+                 <label class="label-info" for="liftGate">Lift Gate Needed</label>
+                <input type="checkbox" name="liftGate"/>
+
+                 <label class="label-info" for="dock">Loading Dock Available</label>
+                <input type="checkbox" name="dock"/>
+
+                <label class="label-info" for="workersAvailable">Workers Available</label>
+                <input type="checkbox"  value="false" id="workersAvailable" name="workersAvailable" />
+
+                <label class="label-info" for="palletJack">Pallet Jack Available</label>
+                <input type="checkbox" name="palletJack" />
+            
+                <label class="label-info" for="forklift">Forklift Available</label>
+                <input type="checkbox" name="forklift" />
+              
+               
+           
+
+               
+       
+
               </div>
               <div class="col-md-12">
                 <label>Other Comments</label>

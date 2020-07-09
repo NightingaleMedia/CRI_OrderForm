@@ -79,6 +79,7 @@
         line-height: 2em !important;
     }
 
+
     .logo-holder {
         background-image: url("../logo.png");
         background-attachment: local;
@@ -172,7 +173,7 @@
     }
 
     .main-form {
-        max-width: 1000px !important;
+        max-width: 800px !important;
         margin-left: auto;
         margin-right: auto;
         background-color: white;

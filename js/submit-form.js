@@ -8,7 +8,6 @@ import {
 } from './builder/render-form.js'
 
 
-
 function populateConfirmForm(form_object) {
 
     const stylesheet = document.querySelector('#main-style')
@@ -19,12 +18,36 @@ function populateConfirmForm(form_object) {
     document.body.appendChild(renderedForm.render())
 
     const submitButton = document.querySelector('#submit-form')
-    let inputs = document.querySelectorAll('input, select')
+    let inputs = document.querySelectorAll('input, select, textarea')
+
 
 
     inputs.forEach(input => {
+        let delivery;
+        let pickup;
         input.value = form_object[input.name]
-        input.setAttribute('disabled', 'disabled')
+        input.checked = form_object[input.name.checked]
+   
+        input.addEventListener('change', () => {
+            form_object[input.name] = input.value
+        })
+
+        if ((input.type == 'checkbox') && (form_object[input.name] == 'true')) {
+            // console.log(input.name)
+            input.checked = true;
+            input.checked = 'checked'
+            input.setAttribute('checked', 'true')
+            console.log(input)
+        }
+
+        if (form_object[input.name] == 'Delivery' && input.id == 'radioTwo') {
+             input.checked = true;
+        } else {
+            input.id == 'radioOne' ? input.checked = true : null
+        }
+
+        // makes it so you can't edit the form
+        // input.setAttribute('disabled', 'disabled')
     })
 
 
@@ -32,6 +55,7 @@ function populateConfirmForm(form_object) {
 
         grav.submitToMatch(form_object)
         const mainForm = document.querySelector('.main-form')
+        document.querySelector('main').style.minHeight = '0px';
         mainForm.innerHTML = ``;
 
         let load = new LoadingPage('Submitting Your Form ...')
@@ -75,6 +99,8 @@ function collateInputs() {
                 } else if (input.type === 'radio') {
                     input.checked ? (formObject[input.name] = input.value) : null;
 
+                } else if (input.type === 'checkbox') {
+                    input.checked ? (formObject[input.name] = 'true') : (formObject[input.name]) = 'false'
                 } else formObject[input.name] = input.value
             })
         }
