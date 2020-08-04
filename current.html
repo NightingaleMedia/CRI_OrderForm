@@ -800,8 +800,13 @@
                     <label class="bold-label">Other Comments</label>
                     <textarea class="textarea" type="textarea" rows="2" name="comments"></textarea>
                     <br>
-                    <label class="bold-label" for="fileUpload">Upload Files</label>
-                    <input type="file" id="filesUploader" >
+                    <div id="file_upload_area"> 
+                 
+                    <input type="file" hidden name="file1" id="add-button" >
+                    <button id="add-another">
+                      Add A File
+                    </button>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -809,19 +814,20 @@
           </div>
         </div>
 
-        <!-- <div class="single-pane container finalize" id="section-finalize" data-name="Submit" data-selected="true">
+        <div class="single-pane container finalize" id="section-finalize" data-name="Submit" data-selected="true">
           <div class="loading__container">
             <h2>Submitting Your Form...</h2>
             <span class="loading--holder">
               <span class="loading--progress"></span>
             </span>
           </div>
-        </div> -->
+        </div>
 
       </div>
 
 </body>
 <script type="module" src="js/app.js"></script>
+<script src="js/builder/file-adder.js"></script>
 
 <script src="js/test.js"></script>
 </html>

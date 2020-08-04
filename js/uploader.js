@@ -5,13 +5,4 @@ function handlePDF() {
     }
 }
 
-function handleFiles (e){
-
-
-}
-function handleUploadFiles(){
-    const uploadFiles = document.querySelector('#filesUploader')
-    uploadFiles.addEventListener('change', handleFiles, false)
-}
-
-export {handlePDF, handleUploadFiles};
+export {handlePDF};

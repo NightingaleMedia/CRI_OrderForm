@@ -37,7 +37,7 @@ function populateConfirmForm(form_object) {
             input.checked = true;
             input.checked = 'checked'
             input.setAttribute('checked', 'true')
-            console.log(input)
+           
         }
 
         if (form_object[input.name] == 'Delivery' && input.id == 'radioTwo') {

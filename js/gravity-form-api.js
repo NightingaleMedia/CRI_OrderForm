@@ -33,7 +33,8 @@ function submitForm(data) {
 
         })
         .then(result => result.json())
-        .then(body => location.href = body.confirmation_redirect)
+        .then(res => console.log(res))
+        // .then(body => location.href = body.confirmation_redirect)
 }
 
 //takes the inputs from the form and matches by string
@@ -62,8 +63,8 @@ function matchValues(values, fields) {
 }
 
 function submitToMatch(formValues) {
-     console.log('submit to match form')
-     console.info(formValues)
+    //  console.log('submit to match form')
+    //  console.info(formValues)
     getForm()
         .then(result => submitForm(matchValues(formValues, result.fields)))
 

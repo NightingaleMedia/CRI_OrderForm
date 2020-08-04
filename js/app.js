@@ -9,7 +9,7 @@ let selectedMaterials = [];
 
 window.addEventListener('load', () => {
     upload.handlePDF();
-    upload.handleUploadFiles()
+
     
 })
 
@@ -193,10 +193,7 @@ const initForm = () => {
 
     initValidateOnType();
    
-    getAllPanes().forEach(section => build.addErrorBox(section))
-
-
-    
+    getAllPanes().forEach(section => build.addErrorBox(section))  
 }
 
 
