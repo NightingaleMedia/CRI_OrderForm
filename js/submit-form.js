@@ -21,10 +21,8 @@ function populateConfirmForm(form_object) {
     let inputs = document.querySelectorAll('input, select, textarea')
 
 
-
     inputs.forEach(input => {
-        let delivery;
-        let pickup;
+
         input.value = form_object[input.name]
         input.checked = form_object[input.name.checked]
    
@@ -36,15 +34,17 @@ function populateConfirmForm(form_object) {
             // console.log(input.name)
             input.checked = true;
             input.checked = 'checked'
-            input.setAttribute('checked', 'true')
-           
+            input.setAttribute('checked', 'true')      
         }
 
         if (form_object[input.name] == 'Delivery' && input.id == 'radioTwo') {
              input.checked = true;
+        
         } else {
             input.id == 'radioOne' ? input.checked = true : null
         }
+
+     
 
         // makes it so you can't edit the form
         // input.setAttribute('disabled', 'disabled')
@@ -60,8 +60,6 @@ function populateConfirmForm(form_object) {
 
         let load = new LoadingPage('Submitting Your Form ...')
         mainForm.appendChild(load.render())
-
-
     }
 
 }
@@ -90,9 +88,11 @@ function collateInputs() {
             })
 
         } else {
+         
             let inputs = section.querySelectorAll('input, select')
 
             inputs.forEach(input => {
+        
                 if (input.type === 'select-one') {
                     formObject[input.name] = input[input.selectedIndex].innerText
 
@@ -101,6 +101,11 @@ function collateInputs() {
 
                 } else if (input.type === 'checkbox') {
                     input.checked ? (formObject[input.name] = 'true') : (formObject[input.name]) = 'false'
+                } else if (input.type === 'file') { 
+                    input.type = 'text'
+                    input.value = input.value
+                    input.placeholder = ''
+                    formObject[input.name] = input.dataset.url
                 } else formObject[input.name] = input.value
             })
         }

@@ -330,12 +330,6 @@ function formHTML(obj){
             
                 <label class="label-info" for="forklift">Forklift Available</label>
                 <input type="checkbox" name="forklift" />
-              
-               
-           
-
-               
-       
 
               </div>
               <div class="col-md-12">
@@ -353,7 +347,7 @@ function formHTML(obj){
 
   </main>
     <section class="section__submit">
-    <button id="go-back">Go Back</button>
+ 
     <button id="submit-form">Submit</button>
     </section>
 `

@@ -24,7 +24,7 @@ function getForm() {
 }
 
 function submitForm(data) {
-    //  console.log('submit form')
+    console.log(data)
     let uri = `${api_url}/submissions`;
     fetch(uri, {
             headers: h,

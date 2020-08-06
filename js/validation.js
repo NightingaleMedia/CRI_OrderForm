@@ -35,7 +35,6 @@ function handleErrorArray(e){
 
  function handleOrder(section) {
 
-
      switch (section.querySelector('input:checked').value) {
          case 'Pickup':
              validationArray.Order = true;
@@ -73,14 +72,21 @@ function handleErrorArray(e){
  function handleSite(e, section) {
     
     const weight = section.querySelector('#estWeight')
-    if (!weight.value == ''){
+    const pallets = section.querySelector('#noPallets')
+
+    let siteArray = [weight, pallets]
+
+    if ((!weight.value == '') && (!pallets.value == '')){
         validationArray.Site = true;
     }
     else {
         validationArray.Site = false;
+
         if (e.target != weight) { 
+        pallets.classList.add('invalid')
         weight.classList.add('invalid')
         setTimeout(()=>{
+            pallets.classList.remove('invalid')
             weight.classList.remove('invalid')
         }, 1000)
     }

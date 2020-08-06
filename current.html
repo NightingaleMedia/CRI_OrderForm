@@ -754,7 +754,7 @@
                       placeholder="Height Restrictions">
                     <br>
                     <label class="site-label" for="heightRestrictions">Pickup Details</label>
-                    <input class="pickup-details" name="noPallets" placeholder="# of Pallets">
+                    <input id="noPallets" class="pickup-details" name="noPallets" placeholder="# of Pallets (Required)">
                     <br>
                     <input id="estWeight" class="pickup-details" name="estWeight" placeholder="Estimated Weight (Required)">
                   </div>
@@ -802,10 +802,12 @@
                     <br>
                     <div id="file_upload_area"> 
                  
-                    <input type="file" hidden name="file1" id="add-button" >
+                    
                     <button id="add-another">
                       Add A File
                     </button>
+                    <br>
+                    <span style="font-weight: 600;">Add Up to 4 Files: </span><br>
                     </div>
                   </div>
                 </div>
@@ -814,14 +816,14 @@
           </div>
         </div>
 
-        <div class="single-pane container finalize" id="section-finalize" data-name="Submit" data-selected="true">
+        <!-- <div class="single-pane container finalize" id="section-finalize" data-name="Submit" data-selected="true">
           <div class="loading__container">
             <h2>Submitting Your Form...</h2>
             <span class="loading--holder">
               <span class="loading--progress"></span>
             </span>
           </div>
-        </div>
+        </div> -->
 
       </div>
 
@@ -829,5 +831,5 @@
 <script type="module" src="js/app.js"></script>
 <script src="js/builder/file-adder.js"></script>
 
-<script src="js/test.js"></script>
+<!-- <script src="js/test.js"></script> -->
 </html>

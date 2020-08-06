@@ -516,15 +516,12 @@
     font-size: 0.75rem;
   }
 
-  .upload-pdf-form{
+  .upload-pdf-form {}
 
-  }
-
-  .upload-pdf-form::-webkit-file-upload-button{
+  .upload-pdf-form::-webkit-file-upload-button {
     background-color: var(--selected);
     border: none;
     color: white;
-  
   }
 
   /*-------------------------------------------------
@@ -797,19 +794,20 @@
     font-weight: 600;
   }
 
+  #file_upload_area {
+    transition: all 0.2s ease;
+  }
   #filesUploader {
     background: #e7e7e7;
     font-size: 2em;
   }
 
-  #filesUploader::-webkit-file-upload-button{
+  #filesUploader::-webkit-file-upload-button {
     background-color: var(--selected);
     color: white;
     border: none;
     padding: 0.5em;
   }
-
-
 
   /*-------------------------------------------------
                       ERRORS AND VALIDATION
@@ -1032,4 +1030,49 @@
     100% {
       width: 100%;
     }
+  }
+
+  #file_upload_area > div > img {
+    border: 1px solid #d3d3d3;
+    margin: 10px;
+    max-height: 120px !important;
+    position: relative;
+    display: inline;
+
+  }
+
+  .img-holder{
+    padding: 10px;
+    position: relative;
+    display: inline-block;
+    height: 100%;
+    width: auto;
+    transition: all 0.4s ease;
+  }
+
+  .img-holder:nth-of-type(odd){
+    background-color: aliceblue;
+  }
+
+  .img-holder > p {
+    font-size: 0.75em;
+  }
+  .delete-img{
+    z-index: 100;
+    font-size: 2em;
+    line-height: 19px;
+    padding-left: 3px;
+    width: 25px;
+    height: 25px;
+    line-height: auto;
+    color: white;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    border-radius: 100%;
+    transform-origin: center;
+    transform: rotate(-45deg);
+    cursor: pointer;
+    background-color:var(--cri-green2);
+
   }

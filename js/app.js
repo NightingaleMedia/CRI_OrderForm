@@ -112,6 +112,7 @@ function goToNext() {
         currentPane = currentPane + 1;
         goToPane(currentPane);
     } else {
+     
         return;
     }
 }
