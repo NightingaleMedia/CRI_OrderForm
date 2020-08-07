@@ -24,7 +24,8 @@ function getForm() {
 }
 
 function submitForm(data) {
-    console.log(data)
+    document.body.innerHTML = ''
+    document.body.innerHTML = JSON.stringify(data)
     let uri = `${api_url}/submissions`;
     fetch(uri, {
             headers: h,
@@ -39,13 +40,29 @@ function submitForm(data) {
 
 //takes the inputs from the form and matches by string
 function matchValues(values, fields) {
+    console.log(fields)
+
     //  console.log('match form')
     let submitted = new Object();
     fields.forEach(field => {
+        // handles the inputs that have sub-inputs on GF
         if (field.inputs != null) {
-            field.inputs.forEach(input => {
-                // submitted[input.id] = 'test'
-            })
+            submitted[field.id.toString()] = values[field.label].replace(' ', '').toUpperCase();
+            // field.inputs.forEach(input => {
+            //     let id = (input.id.toString()).charAt(4)
+            //     switch(id){
+            //         case "1" :
+            //             submitted[input.id] = values[field.label].slice(0,2)
+            //             break;
+            //         case "2":
+            //             submitted[input.id] = values[field.label].slice(3, 5)
+            //         break;
+            //         case "3":
+            //             submitted[input.id] = values[field.label].slice(-2).toUpperCase();
+            //         break;
+            //     }
+
+            // })
         } else {
             submitted[field.id.toString()] = values[field.label]
         }
@@ -57,6 +74,8 @@ function matchValues(values, fields) {
         submitted[newKey] = submitted[key]
         delete submitted[key];
     })
+
+    console.log(submitted)
    
     return submitted;
   

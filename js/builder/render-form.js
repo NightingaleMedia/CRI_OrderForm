@@ -308,7 +308,7 @@ function formHTML(obj){
                   <option>Other (Specify Below)</option>
                   <input class="" name="heightRestrictions" placeholder="Height Restrictions">
                   <input class="" name="noPallets" placeholder="# of Pallets">
-                  <input class="" name="estWeight" >
+                  <input class="" name="estTotalWeight" >
                 </select>
               </div>
               <div class="col-sm-6 site-info--checks">
@@ -335,7 +335,7 @@ function formHTML(obj){
               <div class="col-md-12">
                 <label>Other Comments</label>
                 <br>
-                <textarea class="textarea" type="textarea" rows="2"></textarea>
+                <textarea class="textarea" type="textarea" name="comments" rows="2"></textarea>
               </div>
             </div>
           </div>

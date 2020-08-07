@@ -71,7 +71,7 @@ function handleErrorArray(e){
 
  function handleSite(e, section) {
     
-    const weight = section.querySelector('#estWeight')
+    const weight = section.querySelector('#estTotalWeight')
     const pallets = section.querySelector('#noPallets')
 
     let siteArray = [weight, pallets]

@@ -20,7 +20,6 @@ function populateConfirmForm(form_object) {
     const submitButton = document.querySelector('#submit-form')
     let inputs = document.querySelectorAll('input, select, textarea')
 
-
     inputs.forEach(input => {
 
         input.value = form_object[input.name]
@@ -43,8 +42,6 @@ function populateConfirmForm(form_object) {
         } else {
             input.id == 'radioOne' ? input.checked = true : null
         }
-
-     
 
         // makes it so you can't edit the form
         // input.setAttribute('disabled', 'disabled')
@@ -89,11 +86,12 @@ function collateInputs() {
 
         } else {
          
-            let inputs = section.querySelectorAll('input, select')
+            let inputs = section.querySelectorAll('input, select, textarea')
 
             inputs.forEach(input => {
         
                 if (input.type === 'select-one') {
+
                     formObject[input.name] = input[input.selectedIndex].innerText
 
                 } else if (input.type === 'radio') {
@@ -107,8 +105,10 @@ function collateInputs() {
                     input.placeholder = ''
                     formObject[input.name] = input.dataset.url
                 } else formObject[input.name] = input.value
+            
             })
         }
+        
     })
     let load = new LoadingPage('Checking Your Form . . .')
     let pane = document.querySelector('.current-pane')

@@ -20,7 +20,7 @@ function addTestInputs(){
         
        test_inputs.forEach(input => {
            if(input.type != 'checkbox' && input.type != 'radio' && input.type != 'file'){ 
-           input.value = `${input.name}--test`
+           input.value = `${input.name.slice(0, 4)}--test`
            input.click();
            }
            if(input.type == 'checkbox') {
@@ -28,6 +28,7 @@ function addTestInputs(){
             input.checked = true
            
            };
+   
         
         })
 }
