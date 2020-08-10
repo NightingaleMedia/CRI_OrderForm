@@ -173,9 +173,9 @@ function formHTML(obj){
             <label>Printers</label>
             <input type="text" name="printers">
             <label>Other 1</label>
-            <input type="text" name="other1">
+            <input type="text" name="electronicsOther1">
             <label>Other 2</label>
-            <input type="text" name="other2">
+            <input type="text" name="electronicsOther2">
           </div>
           <div class="material--specialty" data-name="Specialty">
             <div class="material--title">

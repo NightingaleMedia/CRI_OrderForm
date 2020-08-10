@@ -1,9 +1,11 @@
  async function getForm() {
-     let pw = 'cs_be5fdc4a026c0907746e421f532e5339785492f1';
-     let login = 'ck_af44e6bb12c2be4c41f605d8dd22e78686cc36d5'
-     let uri = 'https://cleanlites.dev.local/wp-json/gf/v2/forms/11';
+
+
+     let pw = 'ck_edbce132eb8423e833d8e2a3356bf208d5456d3f';
+     let login = 'cs_1dd72c644fde845a9afd7b693a1e605cf11ebea2'
+     let uri = 'https://cleanlites.com/wp-json/gf/v2/forms/11';
      let h = new Headers();
-     h.append('Authorization', 'Basic ' + btoa(`${login}:${pw}`).toString('base64'));
+     h.append('Authorization', 'Basic ' + btoa(`${pw}:${login}`).toString('base64'));
      h.append('Content-Type', 'application/json; charset=utf-8');
 
      const response = await fetch(uri, {
