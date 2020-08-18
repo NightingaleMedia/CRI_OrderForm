@@ -40,7 +40,6 @@ function handleErrorArray(e){
              validationArray.Order = true;
              section.querySelector('.locations-area').innerHTML = ``;
              setTimeout(app.goToNext, 500)
-
              break;
          case 'Delivery':
             validationArray.Order = true;
@@ -166,11 +165,12 @@ function handleErrorArray(e){
  }
 
  function handleDisplay(section, bool) {
-
+    
      // change node checkmark
      let matchingLi = [...app.navListMain].find(nav => nav.querySelector('a').innerText == section.dataset.name)
 
      let d = matchingLi.querySelector('div');
+     console.log(matchingLi)
      if (bool) {
          matchingLi.classList.add('pop')
          d.innerHTML = `<i class = "fas fa-check"></i>`

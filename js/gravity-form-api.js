@@ -34,17 +34,13 @@ function submitForm(data) {
             headers: h,
             method: "POST",
             body: JSON.stringify(data)
-
         })
         .then(result => result.json())
         .then(body => console.log(body))
         // .then(body => location.href = body.confirmation_redirect)
 }
-
 //takes the inputs from the form and matches by string
 function matchValues(values, fields) {
-
-
     //  console.log('match form')
     let submitted = new Object();
     fields.forEach(field => {
