@@ -3,10 +3,15 @@
 
 <head>
   <script type="text/javascript">
-    if (navigator.appName.indexOf("Internet Explorer") != -1 || navigator.userAgent.match(/Trident.*rv[ :]*11\./)) {
-      //This user uses Internet Explorer
-      window.location = "renderedForm.html";
-    }
+  var browser = navigator.appName;
+  console.log(browser)
+  var ver = navigator.appVersion;
+  var thestart = parseFloat(ver.indexOf("MSIE")) + 1 //This finds the start of the MS version string.
+  var brow_ver = parseFloat(ver.substring(thestart + 4, thestart + 7)); //This cuts out the bit of string we need.
+
+    if ((browser == "Microsoft Internet Explorer") && (brow_ver < 6)){
+      window.location = "/renderedForm.html"; //URL to redirect to.
+    };
   </script>
   <title>Order form</title>
   <link href="css/style.css" rel="stylesheet" type='text/css' id="main-style">
