@@ -2,6 +2,12 @@
 <html>
 
 <head>
+  <script type="text/javascript">
+    if (navigator.appName.indexOf("Internet Explorer") != -1 || navigator.userAgent.match(/Trident.*rv[ :]*11\./)) {
+      //This user uses Internet Explorer
+      window.location = "renderedForm.html";
+    }
+  </script>
   <title>Order form</title>
   <link href="css/style.css" rel="stylesheet" type='text/css' id="main-style">
   <link href="https://fonts.googleapis.com/css?family=Bebas+Neue&display=swap" rel="stylesheet">
