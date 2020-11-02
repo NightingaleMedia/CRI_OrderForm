@@ -9,8 +9,11 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "autoprefixer": "^9.8.6",
     "fs": "0.0.1-security",
-    "node": "^14.4.0"
+    "node": "^14.4.0",
+    "postcss": "^7.0.32",
+    "postcss-cli": "^7.1.1"
   },
   "devDependencies": {},
   "repository": {

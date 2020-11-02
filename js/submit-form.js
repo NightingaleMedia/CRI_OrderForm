@@ -49,7 +49,7 @@ function populateConfirmForm(form_object) {
 
 
     submitButton.onclick = function () {
-
+        console.log('submitting')
         grav.submitToMatch(form_object)
         const mainForm = document.querySelector('.main-form')
         document.querySelector('main').style.minHeight = '0px';

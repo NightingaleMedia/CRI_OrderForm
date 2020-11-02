@@ -1,6 +1,3 @@
-import * as app from './app.js'
-import {populateConfirmForm} from './submit-form.js'
-
 //OLD VALUES FOR TESTING
 
 // const pw = 'cs_be5fdc4a026c0907746e421f532e5339785492f1';
@@ -23,7 +20,7 @@ function getForm() {
         headers: h,
         method: 'GET'
     })
-    // .catch(err => app.displayError())
+   
     .then(res => res.json());
     return response;
 }
@@ -68,9 +65,7 @@ function submitToMatch(formValues) {
     //  console.info(formValues)
     getForm()
         .then(result => submitForm(matchValues(formValues, result.fields)))
-
 }
-
 
 export {
     getForm,

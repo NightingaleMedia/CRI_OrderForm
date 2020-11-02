@@ -79,6 +79,16 @@
         line-height: 2em !important;
     }
 
+    .alert {
+        width: 100%;
+        background-color: rgb(249, 101, 101);
+        color: white;
+    }
+
+    .alert>span {
+        font-weight: 800;
+        color: rgb(94, 1, 1);
+    }
 
     .logo-holder {
         background-image: url("../logo.png");
@@ -197,7 +207,6 @@
         line-height: 1em;
         display: grid;
         grid-template-columns: 60% 40%;
-        grid-auto-rows: 35px;
         padding: 1em;
     }
 
@@ -330,6 +339,7 @@
         min-width: 150px;
         padding: 0.5em;
         background-color: var(--cri-green);
+        background-color: rgb(80, 208, 0);
         color: white;
         font-size: 1.5em;
     }

@@ -13,6 +13,10 @@
 <body>
 <main>
   <div class="main-form">
+    <div class="alert">
+      <span> Alert: </span> You are a using Internet Explorer. The order form works best 
+      with Chrome, Safari, Edge or Opera.  You can still proceed with IE but some features may be deprecated. 
+    </div>
     <form action="#" method="POST">
       <section class="section--header" data-name="header">
         <div class="container">
@@ -24,7 +28,7 @@
             </div>
             <div class="col-md-6">
               <div class="form--header">
-                <h3 class="confirm">Confirm Your Order</h3>
+                <h3 class="confirm">Order Form</h3>
                 <p>www.cleanlites.com | p. 513-641-4155</p>
               </div>
             </div>
@@ -39,15 +43,15 @@
             <input type="text" name="billingAddress" placeholder="Address">
 
             <div class="city-state">
-              <input class="city" type="text" name="billingCity">
-              <input class="state" type="text" name="billingState">
-              <input class="zip" type="text" name="billingZip">
+              <input class="city" type="text" name="billingCity" placeholder="Billing City">
+              <input class="state" type="text" name="billingState" placeholder="Billing State">
+              <input class="zip" type="text" name="billingZip" placeholder="Billing Zip">
             </div>
 
-            <input type="text" name="billingContactName">
-            <input type="text" name="billingPhone"><br>
+            <input type="text" name="billingContactName" placeholder="Billing Contact Name">
+            <input type="text" name="billingPhone" placeholder="Billing Phone"><br>
 
-            <input type="text" name="billingEmail">
+            <input type="text" name="billingEmail" placeholder="Email">
             <div class="pickup-delivery">
               <input type="radio" value="pickup" id="radioOne" name="orderType" checked />
               <label for="radioOne" class="radio">Pickup</label>
@@ -59,15 +63,15 @@
 
 
             <input type="text" name="generatorCompany" placeholder="Generator">
-            <input type="text" name="generatorAddress" placeholder="Address">
+            <input type="text" name="generatorAddress" placeholder="Generator Address">
 
             <div class="city-state">
-              <input class="city" type="text" name="generatorCity" placeholder="City">
-              <input class="state" type="text" name="generatorState" placeholder="State">
-              <input class="zip" type="text" name="generatorZip" placeholder="Zip">
+              <input class="city" type="text" name="generatorCity" placeholder="Generator City">
+              <input class="state" type="text" name="generatorState" placeholder="Generator State">
+              <input class="zip" type="text" name="generatorZip" placeholder="Generator Zip">
             </div>
-            <input type="text" name="generatorContactName" placeholder="Contact Name">
-            <input type="text" name="generatorPhone" placeholder="Phone">
+            <input type="text" name="generatorContactName" placeholder="Generator Contact Name">
+            <input type="text" name="generatorPhone" placeholder="Generator Phone">
             <input type="text" name="poNumber" placeholder="PO Number">
 
 
@@ -340,11 +344,10 @@
 
 </main>
 <section class="section__submit">
-
   <button id="submit-form">Submit</button>
 </section>
 
 </body>
-<script src="js/submit-form.js" type="module"></script>
+<script src="js/submit-form-ie.js" type="module"></script>
 
 </html>

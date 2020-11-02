@@ -2,17 +2,23 @@
 <html>
 
 <head>
-  <script type="text/javascript">
-  var browser = navigator.appName;
-  console.log(browser)
-  var ver = navigator.appVersion;
-  var thestart = parseFloat(ver.indexOf("MSIE")) + 1 //This finds the start of the MS version string.
-  var brow_ver = parseFloat(ver.substring(thestart + 4, thestart + 7)); //This cuts out the bit of string we need.
-
-    if ((browser == "Microsoft Internet Explorer") && (brow_ver < 6)){
-      window.location = "/renderedForm.html"; //URL to redirect to.
-    };
+  <script 
+    src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js" 
+    integrity="sha512-3n19xznO0ubPpSwYCRRBgHh63DrV+bdZfHK52b1esvId4GsfwStQNPJFjeQos2h3JwCmZl0/LgLxSKMAI55hgw==" 
+    crossorigin="anonymous">
   </script>
+
+
+  <script> 
+  if ( Modernizr.smil ) {
+    console.log('All assets loaded correctly.')
+  /* set HTML5 content */
+  } else {
+  /* set IE/Edge/Flash content */
+  console.log('Redirect from IE users.  Update your browser for full features.')
+  window.location.href = 'renderedForm.html'
+  }
+</script>
   <title>Order form</title>
   <link href="css/style.css" rel="stylesheet" type='text/css' id="main-style">
   <link href="https://fonts.googleapis.com/css?family=Bebas+Neue&display=swap" rel="stylesheet">
@@ -203,19 +209,13 @@
                     <input class="state" type="text" name="generatorState" placeholder="State">
                     <input class="zip" type="text" name="generatorZip" placeholder="Zip">
                   </div>
-
                   <input type="text" name="generatorContactName" placeholder="Contact Name">
                   <input type="text" name="generatorPhone" placeholder="Phone">
-
-
                 </div>
               </div>
             </div>
-
           </div>
         </div>
-
-
         <div class="single-pane container" data-name="Materials" data-selected="true">
           <div class="title-of-section" id="section-materials">
             <h1>MATERIALS</h1>
@@ -252,17 +252,35 @@
                       <div class="row">
                         <div class="col-lg-6 col-md-12 ">
                           <div class="label-input-quantity">
-                            <label class="bold-label"><span>Ballasts</span></label>
-                            <input class="align-items-end withLabel" type="text" name="ballast_ballasts"
+                            <label class="bold-label"><span>PCB Ballasts</span></label>
+                            <input class="align-items-end withLabel" type="text" name="ballast_pcb-ballasts"
                               placeholder="Est. Quantity">
                           </div>
+
+                            <div class="label-input-quantity">
+                              <label class="bold-label">Non PCB Ballast</label>
+                              <input class="align-items-end withLabel" type="text" name="ballasts_non-pcb-ballasts" placeholder="Est. Quantity">
+                            </div>
+
                           <div class="label-input-quantity">
-                            <label class="bold-label">Capacitors</label>
-                            <input class="align-items-end withLabel" type="text" name="ballasts_capacitors"
+                            <label class="bold-label">Non PCB Capacitors</label>
+                            <input class="align-items-end withLabel" type="text" name="ballasts_non-pcb-capacitors"
                               placeholder="Est. Quantity">
                           </div>
+
+                          <div class="label-input-quantity">
+                            <label class="bold-label">PCB Capacitors</label>
+                            <input class="align-items-end withLabel" type="text" name="ballasts_pcb-capacitors" placeholder="Est. Quantity">
+                          </div>
+
                         </div>
                         <div class="col-lg-6 col-md-12 ">
+
+                          <div class="label-input-quantity other">
+                            <label class="bold-label"><span>Transformers (Pictures Required)</span></label>
+                            <input class="align-items-end withLabel" type="text" name="ballast_transformers" placeholder="Est. Quantity">
+                          </div>
+
                           <div class="label-input-quantity other">
                             <label class="bold-label"><span>Other 1</span></label>
                             <input class="align-items-end withLabel" type="text" name="ballast_other1"
@@ -420,11 +438,34 @@
                           </div>
                           <div class="label-input-quantity">
                             <label class="bold-label">Hard Drives</label>
-                            <input class="align-items-end withLabel" type="text" name="hardDrives"
+                            <input class="align-items-end withLabel" type="text" name="ewaste_hardDrives"
                               placeholder="Est. Quantity">
                           </div>
+
+                          <div class="label-input-quantity">
+                            <label class="bold-label">Towers</label>
+                            <input class="align-items-end withLabel" type="text" name="ewaste_towers" placeholder="Est. Quantity">
+                          </div>
+
+                          <div class="label-input-quantity">
+                            <label class="bold-label">Servers</label>
+                            <input class="align-items-end withLabel" type="text" name="ewaste_servers" placeholder="Est. Quantity">
+                          </div>
+
+
                         </div>
                         <div class="col-md-6">
+
+                          <div class="label-input-quantity">
+                            <label class="bold-label">Modems</label>
+                            <input class="align-items-end withLabel" type="text" name="ewaste_modems" placeholder="Est. Quantity">
+                          </div>
+
+                          <div class="label-input-quantity">
+                            <label class="bold-label">Laptops</label>
+                            <input class="align-items-end withLabel" type="text" name="ewaste_laptops" placeholder="Est. Quantity">
+                          </div>
+
                           <div class="label-input-quantity">
                             <label class="bold-label">Printers</label>
                             <input class="align-items-end withLabel" type="text" name="printers"
@@ -483,16 +524,8 @@
                             <input class="align-items-end withLabel" type="text" name="HG_toners"
                               placeholder="Est. Quantity">
                           </div>
-                          <div class="label-input-quantity">
-                            <label class="bold-label">Transformers</label>
-                            <input class="align-items-end withLabel" type="text" name="HG_transformers"
-                              placeholder="Est. Quantity">
-                          </div>
-                          <div class="label-input-quantity">
-                            <label class="bold-label">PCB Containing</label>
-                            <input class="align-items-end withLabel" type="text" name="HG_pcbContaining"
-                              placeholder="Est. Quantity">
-                          </div>
+                       
+                   
                         </div>
 
                         <div class="col-md-6 ">
@@ -662,15 +695,17 @@
                 <input class="withLabel" type="text" name="containers_4ftBox" placeholder="Qty Needed">
                 <label class="bold-label">8ft Boxes</label>
                 <input class="withLabel" type="text" name="containers_8ftBox" placeholder="Qty Needed">
+                <label class="bold-label">U-bend Boxes</label>
+                <input class=" withLabel" type="text" name="containers_uBendBox" placeholder="Qty Needed">
               </div>
               <div class="col-lg-6 col-md-6 px-0 pl-sm-3 pl-xs-3">
-                <label class="bold-label">U-bend Boxes</label>
+                <label class="bold-label">Haz Waste Gaylord</label>
                 <input class=" withLabel" type="text" name="containers_uBendBox" placeholder="Qty Needed">
                 <label class="bold-label">Cubic Yard Box</label>
                 <input class="withLabel" type="text" name="containers_gaylords" placeholder="Qty Needed">
               </div>
               <div class="col-lg-6 col-md-6 px-0 pl-md-3 pl-sm-3 pl-xs-3">
-                <label class="bold-label">Small Batt Box</label>
+                <label class="bold-label">Small Batt Pail</label>
                 <input class="withLabel" type="text" name="containers_smallBatteryBox" placeholder="Qty Needed">
                 <label class="bold-label">55 Gallon Drum</label>
                 <input class="withLabel" type="text" name="containers_55GallonDrums" placeholder="Qty Needed">
@@ -680,6 +715,8 @@
               <div class="col-lg-6 col-md-6 px-0 pl-sm-3 pl-xs-3">
                 <label class="bold-label">5 Gallon Pail</label>
                 <input class="withLabel" type="text" name="containers_5GallonPail" placeholder="Qty Needed">
+                <label class="bold-label">Labels </label>
+                <input class=" withLabel" type="text" name="containers_uBendBox" placeholder="Type & Quantity ">
                 <label class="bold-label">Other 1</label>
                 <input class="withLabel" type="text" name="containers_other1" placeholder="Qty Needed">
                 <label class="bold-label">Other 2</label>
